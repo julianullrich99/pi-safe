@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>miSafe Portal Test</title>
+<meta name="description" content="miSAFE">
+<meta name="author" content="DH">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="slick/slick/slick.css">
+<link rel="stylesheet" href="misafe_webgui.css">
+<link rel="stylesheet" href="slick/slick/slick-theme.css">
+<link rel="shortcut icon" type="image/x-icon" href="favicon.png">
+
+<script type="text/javascript" src="jquery.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="iro.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="slick/slick/slick.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="jQuery-Knob/dist/jquery.knob.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="misafe_webgui.js" charset="utf-8"></script>
+</head>
+
+<body>
+
+<audio preload id="click"> 
+   <source src="media/click.wav" type="audio/wav">
+</audio>
+<audio preload id="click1"> 
+   <source src="media/ClickOn.wav" type="audio/wav">
+</audio>
+
+<main>
+
+  <div id="videocontainer">
+    <video src="media/SOUNDLOGO.mp4" width="100%"  id="player1"><!--autoplay-->
+      Impossible to play intro-video
+    </video>
+  </div>
+
+<!--  <div id="container_slider"> -->
+    <div class="slider">
+      <div class="slider_inn" id="page0">
+        <div id="pinpad">
+            <button class="pp_number" number="1">1</button>
+            <button class="pp_number" number="2">2</button>
+            <button class="pp_number" number="3">3</button>
+            <button class="pp_number" number="4">4</button>
+            <button class="pp_number" number="5">5</button>
+            <button class="pp_number" number="6">6</button>
+            <button class="pp_number" number="7">7</button>
+            <button class="pp_number" number="8">8</button>
+            <button class="pp_number" number="9">9</button>
+            <button class="pp_number" number="0">0</button>
+          </div>
+      </div>
+      <div class="slider_inn" id="page1">
+        
+          <div id="pinfield"></div>
+          <div id="knopp">
+            <input data-width="100%" data-cursor=true data-fgColor="#222222" data-thickness=0.15 value="0" class="dial"/>
+          </div>
+          
+
+          
+          <div class="mybutton" id="b_sendcode">Unlock</div><div class="mybutton" id="b_changecode">change</div><div class="mybutton" id="b_reset_code">Clear</div>
+          
+
+        </div>
+      <div class="slider_inn" id="page2">
+        <div class="container">
+        <div class="wheel" id="colorpicker1">Color Body</div>
+        <div class="wheel" id="colorpicker2">Color Edges</div>
+        </div>
+      </div>
+      <div class="slider_inn" id="page3">
+        
+        <div class="cameraimage" ></div>
+        <div class="camerabutton" id="b_snapshot"></div>
+      </div>
+    </div>
+  <!--</div>-->
+
+
+</main>
+</body>
+</html>
