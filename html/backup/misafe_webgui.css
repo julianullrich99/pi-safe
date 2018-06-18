@@ -1,0 +1,189 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  /*background-image:url("media/wp_elegant2_blur.jpg");
+  background-size: 100% 100%;*/
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+#container_slider{
+    /*display:none;*/
+}
+#videocontainer{
+  display:none;
+}
+
+.slider {
+    width: 95%;
+    margin: 0px auto;
+  /*  margin-top:25px;*/
+  /*display: inline-flex;*/
+    
+}
+
+.slick-slide {
+  margin: 0px 20px;
+
+}
+
+.slick-slide img {
+  /*width: 100%;*/
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: black;
+}
+
+
+.slick-slide {
+  transition: all ease-in-out .3s;
+  opacity: .2;
+}
+
+.slick-active {
+  opacity: .5;
+}
+
+.slick-current {
+      opacity: 1;
+}
+
+.slider_inn{
+  /*border:1px solid black;*/
+  /*
+  vertical-align:middle;
+  text-align:center;
+  position:relative;
+  */
+  display: inline-flex;
+}
+
+#knopp{
+  width:400px;
+  height:400px;
+  background-image:url("media/kombi_1_1.png");
+  background-size: 100%;
+  margin-left:auto;
+  margin-right:auto;
+  
+}
+
+#pinfield{
+  width:80%;
+  height:80px;
+  border-radius:10px;
+  border:2px solid black;
+  font-size:60px;
+  text-align:center;
+  vertical-align:middle;
+  font-family:arial;
+  margin-left:auto;
+  margin-right:auto;
+  /*margin-bottom:20px;*/
+  margin-top:10%;
+  overflow:hidden;
+  background-color:white;
+  opacity: 0.5;
+}
+
+
+
+button{
+  border-radius:5px;
+  border: 2px solid black;
+  font-size: 50px;
+  display: block;
+  float:left;
+}
+
+button:hover{
+  background-color:#a5f2ff;
+}
+button:active{
+  background-color:red;
+}
+
+.mybutton{
+  display:block;
+  float:left;
+  min-height:30px;
+  border-radius:3px;
+  border: 2px solid white;
+  font-size: 50px;
+  padding-left:10px;
+  padding-right:10px;
+  position: absolute;
+  
+}
+
+.mybutton:hover{
+  background-color:#efefef;
+}
+.mybutton:active{
+  background-color:red;
+}
+
+div#colorpicker1,div#colorpicker2{
+  margin:20px;
+}
+
+div.container{
+  position:absolute; 
+}
+
+#colorpicker1{
+  position:absolute;
+  left:10px;
+  top:10px;  
+}
+
+#colorpicker2{
+  position:absolute;
+  left:400px;
+  top:10px;  
+}
+
+.camerabutton{
+  background-image:url("camera-filled-50.png");
+  background-size: 100%;
+  width:80px;
+  height:80px;
+  margin-bottom:20px;
+  margin-top:auto;
+  
+}
+.camerabutton:hover, active{
+  background-color:red;
+}
+
+.cameraimage{
+  position: absolute;
+  width:700px;
+  height:400px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+#b_snapshot{
+  bottom:10px;
+  left:45%;
+}
+
+#pinpad{
+    height:500px;
+    width:500px;
+    border:1px solid black;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:10%;
+}
+
+.pp_number{
+    height:100px;
+    width:100px;
+}

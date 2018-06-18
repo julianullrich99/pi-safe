@@ -1,0 +1,35 @@
+body{
+  background: lightgrey;
+  font-family: Helvetica, Arial, sans-serif;
+  /*display: inline-block;*/
+}
+
+#testDiv1{
+  background-color: grey;
+}
+
+#testDiv2{
+  background: lightblue;
+}
+
+#testDiv3{
+  background: lightgreen;
+}
+
+#testDiv1, #testDiv2, #testDiv3{
+  width: 10em;
+  height: 2em;
+  margin: 1em;
+  text-align: center;
+  vertical-align: middle;
+}
+
+#content{
+  /*display: inline-block;*/
+  float: left;
+}
+
+#imageDiv{
+  /*display: inline-block;*/
+  float: left;
+}
