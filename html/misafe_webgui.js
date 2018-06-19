@@ -1,9 +1,9 @@
 var mh;
 var socket;
 var colorWheel1;
-var colorWheel2;
 var pin = '';
 var number_bak = 0;
+var socket_open = false;
 
 $(document).ready(function(){
   // Init Slider
@@ -78,8 +78,8 @@ $(document).ready(function(){
       }
   })
   
-
-
+  // timer zum Holen des State
+  tick();
 });
 
 function ts()
@@ -87,6 +87,7 @@ function ts()
   var now = new Date();
   return(now.getTime());
 }
+
 
 function reset_code()
 {
@@ -129,40 +130,7 @@ function init() {
   
   // erst wenn offen ist kann der Colorpicker initialisiert werden, sonst geht eine Message eher raus als der Port offen ist.
   socket.onopen = function(){
-    colorWheel1 = new iro.ColorPicker("#colorpicker1", {
-      width: 500,
-      height: 500,
-      markerRadius: 12,
-      sliderHeight: 50,
-      borderWidth: 2,
-    });
-    
-    /*
-    colorWheel2 = new iro.ColorPicker("#colorpicker2", {
-       width: 400,
-       height: 400,
-       
-    });
-    */
-    colorWheel1.on("color:change", function(color, changes) {
-      //send_change_rgb(1,color.rgb);
-    });
-    
-    /*
-    colorWheel2.on("color:change", function(color, changes) {
-      //send_change_rgb(2,color.rgb);
-    });
-    */
-    
-    colorWheel1.on("input:end",function(color){
-      send_store_rgb(1,color.rgb)
-    });
-    
-    /*
-    colorWheel2.on("input:end",function(color){
-      send_store_rgb(2,color.rgb)
-    });
-    */
+    socket_open = true;
   };
   
   var width = window.innerWidth || (window.document.documentElement.clientWidth || window.document.body.clientWidth);
@@ -231,6 +199,27 @@ function init() {
 //});
   
   //$('#page3').css('background-image','url("DCIM/temp.jpg")').css('background-size','100%');
+  
+  colorWheel1 = new iro.ColorPicker("#colorpicker1", {
+      width: 500,
+      height: 500,
+      markerRadius: 12,
+      sliderHeight: 50,
+      borderWidth: 2,
+    });
+    
+    colorWheel1.on("color:change", function(color, changes) {
+      //send_change_rgb(1,color.rgb);
+    });
+    
+
+    
+    colorWheel1.on("input:end",function(color){
+      send_store_rgb(1,color.rgb)
+    });
+    
+
+  
 };
 
 function send_change_rgb(which,rgb)
@@ -239,7 +228,7 @@ function send_change_rgb(which,rgb)
     action: "change_ledcolor"+which,
     arg: rgb
   };
-  socket.send(JSON.stringify(arr));
+  if(socket_open){socket.send(JSON.stringify(arr));}
 }
 
 function send_store_rgb(which,rgb)
@@ -252,7 +241,7 @@ function send_store_rgb(which,rgb)
     action: "store_ledcolor"+which,
     arg: rgb
   };
-  socket.send(JSON.stringify(arr));
+  if(socket_open){socket.send(JSON.stringify(arr));}
 }
 
 function takeCameraPicture()
@@ -262,25 +251,25 @@ function takeCameraPicture()
     action: "cameraPicture",
     arg: ts()
   };
-  socket.send(JSON.stringify(arr));
+  if(socket_open){socket.send(JSON.stringify(arr));}
 }
 
-function testmove(dir)
+
+function get_state()
 {
-  var arr;
-  if(dir == false){
-    arr = {
-    action: "testopen",
-    arg: ''
-    }
-  }else{
-    arr = {
-    action: "testclose",
-    arg: ''
-    }
-  }
-  
-  socket.send(JSON.stringify(arr));
+  var arr = {
+    action: "get_state"
+  };
+  // darf erst gesendet werden, wenn socket auch wirklich da ist
+  if(socket_open){socket.send(JSON.stringify(arr));}
+  //console.log(socket)
+}
+
+function tick()
+{
+	var intervall = 1000;
+	get_state();
+	window.setTimeout("tick();", intervall);
 }
 
 class messagehandler {
