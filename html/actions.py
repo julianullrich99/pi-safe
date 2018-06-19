@@ -163,6 +163,10 @@ class actions:
       dbconnect()
       self.camera = PiCamera()
       
+      self.correctur_r = 1
+      self.correctur_g = 0.6
+      self.correctur_b = 0.4
+      
       arr_rgb = get_rgb()
       print("Color initialisation:")
       print("RGB1: " + str(arr_rgb["r1"])+ " " + str(arr_rgb["g1"])+ " " + str(arr_rgb["b1"]))
@@ -173,22 +177,26 @@ class actions:
       GPIO.setup(5, GPIO.OUT) #R1
       GPIO.setup(6, GPIO.OUT) #G1
       GPIO.setup(13, GPIO.OUT)#B1
-      self.r1 = GPIO.PWM(5, 100) #Pin, Frequency
-      self.g1 = GPIO.PWM(6, 100)
-      self.b1 = GPIO.PWM(13, 100)
-      self.r1.start(arr_rgb["r1"]*100/255)
-      self.g1.start(arr_rgb["g1"]*100/255)
-      self.b1.start(arr_rgb["b1"]*100/255)
+      
+      self.r1 = GPIO.PWM(5, 200) #Pin, Frequency
+      self.g1 = GPIO.PWM(6, 200)
+      self.b1 = GPIO.PWM(13, 200)
+
+      self.r1.start(self.correctur_r * (arr_rgb["r1"]*100/255))
+      self.g1.start(self.correctur_g * (arr_rgb["g1"]*100/255))
+      self.b1.start(self.correctur_b * (arr_rgb["b1"]*100/255))
       
       GPIO.setup(17, GPIO.OUT)#R2
       GPIO.setup(18, GPIO.OUT)#G2
       GPIO.setup(27, GPIO.OUT)#B2
-      self.r2 = GPIO.PWM(17, 100)
-      self.g2 = GPIO.PWM(18, 100)
-      self.b2 = GPIO.PWM(27, 100)
-      self.r2.start(arr_rgb["r2"]*100/255)
-      self.g2.start(arr_rgb["g2"]*100/255)
-      self.b2.start(arr_rgb["b2"]*100/255)
+      self.r2 = GPIO.PWM(17, 200)
+      self.g2 = GPIO.PWM(18, 200)
+      self.b2 = GPIO.PWM(27, 200)
+      self.r2.start(self.correctur_r * (arr_rgb["r2"]*100/255))
+      self.g2.start(self.correctur_r * (arr_rgb["g2"]*100/255))
+      self.b2.start(self.correctur_r * (arr_rgb["b2"]*100/255))
+      
+      
           
 
     def ledon(self):
@@ -224,11 +232,12 @@ class actions:
         #close_rw()
         print("rw schliessen")
         
-    def morphto(self,rgb,which):
+    def morphto(self, rgb ,which):
         print("morphing : " + str(which))
         arr_rgb = get_rgb()
         arr_rgb_end = rgb
         n = 100
+        
         
         r1 = arr_rgb["r"+str(which)] # Anfangswerte
         g1 = arr_rgb["g"+str(which)]
@@ -239,7 +248,7 @@ class actions:
         db1 = arr_rgb_end["b"] - b1
         
         
-
+        
         for counter in range(0,n+1):
           r1_end = r1 + (counter * dr1 /100) 
           g1_end = g1 + (counter * dg1 /100)
@@ -248,14 +257,14 @@ class actions:
           # print("R"+str(r1_end)+" G"+str(g1_end)+" B"+str(b1_end))
           
           if which == 1:
-            self.r1.ChangeDutyCycle(r1_end*100/255)
-            self.g1.ChangeDutyCycle(g1_end*100/255)
-            self.b1.ChangeDutyCycle(b1_end*100/255)
+            self.r1.ChangeDutyCycle(self.correctur_r * (r1_end*100/255))
+            self.g1.ChangeDutyCycle(self.correctur_g * (g1_end*100/255))
+            self.b1.ChangeDutyCycle(self.correctur_b * (b1_end*100/255))
           
           if which == 2:
-            self.r2.ChangeDutyCycle(r1_end*100/255)
-            self.g2.ChangeDutyCycle(g1_end*100/255)
-            self.b2.ChangeDutyCycle(b1_end*100/255)
+            self.r2.ChangeDutyCycle(self.correctur_r * (r1_end*100/255))
+            self.g2.ChangeDutyCycle(self.correctur_g * (g1_end*100/255))
+            self.b2.ChangeDutyCycle(self.correctur_b * (b1_end*100/255))
 
           time.sleep(0.01)
 
@@ -271,10 +280,10 @@ class actions:
         
     def cameraPicture(self,arg):
         filename = 'DCIM/temp'+str(arg)+'.jpg'
-        print filename
+        print filename 
         #self.camera.resolution = (800, 600)
         self.camera.resolution = (1024, 768)
-        self.camera.capture(filename)
+        self.camera.capture( filename )
         sendToClients({"action": "result_camerapicture", "value": 1, "filename": filename,"arg": arg})
               
     def compare_code(self,arg):

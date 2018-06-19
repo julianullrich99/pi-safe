@@ -34,6 +34,7 @@ $(document).ready(function(){
 
   $('#b_snapshot').click(function(){
     takeCameraPicture();
+    playClick1();
   });
   
   $('button').click(function(){
