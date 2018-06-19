@@ -1,9 +1,10 @@
 html, body {
   margin: 0;
   padding: 0;
+  height: 100%;
 }
 html{
-  background-color:#ffffff;
+  background-color:#000000;
 }
 
 /*
@@ -14,21 +15,37 @@ html{
 
 #container_slider{
   /*display:none;*/
+  margin-left:auto;
+  margin-right:auto;
+  width:99%;
+  height:799px;
+  background-image:url("media/wp_elegant4.jpg");
+  background-size: 100% 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
 }
+
 #videocontainer{
   display:none;
 }
 
 .slick {
     width: 95%;
-    margin: 0px auto;
-    margin-top:0px;
-  display: inline-flex;
+    /*margin: 0px auto;
+    margin-top:50px;*/
+    
+ 
 }
 
 .slick-slide {
-  margin: 0px 20px;
-
+  margin: 5px 5px;
+  height:600px;
+  
+  
+  transition: all ease-in-out .3s;
+  opacity: .0;
 }
 
 .slick-slide img {
@@ -37,13 +54,7 @@ html{
 
 .slick-prev:before,
 .slick-next:before {
-  color: black;
-}
-
-
-.slick-slide {
-  transition: all ease-in-out .3s;
-  opacity: .2;
+  color: white;
 }
 
 .slick-active {
@@ -56,8 +67,7 @@ html{
 
 .slick_inn{
   display: inline-flex;
-  background-image:url("media/wp_elegant4.jpg");
-  background-size: 100% 100%;
+  
 }
 
 #knopp{
@@ -67,27 +77,27 @@ html{
   background-size: 100%;
   margin-left:auto;
   margin-right:auto;
-  margin-top:5%;
+  margin-top:10px;
 }
 
 #pinfield{
-  width:80%;
-  height:80px;
+  width:50%;
+  min-width:300px;
+  height:70px;
   border-radius:10px;
   /*border:2px solid black;*/
   font-size:60px;
   text-align:center;
   vertical-align:middle;
+  padding:auto;
   font-family:arial;
   margin-left:auto;
   margin-right:auto;
-  /*margin-bottom:20px;*/
-  /*margin-top:10%;*/
+
   overflow:hidden;
-  /*
-  background-color:white;
-  opacity: 0.5;
-  */
+  background-color: rgba(255,255,255,0.2);
+  border: 1px solid white;
+  
 }
 
 button{
@@ -124,18 +134,20 @@ button:active{
   background-color:red;
 }
 
-div#colorpicker1,div#colorpicker2{
-  margin:20px;
+.wheel{
+
 }
 
 div.container{
-  position:absolute; 
+
 }
 
 #colorpicker1{
-  position:absolute;
-  left:10px;
-  top:10px;  
+  height:500px;
+  width:500px;
+  bottom:20px;
+  margin-left:auto;
+  margin-right:auto;
 }
 
 #colorpicker2{
@@ -153,8 +165,6 @@ div.container{
 }
 .camerabutton:hover, active{
   background-color:red;
-
-  
 }
 
 .cameraimage{
@@ -175,7 +185,7 @@ div.container{
     width:300px;
     margin-left:auto;
     margin-right:auto;
-    margin-top:10%;
+    margin-top:10px;
     display:none;
 }
 
@@ -232,9 +242,7 @@ div.container{
   float:none;
 }
 
-
-
-#testdiv1{top:20px;left:30px;}
-#testdiv2{top:130px;left:40px;}
-#testdiv3{top:240px;}
+#box1 {
+  position: absolute;
+}
 

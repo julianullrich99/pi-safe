@@ -1,2 +1,3 @@
 *.pyc
 DCIM/*.*
+../db/misafe.db

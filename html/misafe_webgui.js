@@ -9,6 +9,7 @@ $(document).ready(function(){
   // Init Slider
   init();
 
+  // confirm button
   $('#b_sendcode').click(function(){
     arr = {
       action: "compare_code",
@@ -18,6 +19,7 @@ $(document).ready(function(){
     playClick1();
   });
 
+  // change code button
   $('#b_changecode').click(function(){
     arr = {
       action: "change_code",
@@ -26,12 +28,12 @@ $(document).ready(function(){
     socket.send(JSON.stringify(arr));
   });
 
+  // clear button
   $('#b_reset_code').click(function(){
-    //pin = '';
-    //$('#pinfield').html(pin);
     reset_code();
   });
 
+  // Kamerabutton
   $('#b_snapshot').click(function(){
     takeCameraPicture();
     playClick1();
@@ -88,9 +90,10 @@ function ts()
 
 function reset_code()
 {
+  
   $('.dial').val(0).trigger('change');
-  pin = '';
   $('#pinfield').html('').css('color','black');
+  pin = '';
 }
 
 function add_pin(number)
@@ -127,33 +130,39 @@ function init() {
   // erst wenn offen ist kann der Colorpicker initialisiert werden, sonst geht eine Message eher raus als der Port offen ist.
   socket.onopen = function(){
     colorWheel1 = new iro.ColorPicker("#colorpicker1", {
-     width: 400,
-     height: 400,
-     
+      width: 500,
+      height: 500,
+      markerRadius: 12,
+      sliderHeight: 50,
+      borderWidth: 2,
     });
     
+    /*
     colorWheel2 = new iro.ColorPicker("#colorpicker2", {
        width: 400,
        height: 400,
        
     });
-    
+    */
     colorWheel1.on("color:change", function(color, changes) {
       //send_change_rgb(1,color.rgb);
     });
     
+    /*
     colorWheel2.on("color:change", function(color, changes) {
       //send_change_rgb(2,color.rgb);
     });
+    */
     
     colorWheel1.on("input:end",function(color){
       send_store_rgb(1,color.rgb)
     });
     
+    /*
     colorWheel2.on("input:end",function(color){
       send_store_rgb(2,color.rgb)
     });
-    
+    */
   };
   
   var width = window.innerWidth || (window.document.documentElement.clientWidth || window.document.body.clientWidth);
@@ -170,13 +179,14 @@ function init() {
     centerMode: true,
     arrows: true,
     adaptiveHeight: true,
-    prevArrow:"<img class='a-left control-c prev slick-prev' src='arrow-left-thin.svg'>",
-    nextArrow:"<img class='a-right control-c next slick-next' src='arrow-right-thin.svg'>"
+    
+    //prevArrow:"<img class='a-left control-c prev slick-prev' src='arrow-left-thin.svg'>",
+    //nextArrow:"<img class='a-right control-c next slick-next' src='arrow-right-thin.svg'>"
   });
   
   
 
-  $('.slick_inn').css('height',sliderheight + 'px');
+  //$('.slick_inn').css('height',sliderheight + 'px');
   
   $('.slick').on('swipe', function(event, slick, direction){
     console.log("current page:" +slick.currentSlide);
@@ -198,7 +208,7 @@ function init() {
       //        'displayPrevious':true,
       //        'cursor':true,
       //        'thickness':0.3,
-              'value':0, 'opacity': 0.5,
+      'value':0, 'opacity': 0.5,
       'release' : function (v) { add_pin(v); playClick();  },
       //'change' : function (v) { playClick(); },
       
@@ -329,16 +339,18 @@ class messagehandler {
             .fadeIn(100).fadeOut(100)
             .fadeIn(100).fadeOut(100)
             .fadeIn(100,function(){
-              reset_code();
+            reset_code();
           });
 
         }else{
-          $('#pinfield').css('color','lime');
+          reset_code();
+          $('#pinfield').css('color','lime').html('Door is opening...');
           // Schloss fährt auf -> Zahleneingabe weg und Animation zeigen.
         }
       case "result_change_password":
         if(event.value == 1){
           $('#pinfield').html('Passwort geändert');
+          reset_code();
         }
       case "result_camerapicture":
         if(event.value == 1){
