@@ -35,7 +35,9 @@ def initSe(PinMap, state):
     GPIO.setup(PinMap.lock.in1, GPIO.IN)
     GPIO.setup(PinMap.lock.in2, GPIO.IN)
     if state.state == state.stateName.index("init"):
+		print "init se"
 
 
 def StateEngine(state):
     while 1:
+        print "state check"

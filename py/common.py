@@ -1,5 +1,11 @@
 clients = []
+
+class Object(object):
+    pass
+
 class mapping:
+    door = Object()
+    lock = Object()
     door.out1 = 10
     door.out2 = 9
     door.in1 = 11
