@@ -228,21 +228,13 @@ div.container{
   margin-left:50px;
 }
 
-.testdiv
-{
-  height:100px;
-  width:100px;
-  border:3px solid red;
-  background-color:yellow;
-  text-align:center;
-  vertical-align:middle;
-  font-size:60px;
-  position:relative;
-  display: inline-block;
-  float:none;
+
+#container_colorchoice{
+  position:absolute;
 }
 
-#box1 {
-  position: absolute;
+.colorchoice {
+  display: block;
+  float:left;
 }
 

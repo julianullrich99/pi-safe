@@ -4,6 +4,7 @@ var colorWheel1;
 var pin = '';
 var number_bak = 0;
 var socket_open = false;
+var colorchoice = 'edge';
 
 $(document).ready(function(){
   // Init Slider
@@ -47,12 +48,13 @@ $(document).ready(function(){
     add_pin($(this).attr('number'));
   });
   
-  $('#b_testopen').click(function(){
-    testmove(true);
-  });
-  $('#b_testopen').click(function(){
-    testmove(false);
-  });
+  
+  $('.colorchoice').on('click',function(){
+    colorchoice = $(this).attr('choice');
+    //$('.colorchoice').css('border','');
+    //$(this).css('border','1px solid yellow');
+    select_colorchoice(colorchoice);
+  })
   
   /*
   // Event, wenn das Video fertig ist - dann weiter
@@ -78,9 +80,19 @@ $(document).ready(function(){
       }
   })
   
+  // Initialisieren visueller Elemente
+  select_colorchoice(colorchoice);
+  
+  
+  
   // timer zum Holen des State
   tick();
 });
+
+function select_colorchoice(which){
+  $('.colorchoice').css('border','');
+    $('div[choice='+which+']').css('border','1px solid yellow');
+}
 
 function ts()
 {
@@ -146,7 +158,7 @@ function init() {
     slidesToShow: 1,
     centerMode: true,
     arrows: true,
-    adaptiveHeight: true,
+    adaptiveHeight: false,
     
     //prevArrow:"<img class='a-left control-c prev slick-prev' src='arrow-left-thin.svg'>",
     //nextArrow:"<img class='a-right control-c next slick-next' src='arrow-right-thin.svg'>"
@@ -163,6 +175,7 @@ function init() {
     }
   // left
   });
+
   
   // Verschiebesperre
   $(function() {
@@ -210,6 +223,8 @@ function init() {
     
     colorWheel1.on("color:change", function(color, changes) {
       //send_change_rgb(1,color.rgb);
+      var rgb = color.rgb.r +','+ color.rgb.g +','+ color.rgb.b
+      $('#box1').html(draw_box('rgb('+rgb+')','rgb(0,255,250)'));
     });
     
 
@@ -221,6 +236,15 @@ function init() {
 
   
 };
+
+function draw_box(edgecolor, fillcolor){
+  var svg = '<svg width="200" height="140" id="box1">';
+      svg += '<rect x="5" y="15" width="120" height="120" style="fill:'+fillcolor+';stroke:'+edgecolor+'; stroke-width:2; fill-opacity:0.5; stroke-opacity:1" />';
+      svg += '<polygon points="5,15 63,0 183,0 125,15" style="fill:'+fillcolor+'; stroke:'+edgecolor+'; stroke-width:2; fill-opacity:0.5;" />';
+      svg += '<polygon points="125,135 125,15 183,0 183,110" style="fill:'+fillcolor+'; stroke:'+edgecolor+'; stroke-width:2; fill-opacity:0.5;" />';
+      svg += ' </svg>';
+      return(svg);
+}
 
 function send_change_rgb(which,rgb)
 {
@@ -267,7 +291,7 @@ function get_state()
 
 function tick()
 {
-	var intervall = 1000;
+	var intervall = 5000;
 	get_state();
 	window.setTimeout("tick();", intervall);
 }

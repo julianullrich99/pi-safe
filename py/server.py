@@ -34,27 +34,29 @@ GPIO.add_event_detect(19, GPIO.FALLING, callback=my_callback, bouncetime=300)
 # clients = [];
 
 def handle(msg):
-  print "message income"
+  #print "message income"
   #print msg
   event = json.loads(msg)
-  print event["action"]
-  # echo = ""
+  if(event["action"] != 'get_state'):
+    print event["action"]
+
   if hasattr(action, event["action"]):
     try:
       print event["arg"]
       getattr(action, event["action"])(event["arg"])
       # echo = function
     except:
-      print "no args"
+      # print "no args"
       getattr(action, event["action"])()
 
 class protocol(WebSocket):
   def handleMessage(self):
     # echo message back to client
-    print self.data;
-    handle(self.data)
+    # print self.data;
+    
     for client in clients:
       client.sendMessage(self.data)
+    handle(self.data)
 
   def handleConnected(self):
     print(self.address, 'connected')
