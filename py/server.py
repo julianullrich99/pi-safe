@@ -55,10 +55,11 @@ def handle(msg):
 class protocol(WebSocket):
   def handleMessage(self):
     # echo message back to client
-    print self.data;
-    handle(self.data)
+    # print self.data;
+    
     for client in clients:
       client.sendMessage(self.data)
+    handle(self.data)
 
   def handleConnected(self):
     print(self.address, 'connected')

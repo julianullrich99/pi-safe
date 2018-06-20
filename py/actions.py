@@ -103,48 +103,23 @@ def get_rgb():
     arr = {"r1":r1,"g1":g1,"b1":b1,"r2":r2,"g2":g2,"b2":b2}
     con.close()
     return (arr)
-'''
-def morph_rgb(rgb,which):
-    GPIO.setmode(GPIO.BCM)
-    arr_rgb = get_rgb()
-    arr_rgb_end = rgb
-    n = 100
-    which = 1
-    r1 = arr_rgb["r"+str(which)] # Anfangswerte
-    g1 = arr_rgb["g"+str(which)]
-    b1 = arr_rgb["b"+str(which)]
-    print("RGB:"+arr_rgb_end["r"])
-    dr1 = arr_rgb_end["r"] - r1 #Differenz Ende - Anfang
-    dg1 = arr_rgb_end["g"] - g1
-    db1 = arr_rgb_end["b"] - b1
     
-    GPIO.setup(5, GPIO.OUT) #R1
-    GPIO.setup(6, GPIO.OUT) #G1
-    GPIO.setup(13, GPIO.OUT)#B1
+def store_picture(user,filename,ts):
+    global dbfile
+    con = sqlite3.connect(dbfile)
+    cursor = con.cursor()
+    sql = "INSERT INTO pictures (filename, ts, user)  VALUES ('"+filename+"', "+ts+", "+str(user)+")"
+    print sql
+    try:
+      cursor.execute(sql)
+      con.commit()
+      con.close()
+    except:
+      print "Unexpected error:", sys.exc_info()
+      raise
     
-    out_r1 = GPIO.PWM(5, 100) #Pin, Frequency
-    out_g1 = GPIO.PWM(6, 100)
-    out_b1 = GPIO.PWM(13, 100)
-    
-    out_r1.start(arr_rgb["r"+str(which)]*100/255)
-    out_g1.start(arr_rgb["g"+str(which)]*100/255)
-    out_b1.start(arr_rgb["b"+str(which)]*100/255)
-    
-    
-    for counter in range(0,n+1):
-      
-      
-      r1_end = r1 + (counter * dr1 /100) 
-      g1_end = g1 + (counter * dg1 /100)
-      b1_end = b1 + (counter * db1 /100)
+    return (1)
 
-      out_r1.ChangeDutyCycle(r1_end*100/255)
-      out_g1.ChangeDutyCycle(g1_end*100/255)
-      out_b1.ChangeDutyCycle(b1_end*100/255)
-      
-      print("R"+str(r1_end)+" G"+str(g1_end)+" B"+str(b1_end))
-      time.sleep(0.01)
-'''
 
 def open_rw():
     GPIO.setup(22, GPIO.OUT) 
@@ -276,14 +251,17 @@ class actions:
         
         
     def cameraPicture(self,arg):
-        filename = '/var/www/html/DCIM/temp'+str(arg)+'.jpg'
-        filename_response = '/DCIM/temp'+str(arg)+'.jpg'
+        ts = str(int(time.time()))
+        path = '/var/www/html/DCIM/'
+        filename = 'pisnap_'+ts+'.jpg'
+        filename_response = '/DCIM/'+filename
         print filename 
         #self.camera.resolution = (800, 600)
         
         self.camera.resolution = (1024, 768)
-        self.camera.capture( filename )
+        self.camera.capture( path + filename )
         sendToClients({"action": "result_camerapicture", "value": 1, "filename": filename_response,"arg": arg})
+        store_picture(1,filename,ts)
         
               
     def compare_code(self,arg):
