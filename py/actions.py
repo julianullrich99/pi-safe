@@ -9,6 +9,7 @@ import os, sys, sqlite3
 
 dbfile  = "/var/www/db/misafe.db"
 state = 0
+global_state = 0 # IDLE
 
 # from __main__ import clients
 
@@ -223,14 +224,10 @@ class actions:
         self.r2.ChangeDutyCycle(arg['r']*100/255)
         self.g2.ChangeDutyCycle(arg['g']*100/255)
         self.b2.ChangeDutyCycle(arg['b']*100/255)
-        
-    def testopen(self, arg):
-        #open_rw() 
-        print("rw oeffnen")
-        
-    def testclose(self, arg):
-        #close_rw()
-        print("rw schliessen")
+      
+    def get_state(self):
+        sendToClients({"action": "result_get_state", "value": str(global_state)})
+        # print (str(global_state)) 
         
     def morphto(self, rgb ,which):
         print("morphing : " + str(which))
@@ -279,12 +276,15 @@ class actions:
         
         
     def cameraPicture(self,arg):
-        filename = 'DCIM/temp'+str(arg)+'.jpg'
+        filename = '/var/www/html/DCIM/temp'+str(arg)+'.jpg'
+        filename_response = '/DCIM/temp'+str(arg)+'.jpg'
         print filename 
         #self.camera.resolution = (800, 600)
+        
         self.camera.resolution = (1024, 768)
         self.camera.capture( filename )
-        sendToClients({"action": "result_camerapicture", "value": 1, "filename": filename,"arg": arg})
+        sendToClients({"action": "result_camerapicture", "value": 1, "filename": filename_response,"arg": arg})
+        
               
     def compare_code(self,arg):
         self.pw = get_password(1)
