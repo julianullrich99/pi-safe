@@ -8,6 +8,9 @@ python server:
   json
 js:
   iro.min.js
+  jquery-knob
+  jquery
+  
 
 
 Aufruf der Seite als Vollbild:
