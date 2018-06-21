@@ -1,13 +1,17 @@
 from SimpleWebSocketServer import SimpleWebSocketServer, WebSocket
+import threading
 import RPi.GPIO as GPIO
 import json
 from actions import actions
 # from se import *
-import se
 from common import *
-import threading
+import se
 
 se.initSe() # init StateEngine
+
+StateMachine = threading.Thread(name='stateMachine', target=se.StateEngine, args=(unlock,))
+
+StateMachine.start()
 
 GPIO.setmode(GPIO.BCM)
 
@@ -38,19 +42,18 @@ action = actions()
 # clients = [];
 
 def handle(msg):
-  #print "message income"
+  print "message income"
   #print msg
   event = json.loads(msg)
-  if(event["action"] != 'get_state'):
-    print event["action"]
-
+  print event["action"]
+  # echo = ""
   if hasattr(action, event["action"]):
     try:
       print event["arg"]
       getattr(action, event["action"])(event["arg"])
       # echo = function
     except:
-      # print "no args"
+      print "no args"
       getattr(action, event["action"])()
 
 class protocol(WebSocket):

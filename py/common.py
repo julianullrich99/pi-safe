@@ -1,5 +1,13 @@
+# from __main__ import threading
+import threading
+
 clients = []
 
+unlock = threading.Event()
+
+openDuration = 10
+rampDuration = 2
+vmax = 100
 
 class Object(object):
     pass
@@ -7,9 +15,9 @@ class Object(object):
 class mapping:
     door = Object()
     lock = Object()
-    door.out1 = 10
-    door.out2 = 9
-    door.in1 = 11
+    door.out1 = 10 #zu
+    door.out2 = 9 #auf
+    door.in1 = 11 #zu
     lock.out1 = 22 #auf
     lock.out2 = 23 #zu
     lock.in1 = 24 #auf
