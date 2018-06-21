@@ -34,28 +34,32 @@ $(document).ready(function(){
     reset_code();
   });
 
+  $('b_lock_safe').click(function(){
+    lock_safe();
+  })
+
   // Kamerabutton
   $('#b_snapshot').click(function(){
     takeCameraPicture();
     playClick1();
   });
-  
+
   $('button').click(function(){
     playClick1();
   });
-  
+
   $('.pp_number').click(function(){
     add_pin($(this).attr('number'));
   });
-  
-  
+
+
   $('.colorchoice').on('click',function(){
     colorchoice = $(this).attr('choice');
     //$('.colorchoice').css('border','');
     //$(this).css('border','1px solid yellow');
     select_colorchoice(colorchoice);
   })
-  
+
   /*
   // Event, wenn das Video fertig ist - dann weiter
   $('video').bind('ended', function (e) {
@@ -67,11 +71,11 @@ $(document).ready(function(){
     });
   });
   */
-  
+
   $('#chk_pinview').click(function(){
       if ($(this).prop('checked') == true)
       {
-        
+
         $('#pinpad').show();
         $('#knopp').hide();
       } else {
@@ -79,10 +83,10 @@ $(document).ready(function(){
         $('#knopp').show();
       }
   })
-  
+
   // Initialisieren visueller Elemente
   select_colorchoice(colorchoice);
-  
+
   // timer zum Holen des State
   tick();
 });
@@ -101,7 +105,7 @@ function ts()
 
 function reset_code()
 {
-  
+
   $('.dial').val(0).trigger('change');
   $('#pinfield').html('').css('color','black');
   pin = '';
@@ -124,8 +128,15 @@ function playClick1()
   $("#click1").trigger('play');
 }
 
+function lock_safe(){
+  arr = {
+    action: "lock",
+  };
+  socket.send(JSON.stringify(arr));
+}
+
 function init() {
-  
+
   // Socket öffnen
   socket = new WebSocket("ws://" + window.location.hostname + ":8000");
   mh = new messagehandler();
@@ -137,17 +148,17 @@ function init() {
     console.log("message:" + event.data);
     mh.handle(event.data);
   };
-  
+
   // erst wenn offen ist kann der Colorpicker initialisiert werden, sonst geht eine Message eher raus als der Port offen ist.
   socket.onopen = function(){
     socket_open = true;
   };
-  
+
   var width = window.innerWidth || (window.document.documentElement.clientWidth || window.document.body.clientWidth);
   var height = window.innerHeight || (window.document.documentElement.clientHeight || window.document.body.clientHeight);
   var sliderheight = height -50;
   var height_knopp = height / 3;
-  
+
   // Slider initialisieren
   $('.slick').slick({
     dots: true,
@@ -157,15 +168,15 @@ function init() {
     centerMode: true,
     arrows: true,
     adaptiveHeight: false,
-    
+
     //prevArrow:"<img class='a-left control-c prev slick-prev' src='arrow-left-thin.svg'>",
     //nextArrow:"<img class='a-right control-c next slick-next' src='arrow-right-thin.svg'>"
   });
-  
-  
+
+
 
   //$('.slick_inn').css('height',sliderheight + 'px');
-  
+
   $('.slick').on('swipe', function(event, slick, direction){
     console.log("current page:" +slick.currentSlide);
     if(slick.currentSlide == 2){
@@ -174,7 +185,7 @@ function init() {
   // left
   });
 
-  
+
   // Verschiebesperre
   $(function() {
     $('*[draggable!=true]','#knopp').unbind('dragstart');
@@ -190,9 +201,9 @@ function init() {
       'value':0, 'opacity': 0.5,
       'release' : function (v) { add_pin(v); playClick();  },
       //'change' : function (v) { playClick(); },
-      
-      
-      
+
+
+
     });
   });
 
@@ -200,17 +211,17 @@ function init() {
       event.stopPropagation();
   });
 
-  
+
   //$('#knopp').css('margin-top',sliderheight / 2 - height_knopp / 2 + 'px').css('width',height_knopp + 'px').css('height',height_knopp + 'px');
   //$('#knopp').css('width',height_knopp + 'px').css('height',height_knopp + 'px');
   //$('#pinfield').css('margin-top',sliderheight / 4 - 20 + 'px').css('margin-left',width / 2  + 'px');
-  
-  
+
+
 
 //});
-  
+
   //$('#page3').css('background-image','url("DCIM/temp.jpg")').css('background-size','100%');
-  
+
   colorWheel1 = new iro.ColorPicker("#colorpicker1", {
       width: 500,
       height: 500,
@@ -218,21 +229,21 @@ function init() {
       sliderHeight: 50,
       borderWidth: 2,
     });
-    
+
     colorWheel1.on("color:change", function(color, changes) {
       //send_change_rgb(1,color.rgb);
       var rgb = color.rgb.r +','+ color.rgb.g +','+ color.rgb.b
       //$('#box1').html(draw_box('rgb('+rgb+')',6,'rgba(0,0,250,0.1)'));
     });
-    
 
-    
+
+
     colorWheel1.on("input:end",function(color){
       send_store_rgb(1,color.rgb)
     });
-    
 
-  
+
+
 };
 
 function draw_box(edgecolor, strokewidth, fillcolor){
@@ -268,7 +279,7 @@ function send_store_rgb(which,rgb)
 
 function takeCameraPicture()
 {
-  
+
   var arr = {
     action: "cameraPicture",
     arg: ts()
@@ -370,6 +381,8 @@ class messagehandler {
           $('#page3').css('background-image','url("'+filename+'")').css('background-size','100%');
         }
         return;
+      case "unlocked":
+        $('#b_lock_safe').css('display', 'block');
     };
   };
 };

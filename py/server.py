@@ -10,6 +10,7 @@ import se
 se.initSe() # init StateEngine
 
 StateMachine = threading.Thread(name='stateMachine', target=se.StateEngine, args=(unlock,))
+StateMachine.setDaemon(True)
 
 StateMachine.start()
 

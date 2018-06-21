@@ -5,9 +5,10 @@ clients = []
 
 unlock = threading.Event()
 
-openDuration = 10
-rampDuration = 2
+openDuration = 10.0
+rampDuration = 2.0
 vmax = 100
+vclose = 70
 
 class Object(object):
     pass
@@ -27,7 +28,9 @@ class state:
     state = 5
     stateName = ['locked',
                 'rw_opening',
+                'rw_closing',
                 'rw_unlocked',
                 'safe_door_opening',
+                'safe_door_closing',
                 'unlocked',
                 'init']

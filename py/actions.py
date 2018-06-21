@@ -131,7 +131,9 @@ def close_rw():
 
 class actions:
     def __init__(self):
+      print "Connecting to Database"
       dbconnect()
+      print "Database Connected"
       self.camera = PiCamera()
 
       self.correctur_r = 1
@@ -275,3 +277,6 @@ class actions:
         else:
             print "Fehler beim Passwort aendern"
             sendToClients({"action": "result_change_password", "value": 0})
+
+    def lock(self):
+      unlock.clear()
