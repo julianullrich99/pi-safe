@@ -26,18 +26,43 @@ class motorcontrol:
 		print "init"
 
 #class StateEngine(threading.Thread):
-def initSe(PinMap, state):
-    GPIO.setup(PinMap.door.out1, GPIO.OUT)
-    GPIO.setup(PinMap.door.out2, GPIO.OUT)
-    GPIO.setup(PinMap.door.in1, GPIO.IN)
-    GPIO.setup(PinMap.lock.out1, GPIO.OUT)
-    GPIO.setup(PinMap.lock.out2, GPIO.OUT)
-    GPIO.setup(PinMap.lock.in1, GPIO.IN)
-    GPIO.setup(PinMap.lock.in2, GPIO.IN)
+def initSe():
+    GPIO.setup(mapping.door.out1, GPIO.OUT)
+    GPIO.setup(mapping.door.out2, GPIO.OUT)
+    GPIO.setup(mapping.door.in1, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+    GPIO.setup(mapping.lock.out1, GPIO.OUT)
+    GPIO.setup(mapping.lock.out2, GPIO.OUT)
+    GPIO.setup(mapping.lock.in1, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+    GPIO.setup(mapping.lock.in2, GPIO.IN, pull_up_down=GPIO.PUD_UP)
     if state.state == state.stateName.index("init"):
-		print "init se"
+		print "init StateEngine"
+    print "closing door"
+    d1 = GPIO.PWM(mapping.door.out1, 200)
+    d2 = GPIO.PWM(mapping.door.out2, 200)
+    i = 0
+    d1.start(i)
+    d2.start(0)
+    while GPIO.input(mapping.door.in1):
+        i += 0.001 if i < 20 else 0
+        d1.ChangeDutyCycle(i)
+        time.sleep(0.05)
+    d1.ChangeDutyCycle(0)
+    print "door closed"
+    print "closing lock"
+    l1 = GPIO.PWM(mapping.lock.out1, 200)
+    l2 = GPIO.PWM(mapping.lock.out2, 200)
+    i = 0
+    l1.start(0)
+    l2.start(i)
+    while GPIO.input(mapping.lock.in2):
+        i += 1 if i < 50 else 0
+        l2.ChangeDutyCycle(i)
+        time.sleep(0.01)
+    l2.ChangeDutyCycle(0)
+    print "lock closed"
+    print "motors initialized"
+    state.state = 0
 
-
-def StateEngine(state):
+def StateEngine():
     while 1:
         print "state check"
