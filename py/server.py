@@ -7,7 +7,7 @@ import se
 from common import *
 import threading
 
-se.initSe(mapping, state)
+se.initSe() # init StateEngine
 
 GPIO.setmode(GPIO.BCM)
 
@@ -56,7 +56,7 @@ class protocol(WebSocket):
   def handleMessage(self):
     # echo message back to client
     # print self.data;
-    
+
     for client in clients:
       client.sendMessage(self.data)
     handle(self.data)
