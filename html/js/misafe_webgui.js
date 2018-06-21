@@ -34,8 +34,11 @@ $(document).ready(function(){
     reset_code();
   });
 
-  $('b_lock_safe').click(function(){
-    lock_safe();
+  $('#b_lock_safe').click(function(){
+    arr = {
+      action: "lock"
+    };
+    socket.send(JSON.stringify(arr));
   })
 
   // Kamerabutton
