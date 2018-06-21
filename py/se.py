@@ -145,14 +145,14 @@ def StateEngine(e):
             if vmax > 100:
               print "cant close door, please set vmax <= 100"
               break
-            while i < vmax:
+            while i < vmax and GPIO.input(mapping.door.in1):
               i += 1
               d1.ChangeDutyCycle(i)
               time.sleep(float(rampDuration)/vmax)
             before = time.time()
-            while before + (openDuration - 2 * rampDuration - 1) > time.time():
+            while before + (openDuration - 2 * rampDuration - 1) > time.time() and GPIO.input(mapping.door.in1):
               time.sleep(0.1)
-            while i > vclose:
+            while i > vclose and GPIO.input(mapping.door.in1):
               i -= 1
               d1.ChangeDutyCycle(i)
               time.sleep(float(rampDuration)/vmax)
@@ -172,7 +172,7 @@ def StateEngine(e):
             # print "PWMs initialized"
             while GPIO.input(mapping.lock.in2):
               # print "moving lock", i
-              i += 1 if i < 100 else 0
+              i += 1 if i < 70 else 0
               l2.ChangeDutyCycle(i)
               time.sleep(0.01)
             l1.stop()
