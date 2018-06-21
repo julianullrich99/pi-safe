@@ -83,8 +83,6 @@ $(document).ready(function(){
   // Initialisieren visueller Elemente
   select_colorchoice(colorchoice);
   
-  
-  
   // timer zum Holen des State
   tick();
 });
@@ -224,7 +222,7 @@ function init() {
     colorWheel1.on("color:change", function(color, changes) {
       //send_change_rgb(1,color.rgb);
       var rgb = color.rgb.r +','+ color.rgb.g +','+ color.rgb.b
-      $('#box1').html(draw_box('rgb('+rgb+')','rgb(0,255,250)'));
+      //$('#box1').html(draw_box('rgb('+rgb+')',6,'rgba(0,0,250,0.1)'));
     });
     
 
@@ -237,11 +235,11 @@ function init() {
   
 };
 
-function draw_box(edgecolor, fillcolor){
+function draw_box(edgecolor, strokewidth, fillcolor){
   var svg = '<svg width="200" height="140" id="box1">';
-      svg += '<rect x="5" y="15" width="120" height="120" style="fill:'+fillcolor+';stroke:'+edgecolor+'; stroke-width:2; fill-opacity:0.5; stroke-opacity:1" />';
-      svg += '<polygon points="5,15 63,0 183,0 125,15" style="fill:'+fillcolor+'; stroke:'+edgecolor+'; stroke-width:2; fill-opacity:0.5;" />';
-      svg += '<polygon points="125,135 125,15 183,0 183,110" style="fill:'+fillcolor+'; stroke:'+edgecolor+'; stroke-width:2; fill-opacity:0.5;" />';
+      svg += '<rect x="5" y="15" width="120" height="120" style="fill:'+fillcolor+';stroke:'+edgecolor+'; stroke-width:'+strokewidth+'" />';
+      svg += '<polygon points="5,15 63,0 183,0 125,15" style="fill:'+fillcolor+'; stroke:'+edgecolor+'; stroke-width:'+strokewidth+'" />';
+      svg += '<polygon points="125,135 125,15 183,0 183,110" style="fill:'+fillcolor+'; stroke:'+edgecolor+'; stroke-width:'+strokewidth+'" />';
       svg += ' </svg>';
       return(svg);
 }

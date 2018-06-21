@@ -222,12 +222,24 @@ div.container{
   border: 1px solid white;
 }
 
-.switch {
+.switch_container {
   position: absolute;
-  top:50px;
-  margin-left:50px;
+  margin-top:20px;
+  margin-left:0px;
+  width:200px;
+  
+  text-align:center;
 }
 
+#sc1{
+  position: relative;
+  display: inline-block;
+}
+
+#sl1{ float: left; width:35px; height:32px; background-image:url("media/cube_fill.png"); background-size: 100%;}
+#sl2{ float: right; width:35px; height:32px; background-image:url("media/cube_edge.png"); background-size: 100%;}
+#sk1{ float: left; width:35px; height:35px; background-image:url("media/kombiicon.png"); background-size: 100%;}
+#sk2{ float: right; width:35px; height:35px; background-image:url("media/pinpadicon.png"); background-size: 100%;}
 
 #container_colorchoice{
   position:absolute;
