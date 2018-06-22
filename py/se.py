@@ -5,7 +5,7 @@ from common import *
 from actions import sendToClients
 
 GPIO.setmode(GPIO.BCM)
-
+'''
 class motorcontrol:
  	def __init__(self):
 	    print "Initializing Motors"
@@ -27,7 +27,7 @@ class motorcontrol:
 	    GPIO.output(23, GPIO.HIGH)
 	def rw_init(self):
 		print "init"
-
+'''
 #class StateEngine(threading.Thread):
 def initSe():
     GPIO.setup(mapping.door.out1, GPIO.OUT)
@@ -72,6 +72,7 @@ def StateEngine(e):
     while 1:
       if e.isSet():
         while 1:
+          time.sleep(0.05)
           if e.isSet():
             state.state = state.stateName.index('rw_opening')
             sendToClients({"action": "result_get_state", "value": str(state.state)})

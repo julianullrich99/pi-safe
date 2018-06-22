@@ -7,14 +7,15 @@ from actions import actions
 from common import *
 import se
 
+
+GPIO.setmode(GPIO.BCM)
+
 se.initSe() # init StateEngine
 
 StateMachine = threading.Thread(name='stateMachine', target=se.StateEngine, args=(unlock,))
 StateMachine.setDaemon(True)
 
 StateMachine.start()
-
-GPIO.setmode(GPIO.BCM)
 
 action = actions()
 # motorcontrol = motorcontrol()
@@ -80,3 +81,4 @@ class protocol(WebSocket):
 server = SimpleWebSocketServer('', 8000, protocol)
 print "WebSocket Server started at localhost:8000"
 server.serveforever()
+
