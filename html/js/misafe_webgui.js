@@ -4,7 +4,7 @@ var colorWheel1;
 var pin = '';
 var number_bak = 0;
 var socket_open = false;
-var colorchoice = 'edge';
+var selected_color = 1;
 
 $(document).ready(function(){
   // Init Slider
@@ -55,13 +55,9 @@ $(document).ready(function(){
     add_pin($(this).attr('number'));
   });
 
-
-  $('.colorchoice').on('click',function(){
-    colorchoice = $(this).attr('choice');
-    //$('.colorchoice').css('border','');
-    //$(this).css('border','1px solid yellow');
-    select_colorchoice(colorchoice);
-  })
+  
+  
+  
 
   /*
   // Event, wenn das Video fertig ist - dann weiter
@@ -85,17 +81,22 @@ $(document).ready(function(){
         $('#pinpad').hide();
         $('#knopp').show();
       }
-  })
-
-  // Initialisieren visueller Elemente
-  select_colorchoice(colorchoice);
-
+  });
+  
+  $('#chk_color').click(function(){
+      if ($(this).prop('checked') == true){selected_color = 2;} else {selected_color = 1;}
+  });
+  
+  $('.sl').click(function(){
+      selected_color = $(this).attr('selection');
+  });
+  
   // timer zum Holen des State
   tick();
 });
 
-function select_colorchoice(which){
-  $('.colorchoice').css('border','');
+function select_color(which){
+  $('.selected_color').css('border','');
     $('div[choice='+which+']').css('border','1px solid yellow');
 }
 
@@ -226,24 +227,24 @@ function init() {
   //$('#page3').css('background-image','url("DCIM/temp.jpg")').css('background-size','100%');
 
   colorWheel1 = new iro.ColorPicker("#colorpicker1", {
-      width: 500,
-      height: 500,
-      markerRadius: 12,
-      sliderHeight: 50,
-      borderWidth: 2,
-    });
+    width: 500,
+    height: 500,
+    markerRadius: 12,
+    sliderHeight: 50,
+    borderWidth: 2,
+  });
 
-    colorWheel1.on("color:change", function(color, changes) {
-      //send_change_rgb(1,color.rgb);
-      var rgb = color.rgb.r +','+ color.rgb.g +','+ color.rgb.b
-      //$('#box1').html(draw_box('rgb('+rgb+')',6,'rgba(0,0,250,0.1)'));
-    });
+  colorWheel1.on("color:change", function(color, changes) {
+    //send_change_rgb(1,color.rgb);
+    var rgb = color.rgb.r +','+ color.rgb.g +','+ color.rgb.b
+    //$('#box1').html(draw_box('rgb('+rgb+')',6,'rgba(0,0,250,0.1)'));
+  });
 
 
 
-    colorWheel1.on("input:end",function(color){
-      send_store_rgb(1,color.rgb)
-    });
+  colorWheel1.on("input:end",function(color){
+    send_store_rgb(selected_color,color.rgb)
+  });
 
 
 
