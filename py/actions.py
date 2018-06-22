@@ -243,6 +243,14 @@ class actions:
     def store_ledcolor2(self,arg):
         self.morphto(arg,2)
         store_rgb(1,2,arg)
+        
+    def get_ledcolor(self,arg):
+        arr_rgb = get_rgb()
+        r = arr_rgb["r"+str(arg)] # Anfangswerte
+        g = arr_rgb["g"+str(arg)]
+        b = arr_rgb["b"+str(arg)]
+        rgb = {"r":r, "g":g, "b":b}
+        sendToClients({"action": "result_get_rgb", "value": rgb, "arg": arg})
 
     def cameraPicture(self,arg):
         ts = str(int(time.time()))
