@@ -5,7 +5,7 @@ clients = []
 
 unlock = threading.Event()
 
-openDuration = 10.0
+openDuration = 4.0
 rampDuration = 2.0
 vmax = 100
 vclose = 70

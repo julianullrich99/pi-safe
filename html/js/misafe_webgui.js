@@ -55,9 +55,9 @@ $(document).ready(function(){
     add_pin($(this).attr('number'));
   });
 
-  
-  
-  
+
+
+
 
   /*
   // Event, wenn das Video fertig ist - dann weiter
@@ -82,17 +82,23 @@ $(document).ready(function(){
         $('#knopp').show();
       }
   });
-  
+
   $('#chk_color').click(function(){
-      if ($(this).prop('checked') == true){selected_color = 2;} else {selected_color = 1;}
+      if ($(this).prop('checked') == true){
+        selected_color = 2;
+      } else {
+        selected_color = 1;
+      }
+      get_rgb(selected_color);
   });
-  
+
   $('.sl').click(function(){
       selected_color = $(this).attr('selection');
   });
-  
+
   // timer zum Holen des State
   tick();
+
 });
 
 function select_color(which){
@@ -127,6 +133,7 @@ function playClick()
 {
   $("#click").trigger('play');
 }
+
 function playClick1()
 {
   $("#click1").trigger('play');
@@ -137,6 +144,12 @@ function lock_safe(){
     action: "lock",
   };
   socket.send(JSON.stringify(arr));
+}
+
+function set_colorwheel(rgb)
+{
+  colorWheel1.color.rgb = rgb;
+  return true;
 }
 
 function init() {
@@ -183,6 +196,9 @@ function init() {
 
   $('.slick').on('swipe', function(event, slick, direction){
     console.log("current page:" +slick.currentSlide);
+    if(slick.currentSlide == 1){
+      get_rgb(selected_color);
+    }
     if(slick.currentSlide == 2){
       takeCameraPicture();
     }
@@ -235,7 +251,7 @@ function init() {
   });
 
   colorWheel1.on("color:change", function(color, changes) {
-    //send_change_rgb(1,color.rgb);
+    //change_rgb(1,color.rgb);
     var rgb = color.rgb.r +','+ color.rgb.g +','+ color.rgb.b
     //$('#box1').html(draw_box('rgb('+rgb+')',6,'rgba(0,0,250,0.1)'));
   });
@@ -243,13 +259,12 @@ function init() {
 
 
   colorWheel1.on("input:end",function(color){
-    send_store_rgb(selected_color,color.rgb)
+    store_rgb(selected_color,color.rgb)
   });
-
-
 
 };
 
+/*
 function draw_box(edgecolor, strokewidth, fillcolor){
   var svg = '<svg width="200" height="140" id="box1">';
       svg += '<rect x="5" y="15" width="120" height="120" style="fill:'+fillcolor+';stroke:'+edgecolor+'; stroke-width:'+strokewidth+'" />';
@@ -258,8 +273,9 @@ function draw_box(edgecolor, strokewidth, fillcolor){
       svg += ' </svg>';
       return(svg);
 }
+*/
 
-function send_change_rgb(which,rgb)
+function change_rgb(which,rgb)
 {
   var arr = {
     action: "change_ledcolor"+which,
@@ -268,15 +284,20 @@ function send_change_rgb(which,rgb)
   if(socket_open){socket.send(JSON.stringify(arr));}
 }
 
-function send_store_rgb(which,rgb)
+function store_rgb(which,rgb)
 {
-  //var tmp = {which:which};
-  //var args = rgb;
-  //args.push(tmp);
-  //console.log(args);
   var arr = {
     action: "store_ledcolor"+which,
     arg: rgb
+  };
+  if(socket_open){socket.send(JSON.stringify(arr));}
+}
+
+function get_rgb(which)
+{
+  var arr = {
+    action: "get_ledcolor",
+    arg: which
   };
   if(socket_open){socket.send(JSON.stringify(arr));}
 }
@@ -304,9 +325,9 @@ function get_state()
 
 function tick()
 {
-	var intervall = 5000;
-	get_state();
-	window.setTimeout("tick();", intervall);
+  var intervall = 5000;
+  //get_state();
+  window.setTimeout("tick();", intervall);
 }
 
 class messagehandler {
@@ -378,11 +399,17 @@ class messagehandler {
           $('#pinfield').html('Passwort geändert');
           reset_code();
         }
+
+      case "result_get_rgb":
+        if(event.value != undefined){
+          set_colorwheel(event.value);
+        }
+
       case "result_camerapicture":
         if(event.value == 1){
           var filename = event.filename;
-          //$('.cameraimage').html('<img src="'+filename+'" alt="'+filename+'" />');
-          $('#page3').css('background-image','url("'+filename+'")').css('background-size','100%');
+          $('#cameraimage').html('<img src="'+filename+'" alt="'+filename+'" />');
+          //$('#page3').css('background-image','url("'+filename+'")').css('background-size','100%');
         }
         return;
       case "unlocked":

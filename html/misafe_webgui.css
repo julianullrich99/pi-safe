@@ -24,7 +24,7 @@ html{
   display: flex;
   align-items: center;
   justify-content: center;
-  
+
 }
 
 #videocontainer{
@@ -35,15 +35,15 @@ html{
     width: 95%;
     /*margin: 0px auto;
     margin-top:50px;*/
-    
- 
+
+
 }
 
 .slick-slide {
   margin: 5px 5px;
   height:600px;
-  
-  
+
+
   transition: all ease-in-out .3s;
   opacity: .0;
 }
@@ -67,7 +67,7 @@ html{
 
 .slick_inn{
   display: inline-flex;
-  
+
 }
 
 #knopp{
@@ -97,7 +97,7 @@ html{
   overflow:hidden;
   background-color: rgba(255,255,255,0.2);
   border: 1px solid white;
-  
+
 }
 
 button{
@@ -150,11 +150,6 @@ div.container{
   margin-right:auto;
 }
 
-#colorpicker2{
-  position:absolute;
-  left:400px;
-  top:10px;  
-}
 
 .camerabutton{
   width:80px;
@@ -167,12 +162,12 @@ div.container{
   background-color:red;
 }
 
-.cameraimage{
-  position: absolute;
-  width:700px;
-  height:400px;
+#cameraimage{
+  height:100%;
   margin-left:auto;
   margin-right:auto;
+  display: block;
+  float:left;
 }
 
 #b_snapshot{
@@ -209,7 +204,6 @@ div.container{
   width:200px;
   position:absolute;
   display: block;
-  
   top:30%;
   margin-left:9%;
 }
@@ -227,7 +221,7 @@ div.container{
   margin-top:20px;
   margin-left:0px;
   width:200px;
-  
+
   text-align:center;
 }
 

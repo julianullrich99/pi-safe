@@ -9,6 +9,7 @@ import se
 
 
 GPIO.setmode(GPIO.BCM)
+action = actions()
 
 se.initSe() # init StateEngine
 
@@ -17,7 +18,7 @@ StateMachine.setDaemon(True)
 
 StateMachine.start()
 
-action = actions()
+
 # motorcontrol = motorcontrol()
 
 # GPIO.setup(19, GPIO.IN, pull_up_down=GPIO.PUD_UP)
