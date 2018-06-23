@@ -2,6 +2,7 @@ import RPi.GPIO as GPIO
 from picamera import PiCamera
 # import base64
 from common import *
+import logging
 
 import time
 import json
@@ -20,7 +21,7 @@ def sendToClients(arr):
 def dbconnect():
     global dbfile
     if not os.path.exists(dbfile):
-      print "DB misafe.db doesn't exists - DB will be created."
+      logging.warning("DB misafe.db doesn't exists - DB will be created.")
       create_db()
 
 def create_db():
@@ -42,7 +43,7 @@ def create_db():
     con.commit()
 
     con.close()
-    print "Datenbank "+dbfile+" mit ", sql ," Inhalt angelegt"
+    logging.debug("Database "+dbfile+"created with content %s", sql)
 
 def get_password(user):
     global dbfile
@@ -77,7 +78,7 @@ def store_rgb(user,which,rgb):
     sql += "g"+w+" = "+str(rgb['g'])+", "
     sql += "b"+w+" = "+str(rgb['b'])+" "
     sql += "WHERE id = 1"
-    print sql
+    logging.debug(sql)
     cursor.execute(sql)
     con.commit()
     con.close()
@@ -106,34 +107,22 @@ def store_picture(user,filename,ts):
     con = sqlite3.connect(dbfile)
     cursor = con.cursor()
     sql = "INSERT INTO pictures (filename, ts, user)  VALUES ('"+filename+"', "+ts+", "+str(user)+")"
-    print sql
+    logging.debug(sql)
     try:
       cursor.execute(sql)
       con.commit()
       con.close()
     except:
-      print "Unexpected error:", sys.exc_info()
+      logging.debug("Unexpected error: %s", sys.exc_info())
       raise
 
     return (1)
 
-def open_rw():
-    GPIO.setup(22, GPIO.OUT)
-    GPIO.setup(23, GPIO.OUT)
-    GPIO.output(22, GPIO.HIGH)
-    GPIO.output(23, GPIO.LOW)
-
-def close_rw():
-    GPIO.setup(22, GPIO.OUT)
-    GPIO.setup(23, GPIO.OUT)
-    GPIO.output(22, GPIO.LOW)
-    GPIO.output(23, GPIO.HIGH)
-
 class actions:
     def __init__(self):
-      print "Connecting to Database"
+      logging.debug("Connecting to Database")
       dbconnect()
-      print "Database Connected"
+      logging.debug("Database Connected")
       self.camera = PiCamera()
 
       self.correctur_r = 1
@@ -141,30 +130,30 @@ class actions:
       self.correctur_b = 0.4
 
       arr_rgb = get_rgb()
-      print("Color initialisation:")
-      print("RGB1: " + str(arr_rgb["r1"])+ " " + str(arr_rgb["g1"])+ " " + str(arr_rgb["b1"]))
-      print("RGB2: " + str(arr_rgb["r2"])+ " " + str(arr_rgb["g2"])+ " " + str(arr_rgb["b2"]))
+      logging.debug("Color initialisation:")
+      logging.debug("RGB1: " + str(arr_rgb["r1"])+ " " + str(arr_rgb["g1"])+ " " + str(arr_rgb["b1"]))
+      logging.debug("RGB2: " + str(arr_rgb["r2"])+ " " + str(arr_rgb["g2"])+ " " + str(arr_rgb["b2"]))
 
 
       #GPIO.setWarnings(false)
-      GPIO.setup(5, GPIO.OUT) #R1
-      GPIO.setup(6, GPIO.OUT) #G1
-      GPIO.setup(13, GPIO.OUT)#B1
+      GPIO.setup(mapping.ledEdge.r, GPIO.OUT) #R1
+      GPIO.setup(mapping.ledEdge.g, GPIO.OUT) #G1
+      GPIO.setup(mapping.ledEdge.b, GPIO.OUT)#B1
 
-      self.r1 = GPIO.PWM(5, 200) #Pin, Frequency
-      self.g1 = GPIO.PWM(6, 200)
-      self.b1 = GPIO.PWM(13, 200)
+      self.r1 = GPIO.PWM(mapping.ledEdge.r, 200) #Pin, Frequency
+      self.g1 = GPIO.PWM(mapping.ledEdge.g, 200)
+      self.b1 = GPIO.PWM(mapping.ledEdge.b, 200)
 
       self.r1.start(self.correctur_r * (arr_rgb["r1"]*100/255))
       self.g1.start(self.correctur_g * (arr_rgb["g1"]*100/255))
       self.b1.start(self.correctur_b * (arr_rgb["b1"]*100/255))
 
-      GPIO.setup(17, GPIO.OUT)#R2
-      GPIO.setup(18, GPIO.OUT)#G2
-      GPIO.setup(27, GPIO.OUT)#B2
-      self.r2 = GPIO.PWM(17, 200)
-      self.g2 = GPIO.PWM(18, 200)
-      self.b2 = GPIO.PWM(27, 200)
+      GPIO.setup(mapping.ledBody.r, GPIO.OUT)#R2
+      GPIO.setup(mapping.ledBody.g, GPIO.OUT)#G2
+      GPIO.setup(mapping.ledBody.b, GPIO.OUT)#B2
+      self.r2 = GPIO.PWM(mapping.ledBody.r, 200)
+      self.g2 = GPIO.PWM(mapping.ledBody.g, 200)
+      self.b2 = GPIO.PWM(mapping.ledBody.b, 200)
       self.r2.start(self.correctur_r * (arr_rgb["r2"]*100/255))
       self.g2.start(self.correctur_r * (arr_rgb["g2"]*100/255))
       self.b2.start(self.correctur_r * (arr_rgb["b2"]*100/255))
@@ -197,11 +186,11 @@ class actions:
 
     def get_state(self):
         sendToClients({"action": "result_get_state", "value": str(state.state)})
-        print "sending state"
+        logging.debug("sending state: %s",state.state)
         # print (str(global_state))
 
     def morphto(self, rgb, which):
-        print("morphing : " + str(which))
+        logging.debug(("morphing : " + str(which)))
         arr_rgb = get_rgb()
         arr_rgb_end = rgb
         n = 100
@@ -243,7 +232,7 @@ class actions:
     def store_ledcolor2(self,arg):
         self.morphto(arg,2)
         store_rgb(1,2,arg)
-        
+
     def get_ledcolor(self,arg):
         arr_rgb = get_rgb()
         r = arr_rgb["r"+str(arg)] # Anfangswerte
@@ -257,33 +246,36 @@ class actions:
         path = '/var/www/html/DCIM/'
         filename = 'pisnap_'+ts+'.jpg'
         filename_response = '/DCIM/'+filename
-        print filename
+        logging.debug("Filename: %s ",filename)
         #self.camera.resolution = (800, 600)
-
-        self.camera.resolution = (1024, 768)
-        self.camera.capture( path + filename )
-        sendToClients({"action": "result_camerapicture", "value": 1, "filename": filename_response,"arg": arg})
-        store_picture(1,filename,ts)
+        try:
+          self.camera.resolution = (1024, 768)
+          self.camera.capture( path + filename )
+          sendToClients({"action": "result_camerapicture", "value": 1, "filename": filename_response,"arg": arg})
+          store_picture(1,filename,ts)
+        except Exception as e:
+          sendToClients({"action": "error", "type": "cameraPicture"})
+          logging.debug("Error in taking picture: %s",e)
 
     def compare_code(self,arg):
         self.pw = get_password(1)
-        print str(self.pw)
-        print str(arg['pin'])
+        logging.debug("stored pin: %s",str(self.pw))
+        logging.debug("received pin: %s",str(arg['pin']))
         if str(self.pw) == str(arg['pin']):
-            print "passt"
+            logging.debug("PIN corect")
             sendToClients({"action": "result_compare_code", "value": 1})
             unlock.set();
         else:
-            print "falsch"
+            logging.debug("PIN wrong")
             sendToClients({"action": "result_compare_code", "value": 0})
 
     def change_code(self,arg):
         newpin = arg['pin']
         if change_password(1,newpin):
-            print "PW erfolgreich geaendert"
+            logging.debug("PIN change successful")
             sendToClients({"action": "result_change_password", "value": 1})
         else:
-            print "Fehler beim Passwort aendern"
+            logging.debug("PIN change successful")
             sendToClients({"action": "result_change_password", "value": 0})
 
     def lock(self):

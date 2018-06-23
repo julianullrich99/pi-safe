@@ -3,6 +3,7 @@ import threading
 import time
 from common import *
 from actions import sendToClients
+import logging
 
 GPIO.setmode(GPIO.BCM)
 '''
@@ -38,8 +39,8 @@ def initSe():
     GPIO.setup(mapping.lock.in1, GPIO.IN, pull_up_down=GPIO.PUD_UP)
     GPIO.setup(mapping.lock.in2, GPIO.IN, pull_up_down=GPIO.PUD_UP)
     if state.state == state.stateName.index("init"):
-		print "init StateEngine"
-    print "closing door"
+		logging.debug("Initializing StateEngine")
+    logging.debug("closing door")
     d1 = GPIO.PWM(mapping.door.out1, 200)
     d2 = GPIO.PWM(mapping.door.out2, 200)
     i = 0
@@ -51,8 +52,8 @@ def initSe():
         time.sleep(float(rampDuration)/vclose)
     d1.stop()
     d2.stop()
-    print "door closed"
-    print "closing lock"
+    logging.debug("door closed")
+    logging.debug("closing lock")
     l1 = GPIO.PWM(mapping.lock.out1, 200)
     l2 = GPIO.PWM(mapping.lock.out2, 200)
     i = 0
@@ -64,12 +65,13 @@ def initSe():
         time.sleep(0.01)
     l1.stop()
     l2.stop()
-    print "lock closed"
-    print "motors initialized"
+    logging.debug("lock closed")
+    logging.debug("motors initialized")
     state.state = state.stateName.index('locked')
 
 def StateEngine(e):
     while 1:
+      time.sleep(0.1)
       if e.isSet():
         while 1:
           time.sleep(0.05)
@@ -77,7 +79,7 @@ def StateEngine(e):
             state.state = state.stateName.index('rw_opening')
             sendToClients({"action": "result_get_state", "value": str(state.state)})
             GPIO.setmode(GPIO.BCM)
-            print "opening lock"
+            logging.debug("opening lock")
             l1 = GPIO.PWM(mapping.lock.out1, 200)
             l2 = GPIO.PWM(mapping.lock.out2, 200)
             i = 0
@@ -91,14 +93,14 @@ def StateEngine(e):
               time.sleep(0.01)
             l1.stop()
             l2.stop()
-            print "lock open"
+            logging.debug("lock open")
             state.state = state.stateName.index('rw_unlocked')
             sendToClients({"action": "result_get_state", "value": str(state.state)})
             if openDuration < 2 * rampDuration:
-              print "cant open door, please set openDuration > 2 * rampDuration"
+              logging.warning("cant open door, please set openDuration > 2 * rampDuration")
               e.clear()
               break
-            print "opening door"
+            logging.debug("opening door")
             state.state = state.stateName.index('safe_door_opening')
             sendToClients({"action": "result_get_state", "value": str(state.state)})
             d1 = GPIO.PWM(mapping.door.out1, 200)
@@ -107,7 +109,7 @@ def StateEngine(e):
             d1.start(0)
             d2.start(i)
             if vmax > 100:
-              print "cant open door, please set vmax <= 100"
+              logging.warning("cant open door, please set vmax <= 100")
               break
             while i < vmax:
               i += 1
@@ -122,7 +124,7 @@ def StateEngine(e):
               time.sleep(float(rampDuration)/vmax)
             d1.stop()
             d2.stop()
-            print "unlocked"
+            logging.debug("unlocked")
             state.state = state.stateName.index('unlocked')
             sendToClients({"action": "result_get_state", "value": str(state.state)})
             while e.isSet():
@@ -132,10 +134,10 @@ def StateEngine(e):
             sendToClients({"action": "result_get_state", "value": str(state.state)})
             GPIO.setmode(GPIO.BCM)
             if openDuration < 2 * rampDuration:
-              print "cant close door, please set openDuration > 2 * rampDuration"
+              logging.warning("cant close door, please set openDuration > 2 * rampDuration")
               e.set()
               break
-            print "closing door"
+            logging.debug("closing door")
             state.state = state.stateName.index('safe_door_closing')
             sendToClients({"action": "result_get_state", "value": str(state.state)})
             d1 = GPIO.PWM(mapping.door.out1, 200)
@@ -144,7 +146,7 @@ def StateEngine(e):
             d1.start(i)
             d2.start(0)
             if vmax > 100:
-              print "cant close door, please set vmax <= 100"
+              logging.warning("cant close door, please set vmax <= 100")
               break
             while i < vmax and GPIO.input(mapping.door.in1):
               i += 1
@@ -161,10 +163,10 @@ def StateEngine(e):
               time.sleep(0.1)
             d1.stop()
             d2.stop()
-            print "door closed"
+            logging.debug("door closed")
             state.state = state.stateName.index('rw_unlocked')
             sendToClients({"action": "result_get_state", "value": str(state.state)})
-            print "closing lock"
+            logging.debug("closing lock")
             l1 = GPIO.PWM(mapping.lock.out1, 200)
             l2 = GPIO.PWM(mapping.lock.out2, 200)
             i = 0
@@ -178,7 +180,7 @@ def StateEngine(e):
               time.sleep(0.01)
             l1.stop()
             l2.stop()
-            print "lock closed"
+            logging.debug("lock closed")
             state.state = state.stateName.index('locked')
             sendToClients({"action": "result_get_state", "value": str(state.state)})
             while not e.isSet():

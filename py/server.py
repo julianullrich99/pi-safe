@@ -1,5 +1,6 @@
 from SimpleWebSocketServer import SimpleWebSocketServer, WebSocket
 import threading
+import logging
 import RPi.GPIO as GPIO
 import json
 from actions import actions
@@ -7,6 +8,10 @@ from actions import actions
 from common import *
 import se
 
+FORMAT = "[%(filename)s:%(lineno)s - %(funcName)15s() ] %(message)s"
+logging.basicConfig(format=FORMAT, level=logging.DEBUG)
+
+GPIO.setwarnings(False)
 
 GPIO.setmode(GPIO.BCM)
 
@@ -44,18 +49,18 @@ action = actions()
 # clients = [];
 
 def handle(msg):
-  print "message income"
-  #print msg
+  logging.debug("message income")
+  # print msg
   event = json.loads(msg)
-  print event["action"]
+  logging.debug("action: %s",event["action"])
   # echo = ""
   if hasattr(action, event["action"]):
     try:
-      print event["arg"]
+      logging.debug("arguments: %s",event["arg"])
       getattr(action, event["action"])(event["arg"])
       # echo = function
     except:
-      print "no args"
+      logging.debug("arguments: none")
       getattr(action, event["action"])()
 
 class protocol(WebSocket):
@@ -68,17 +73,17 @@ class protocol(WebSocket):
     handle(self.data)
 
   def handleConnected(self):
-    print(self.address, 'connected')
+    logging.debug('%s connected', self.address)
     #for client in clients:
     #  client.sendMessage(u"connected")
     clients.append(self)
 
   def handleClose(self):
-    print(self.address, 'closed')
+    logging.debug('%s closed', self.address)
     clients.remove(self)
 
 #getattr(action, "testfun")()
+logging.debug("Starting WebSocket Server on localhost:8000")
 server = SimpleWebSocketServer('', 8000, protocol)
-print "WebSocket Server started at localhost:8000"
+logging.debug("WebSocket Server started at localhost:8000")
 server.serveforever()
-

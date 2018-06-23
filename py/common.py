@@ -5,8 +5,8 @@ clients = []
 
 unlock = threading.Event()
 
-openDuration = 10.0
-rampDuration = 2.0
+openDuration = 1.0
+rampDuration = 0.5
 vmax = 100
 vclose = 70
 
@@ -16,6 +16,8 @@ class Object(object):
 class mapping:
     door = Object()
     lock = Object()
+    ledBody = Object()
+    ledEdge = Object()
     door.out1 = 10 #zu
     door.out2 = 9 #auf
     door.in1 = 11 #zu
@@ -23,6 +25,12 @@ class mapping:
     lock.out2 = 23 #zu
     lock.in1 = 24 #auf
     lock.in2 = 25 #zu
+    ledBody.r = 17
+    ledBody.g = 18
+    ledBody.b = 27
+    ledEdge.r = 5
+    ledEdge.g = 6
+    ledEdge.b = 13
 
 class state:
     state = 5
