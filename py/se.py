@@ -27,7 +27,7 @@
 
   <meta name="viewport" content="width=device-width">
   
-  <title>pi-safe/server.py at master · jukisu23/pi-safe</title>
+  <title>pi-safe/se.py at master · jukisu23/pi-safe</title>
     <meta name="description" content="GitHub is where people build software. More than 28 million people use GitHub to discover, fork, and contribute to over 85 million projects.">
     <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="GitHub">
   <link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub">
@@ -37,10 +37,10 @@
     <meta property="og:image" content="https://avatars2.githubusercontent.com/u/39773285?s=400&amp;v=4" /><meta property="og:site_name" content="GitHub" /><meta property="og:type" content="object" /><meta property="og:title" content="jukisu23/pi-safe" /><meta property="og:url" content="https://github.com/jukisu23/pi-safe" /><meta property="og:description" content="Contribute to pi-safe development by creating an account on GitHub." />
 
   <link rel="assets" href="https://assets-cdn.github.com/">
-  <link rel="web-socket" href="wss://live.github.com/_sockets/VjI6Mjg3NzA5NDI1Ojk2NTcyMTNjN2E2MjBlYzE2N2E3MjJhNmZmN2NiYjZlM2M4OTk0MGRiY2E0MGMwZDE2YzE5NWMxNGYyNmU5OTM=--f2ab45e1555dc0b0962ec120fa5263bec91d51e5">
+  <link rel="web-socket" href="wss://live.github.com/_sockets/VjI6Mjg3NzA5NDI1OmIzYTQ3NDUzYjZjYzI4ZjE1MTg2ZTJjNjRjMzE2ZjE1YTE1YTE3Nzk4YjkzMzc0MWJjYWZmY2Q2ZmQyZTU3YTc=--db628fd526a30ef87dd238020b5289ec1f9c0302">
   <meta name="pjax-timeout" content="1000">
   <link rel="sudo-modal" href="/sessions/sudo_modal">
-  <meta name="request-id" content="C7BC:1AB6:1DE5239:36B4986:5B2E60A0" data-pjax-transient>
+  <meta name="request-id" content="C7AC:1AB4:120BED4:21EF02B:5B2E604A" data-pjax-transient>
 
 
   
@@ -52,7 +52,7 @@
   <meta name="google-site-verification" content="GXs5KoUUkNCoaAZn7wPN-t01Pywp9M3sEjnt_3_ZWPc">
     <meta name="google-analytics" content="UA-3769691-2">
 
-<meta name="octolytics-host" content="collector.githubapp.com" /><meta name="octolytics-app-id" content="github" /><meta name="octolytics-event-url" content="https://collector.githubapp.com/github-external/browser_event" /><meta name="octolytics-dimension-request_id" content="C7BC:1AB6:1DE5239:36B4986:5B2E60A0" /><meta name="octolytics-dimension-region_edge" content="iad" /><meta name="octolytics-dimension-region_render" content="iad" /><meta name="octolytics-actor-id" content="37098148" /><meta name="octolytics-actor-login" content="sdrum01" /><meta name="octolytics-actor-hash" content="a418099dd7d1da19aecd1bfa2de2f6ae1b0c76a70251c892a2e32a8c8e42d3ba" />
+<meta name="octolytics-host" content="collector.githubapp.com" /><meta name="octolytics-app-id" content="github" /><meta name="octolytics-event-url" content="https://collector.githubapp.com/github-external/browser_event" /><meta name="octolytics-dimension-request_id" content="C7AC:1AB4:120BED4:21EF02B:5B2E604A" /><meta name="octolytics-dimension-region_edge" content="iad" /><meta name="octolytics-dimension-region_render" content="iad" /><meta name="octolytics-actor-id" content="37098148" /><meta name="octolytics-actor-login" content="sdrum01" /><meta name="octolytics-actor-hash" content="a418099dd7d1da19aecd1bfa2de2f6ae1b0c76a70251c892a2e32a8c8e42d3ba" />
 <meta name="analytics-location" content="/&lt;user-name&gt;/&lt;repo-name&gt;/blob/show" data-pjax-transient="true" />
 
 
@@ -67,7 +67,7 @@
     <meta name="user-login" content="sdrum01">
 
       <meta name="expected-hostname" content="github.com">
-    <meta name="js-proxy-site-detection-payload" content="N2RmODMzMTQzYmFiMDFiOTgxMjk1MmNjZDZmYjI3ODY1YTQxMzdiMWNiY2ExMTVmYzI3ZTAyYWViZDEzYzdiNHx7InJlbW90ZV9hZGRyZXNzIjoiODcuMTgzLjEyNy44NCIsInJlcXVlc3RfaWQiOiJDN0JDOjFBQjY6MURFNTIzOTozNkI0OTg2OjVCMkU2MEEwIiwidGltZXN0YW1wIjoxNTI5NzY2MDQ5LCJob3N0IjoiZ2l0aHViLmNvbSJ9">
+    <meta name="js-proxy-site-detection-payload" content="MzUwNzIxMmNjZjYyOGExOGU0Njk3ZDE1YmQ5YjhlODJiNGIzYjg2Nzg4MzU3YTE4MGYwZTk5NzhhZjcwNmU4ZHx7InJlbW90ZV9hZGRyZXNzIjoiODcuMTgzLjEyNy44NCIsInJlcXVlc3RfaWQiOiJDN0FDOjFBQjQ6MTIwQkVENDoyMUVGMDJCOjVCMkU2MDRBIiwidGltZXN0YW1wIjoxNTI5NzY1OTgxLCJob3N0IjoiZ2l0aHViLmNvbSJ9">
 
     <meta name="enabled-features" content="UNIVERSE_BANNER,FREE_TRIALS,MARKETPLACE_INSIGHTS,MARKETPLACE_INSIGHTS_CONVERSION_PERCENTAGES">
 
@@ -84,7 +84,7 @@
   <meta name="octolytics-dimension-user_id" content="39773285" /><meta name="octolytics-dimension-user_login" content="jukisu23" /><meta name="octolytics-dimension-repository_id" content="135467959" /><meta name="octolytics-dimension-repository_nwo" content="jukisu23/pi-safe" /><meta name="octolytics-dimension-repository_public" content="true" /><meta name="octolytics-dimension-repository_is_fork" content="false" /><meta name="octolytics-dimension-repository_network_root_id" content="135467959" /><meta name="octolytics-dimension-repository_network_root_nwo" content="jukisu23/pi-safe" /><meta name="octolytics-dimension-repository_explore_github_marketplace_ci_cta_shown" content="false" />
 
 
-    <link rel="canonical" href="https://github.com/jukisu23/pi-safe/blob/master/py/server.py" data-pjax-transient>
+    <link rel="canonical" href="https://github.com/jukisu23/pi-safe/blob/master/py/se.py" data-pjax-transient>
 
 
   <meta name="browser-stats-url" content="https://api.github.com/_private/browser/stats">
@@ -152,7 +152,7 @@
           autocapitalize="off"
           aria-autocomplete="list"
           aria-controls="jump-to-results"
-          data-jump-to-suggestions-path="/_graphql/GetSuggestedNavigationDestinations#csrf-token=ee0xPvtMhXmtJygvrxNiqowKIpZBfoK4V1UIG8kmhjbOoeJGGW2bSdlAClKvHSbvHXef2QxIvfWf9NYWzigUPg=="
+          data-jump-to-suggestions-path="/_graphql/GetSuggestedNavigationDestinations#csrf-token=3E1t9RTwBt8trzAq06eZIMeUWpfjj388M8FJNUVPwPdrAb6N9tEY71nIElfTqd1lVunn2K65QHH7YJc4QkFS/w=="
           spellcheck="false"
           autocomplete="off"
           >
@@ -316,7 +316,7 @@
           Settings
         </a></li>
 
-        <li><!-- '"` --><!-- </textarea></xmp> --></option></form><form class="logout-form" action="/logout" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="vKPhBBrxBPsdAPeQotcePhZ1FZW0n4oRfnXQyGfErKewhoe46MeB/uWJgS6CEzWYVTGkBim5hqEvrUZ8Y3bykw==" />
+        <li><!-- '"` --><!-- </textarea></xmp> --></option></form><form class="logout-form" action="/logout" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="Bx0UQIpVDEvEPA60SJxs81OoANJnz9hseEY9VxYWdwELOHL8eGOJTjy1eApoWEdVEOyxQfrp1NwpnqvjEqQpNQ==" />
           <button type="submit" class="dropdown-item dropdown-signout" data-ga-click="Header, sign out, icon:logout">
             Sign out
           </button>
@@ -328,7 +328,7 @@
 
 
 
-        <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="sr-only right-0" action="/logout" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="D5GM+ExftT2upZVRx7l0S3GcfJLoGQ5m+hs3ggzLITkDtOpEvmkwOFYs4+/nfV/tMtjNAXU/Atarw6E2CHl/DQ==" />
+        <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="sr-only right-0" action="/logout" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="qZ+5ra7Lkelhc07Wa2z/DzQXBvPnsKgELRNplLVGnYGlut8RXP0U7Jn6OGhLqNSpd1O3YHqWpLR8y/8gsfTDtQ==" />
           <button type="submit" class="dropdown-item dropdown-signout" data-ga-click="Header, sign out, icon:logout">
             Sign out
           </button>
@@ -364,7 +364,7 @@
 
       <ul class="pagehead-actions">
   <li>
-        <!-- '"` --><!-- </textarea></xmp> --></option></form><form data-autosubmit="true" data-remote="true" class="js-social-container" action="/notifications/subscribe" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="iCa3mXvcib41I/+j4ZuAbeBxHBL3dc1oo2lFfZDGKwxo7Jxzx6/Xb/w0apVKds/OjgCIv2RLdfXqYR2recAulQ==" />      <input type="hidden" name="repository_id" id="repository_id" value="135467959" class="form-control" />
+        <!-- '"` --><!-- </textarea></xmp> --></option></form><form data-autosubmit="true" data-remote="true" class="js-social-container" action="/notifications/subscribe" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="4I3iJIth1N7fj4t/vWRB1cBSoWJMS3XF2+SjDSMDbOMAR8nONxKKDxaYHkkWiQ52riM1z991zViS7PvbygVpeg==" />      <input type="hidden" name="repository_id" id="repository_id" value="135467959" class="form-control" />
 
         <div class="select-menu js-menu-container js-select-menu">
           <a href="/jukisu23/pi-safe/subscription"
@@ -444,7 +444,7 @@
   <li>
     
   <div class="js-toggler-container js-social-container starring-container ">
-    <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="starred js-social-form" action="/jukisu23/pi-safe/unstar" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="q4bPcnXVGYlJpOBdhxNwn7JkIcRdaARS31fz62Q2GzH1l0byqeUkQl96TwUz7x6UtNTi98XqqiEWXOoKd3L7Yg==" />
+    <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="starred js-social-form" action="/jukisu23/pi-safe/unstar" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="jF/vUVWceoRHRwfs3DjDd0pKeCQG+Jo9qw0o7w2oqFXSTmbRiaxHT1GZqLRoxK18TPq7F556NE5iBjEOHuxIBg==" />
       <input type="hidden" name="context" value="repository"></input>
       <button
         type="submit"
@@ -459,7 +459,7 @@
           0
         </a>
 </form>
-    <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="unstarred js-social-form" action="/jukisu23/pi-safe/star" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="ScJ7MoOgDm7NXA9L//jUv7wEc/wrje5d9EBOm1FZvtBqECI16YtQmnP3hJ4QDz/cBeMhtMAmSOQl378YdlhD8A==" />
+    <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="unstarred js-social-form" action="/jukisu23/pi-safe/star" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="P6PJO3aNum75LyqCS74EQNjWI0fc3Zxh5W/v3dIY1hUccZA8HKbkmkeEoVekSe8jYTFxDzd2Otg08B5e9RkrNQ==" />
       <input type="hidden" name="context" value="repository"></input>
       <button
         type="submit"
@@ -478,7 +478,7 @@
   </li>
 
   <li>
-          <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="btn-with-count" action="/jukisu23/pi-safe/fork" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="5LUpivQ6NzY6FqSlqaBQikeLJn/lZH0v6VvuOBohUCUpDecYKgeSE3eo45oTWcbCn45ZmCltyoPLydV+qq0CBA==" />
+          <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="btn-with-count" action="/jukisu23/pi-safe/fork" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="x4ijq6umvpKwbnmPvjW3KPkPMI5BaArTpVbhcP9tNjwKMG05dZsbt/3QPrAEzCFgIQpPaY1hvX+HxNo2T+FkHQ==" />
             <button
                 type="submit"
                 class="btn btn-sm btn-with-count"
@@ -559,9 +559,9 @@
   <div class="repository-content ">
 
     
-  <a class="d-none js-permalink-shortcut" data-hotkey="y" href="/jukisu23/pi-safe/blob/120dae27c85ce81f37d2b459a86f94d17ad05e33/py/server.py">Permalink</a>
+  <a class="d-none js-permalink-shortcut" data-hotkey="y" href="/jukisu23/pi-safe/blob/120dae27c85ce81f37d2b459a86f94d17ad05e33/py/se.py">Permalink</a>
 
-  <!-- blob contrib key: blob_contributors:v21:d1ba7000905853cc9ca14d072129af60 -->
+  <!-- blob contrib key: blob_contributors:v21:cee463a2ead494f46d21fcb1370f06c8 -->
 
   
 
@@ -605,7 +605,7 @@
 
 
             <a class="select-menu-item js-navigation-item js-navigation-open selected"
-               href="/jukisu23/pi-safe/blob/master/py/server.py"
+               href="/jukisu23/pi-safe/blob/master/py/se.py"
                data-name="master"
                data-skip-pjax="true"
                rel="nofollow">
@@ -616,7 +616,7 @@
             </a>
         </div>
 
-          <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="js-create-branch select-menu-item select-menu-new-item-form js-navigation-item js-new-item-form" action="/jukisu23/pi-safe/branches" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="OY9/EZZKRvCLrkAylck1P72LwaabZNVGxRLdNbtWaLchTo50cxJi4xwmiGWzNGMATaBPks7UxuZGJWoz7BNExQ==" />
+          <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="js-create-branch select-menu-item select-menu-new-item-form js-navigation-item js-new-item-form" action="/jukisu23/pi-safe/branches" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="19XfIH+knm3ipXvkcrASRImfTQ85ufS7f6fA+EniwszPFC5Fmvy6fnUts7NUTUR7ebTDO2wJ5xv8kHf+Hqfuvg==" />
           <svg class="octicon octicon-git-branch select-menu-item-icon" viewBox="0 0 10 16" version="1.1" width="10" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M10 5c0-1.11-.89-2-2-2a1.993 1.993 0 0 0-1 3.72v.3c-.02.52-.23.98-.63 1.38-.4.4-.86.61-1.38.63-.83.02-1.48.16-2 .45V4.72a1.993 1.993 0 0 0-1-3.72C.88 1 0 1.89 0 3a2 2 0 0 0 1 1.72v6.56c-.59.35-1 .99-1 1.72 0 1.11.89 2 2 2 1.11 0 2-.89 2-2 0-.53-.2-1-.53-1.36.09-.06.48-.41.59-.47.25-.11.56-.17.94-.17 1.05-.05 1.95-.45 2.75-1.25S8.95 7.77 9 6.73h-.02C9.59 6.37 10 5.73 10 5zM2 1.8c.66 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2C1.35 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2zm0 12.41c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm6-8c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"/></svg>
             <div class="select-menu-item-text">
               <span class="select-menu-item-heading">Create branch: <span class="js-new-item-name"></span></span>
@@ -624,7 +624,7 @@
             </div>
             <input type="hidden" name="name" id="name" class="js-new-item-value">
             <input type="hidden" name="branch" id="branch" value="master">
-            <input type="hidden" name="path" id="path" value="py/server.py">
+            <input type="hidden" name="path" id="path" value="py/se.py">
 </form>
       </div>
 
@@ -653,12 +653,12 @@
       </clipboard-copy>
     </div>
     <div id="blob-path" class="breadcrumb">
-      <span class="repo-root js-repo-root"><span class="js-path-segment"><a data-pjax="true" href="/jukisu23/pi-safe"><span>pi-safe</span></a></span></span><span class="separator">/</span><span class="js-path-segment"><a data-pjax="true" href="/jukisu23/pi-safe/tree/master/py"><span>py</span></a></span><span class="separator">/</span><strong class="final-path">server.py</strong>
+      <span class="repo-root js-repo-root"><span class="js-path-segment"><a data-pjax="true" href="/jukisu23/pi-safe"><span>pi-safe</span></a></span></span><span class="separator">/</span><span class="js-path-segment"><a data-pjax="true" href="/jukisu23/pi-safe/tree/master/py"><span>py</span></a></span><span class="separator">/</span><strong class="final-path">se.py</strong>
     </div>
   </div>
 
 
-  <include-fragment src="/jukisu23/pi-safe/contributors/master/py/server.py" class="commit-tease commit-loader">
+  <include-fragment src="/jukisu23/pi-safe/contributors/master/py/se.py" class="commit-tease commit-loader">
     <div>
       Fetching contributors&hellip;
     </div>
@@ -675,19 +675,19 @@
   <div class="file-actions">
 
     <div class="BtnGroup">
-      <a id="raw-url" class="btn btn-sm BtnGroup-item" href="/jukisu23/pi-safe/raw/master/py/server.py">Raw</a>
-        <a class="btn btn-sm js-update-url-with-hash BtnGroup-item" data-hotkey="b" href="/jukisu23/pi-safe/blame/master/py/server.py">Blame</a>
-      <a rel="nofollow" class="btn btn-sm BtnGroup-item" href="/jukisu23/pi-safe/commits/master/py/server.py">History</a>
+      <a id="raw-url" class="btn btn-sm BtnGroup-item" href="/jukisu23/pi-safe/raw/master/py/se.py">Raw</a>
+        <a class="btn btn-sm js-update-url-with-hash BtnGroup-item" data-hotkey="b" href="/jukisu23/pi-safe/blame/master/py/se.py">Blame</a>
+      <a rel="nofollow" class="btn btn-sm BtnGroup-item" href="/jukisu23/pi-safe/commits/master/py/se.py">History</a>
     </div>
 
 
-          <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="inline-form js-update-url-with-hash" action="/jukisu23/pi-safe/edit/master/py/server.py" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="vMGEI3AxY0Upolqyex+yVLrXvV1IGjGVKpQgAoJyG1VIGw58L+Nqdz4N+vW7suOmPTC/21mHVg4F+b/A0PuKdA==" />
+          <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="inline-form js-update-url-with-hash" action="/jukisu23/pi-safe/edit/master/py/se.py" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="oulGAra8pfrabayU5ZVAfEhAekSXqRvqJ7KLNlWHJu5D9estz4u8vviICKkMZvu8zD/9O+FflHgyCwJ4/Tezdw==" />
             <button class="btn-octicon tooltipped tooltipped-nw" type="submit"
               aria-label="Edit this file" data-hotkey="e" data-disable-with>
               <svg class="octicon octicon-pencil" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 0 1 1.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z"/></svg>
             </button>
 </form>
-        <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="inline-form" action="/jukisu23/pi-safe/delete/master/py/server.py" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="RB6Kkv8zIxpFEgbgOTinLy/4eAAP9r6B5TcuZB1Fx1oRTOJH0ebK6m+N0uPjef5R6UJi/6ygKvbDN2TUfQx5Zw==" />
+        <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="inline-form" action="/jukisu23/pi-safe/delete/master/py/se.py" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="cQDnsgDrUwIdzsrqyAxwk2wj4MewIhYvHqjcNNPB9d3cpDB6wcWxt0qyhUfytx3F0Q/48UBrLcKuxOpoC3VI8Q==" />
           <button class="btn-octicon btn-octicon-danger tooltipped tooltipped-nw" type="submit"
             aria-label="Delete this file" data-disable-with>
             <svg class="octicon octicon-trashcan" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M11 2H9c0-.55-.45-1-1-1H5c-.55 0-1 .45-1 1H2c-.55 0-1 .45-1 1v1c0 .55.45 1 1 1v9c0 .55.45 1 1 1h7c.55 0 1-.45 1-1V5c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1zm-1 12H3V5h1v8h1V5h1v8h1V5h1v8h1V5h1v9zm1-10H2V3h9v1z"/></svg>
@@ -697,9 +697,9 @@
   <div class="file-info">
       <span class="file-mode" title="File mode">executable file</span>
       <span class="file-info-divider"></span>
-      90 lines (73 sloc)
+      188 lines (185 sloc)
       <span class="file-info-divider"></span>
-    2.48 KB
+    6.86 KB
   </div>
 </div>
 
@@ -709,7 +709,7 @@
       <table class="highlight tab-size js-file-line-container" data-tab-size="8">
       <tr>
         <td id="L1" class="blob-num js-line-number" data-line-number="1"></td>
-        <td id="LC1" class="blob-code blob-code-inner js-file-line"><span class="pl-k">from</span> SimpleWebSocketServer <span class="pl-k">import</span> SimpleWebSocketServer, WebSocket</td>
+        <td id="LC1" class="blob-code blob-code-inner js-file-line"><span class="pl-k">import</span> RPi.<span class="pl-c1">GPIO</span> <span class="pl-k">as</span> <span class="pl-c1">GPIO</span></td>
       </tr>
       <tr>
         <td id="L2" class="blob-num js-line-number" data-line-number="2"></td>
@@ -717,367 +717,745 @@
       </tr>
       <tr>
         <td id="L3" class="blob-num js-line-number" data-line-number="3"></td>
-        <td id="LC3" class="blob-code blob-code-inner js-file-line"><span class="pl-k">import</span> logging</td>
+        <td id="LC3" class="blob-code blob-code-inner js-file-line"><span class="pl-k">import</span> time</td>
       </tr>
       <tr>
         <td id="L4" class="blob-num js-line-number" data-line-number="4"></td>
-        <td id="LC4" class="blob-code blob-code-inner js-file-line"><span class="pl-k">import</span> RPi.<span class="pl-c1">GPIO</span> <span class="pl-k">as</span> <span class="pl-c1">GPIO</span></td>
+        <td id="LC4" class="blob-code blob-code-inner js-file-line"><span class="pl-k">from</span> common <span class="pl-k">import</span> <span class="pl-k">*</span></td>
       </tr>
       <tr>
         <td id="L5" class="blob-num js-line-number" data-line-number="5"></td>
-        <td id="LC5" class="blob-code blob-code-inner js-file-line"><span class="pl-k">import</span> json</td>
+        <td id="LC5" class="blob-code blob-code-inner js-file-line"><span class="pl-k">from</span> actions <span class="pl-k">import</span> sendToClients</td>
       </tr>
       <tr>
         <td id="L6" class="blob-num js-line-number" data-line-number="6"></td>
-        <td id="LC6" class="blob-code blob-code-inner js-file-line"><span class="pl-k">from</span> actions <span class="pl-k">import</span> actions</td>
+        <td id="LC6" class="blob-code blob-code-inner js-file-line"><span class="pl-k">import</span> logging</td>
       </tr>
       <tr>
         <td id="L7" class="blob-num js-line-number" data-line-number="7"></td>
-        <td id="LC7" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> from se import *</span></td>
+        <td id="LC7" class="blob-code blob-code-inner js-file-line">
+</td>
       </tr>
       <tr>
         <td id="L8" class="blob-num js-line-number" data-line-number="8"></td>
-        <td id="LC8" class="blob-code blob-code-inner js-file-line"><span class="pl-k">from</span> common <span class="pl-k">import</span> <span class="pl-k">*</span></td>
+        <td id="LC8" class="blob-code blob-code-inner js-file-line"><span class="pl-c1">GPIO</span>.setmode(<span class="pl-c1">GPIO</span>.<span class="pl-c1">BCM</span>)</td>
       </tr>
       <tr>
         <td id="L9" class="blob-num js-line-number" data-line-number="9"></td>
-        <td id="LC9" class="blob-code blob-code-inner js-file-line"><span class="pl-k">import</span> se</td>
+        <td id="LC9" class="blob-code blob-code-inner js-file-line"><span class="pl-s"><span class="pl-pds">&#39;&#39;&#39;</span></span></td>
       </tr>
       <tr>
         <td id="L10" class="blob-num js-line-number" data-line-number="10"></td>
-        <td id="LC10" class="blob-code blob-code-inner js-file-line">
-</td>
+        <td id="LC10" class="blob-code blob-code-inner js-file-line"><span class="pl-s">class motorcontrol:</span></td>
       </tr>
       <tr>
         <td id="L11" class="blob-num js-line-number" data-line-number="11"></td>
-        <td id="LC11" class="blob-code blob-code-inner js-file-line"><span class="pl-c1">FORMAT</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">&quot;</span>[<span class="pl-c1">%(filename)s</span>:<span class="pl-c1">%(lineno)s</span> - <span class="pl-c1">%(funcName)15s</span>() ] <span class="pl-c1">%(message)s</span><span class="pl-pds">&quot;</span></span></td>
+        <td id="LC11" class="blob-code blob-code-inner js-file-line"><span class="pl-s"> 	def __init__(self):</span></td>
       </tr>
       <tr>
         <td id="L12" class="blob-num js-line-number" data-line-number="12"></td>
-        <td id="LC12" class="blob-code blob-code-inner js-file-line">logging.basicConfig(<span class="pl-v">format</span><span class="pl-k">=</span><span class="pl-c1">FORMAT</span>, <span class="pl-v">level</span><span class="pl-k">=</span>logging.<span class="pl-c1">DEBUG</span>)</td>
+        <td id="LC12" class="blob-code blob-code-inner js-file-line"><span class="pl-s">	    print &quot;Initializing Motors&quot;</span></td>
       </tr>
       <tr>
         <td id="L13" class="blob-num js-line-number" data-line-number="13"></td>
-        <td id="LC13" class="blob-code blob-code-inner js-file-line">
-</td>
+        <td id="LC13" class="blob-code blob-code-inner js-file-line"><span class="pl-s">	    # GPIO.setup(22, GPIO.OUT) #DIR1</span></td>
       </tr>
       <tr>
         <td id="L14" class="blob-num js-line-number" data-line-number="14"></td>
-        <td id="LC14" class="blob-code blob-code-inner js-file-line"><span class="pl-c1">GPIO</span>.setwarnings(<span class="pl-c1">False</span>)</td>
+        <td id="LC14" class="blob-code blob-code-inner js-file-line"><span class="pl-s">	    # GPIO.setup(23, GPIO.OUT) #DIR2</span></td>
       </tr>
       <tr>
         <td id="L15" class="blob-num js-line-number" data-line-number="15"></td>
-        <td id="LC15" class="blob-code blob-code-inner js-file-line">
-</td>
+        <td id="LC15" class="blob-code blob-code-inner js-file-line"><span class="pl-s">	    # GPIO.output(22, GPIO.HIGH)</span></td>
       </tr>
       <tr>
         <td id="L16" class="blob-num js-line-number" data-line-number="16"></td>
-        <td id="LC16" class="blob-code blob-code-inner js-file-line"><span class="pl-c1">GPIO</span>.setmode(<span class="pl-c1">GPIO</span>.<span class="pl-c1">BCM</span>)</td>
+        <td id="LC16" class="blob-code blob-code-inner js-file-line"><span class="pl-s">	    # GPIO.output(23, GPIO.HIGH)</span></td>
       </tr>
       <tr>
         <td id="L17" class="blob-num js-line-number" data-line-number="17"></td>
-        <td id="LC17" class="blob-code blob-code-inner js-file-line">
-</td>
+        <td id="LC17" class="blob-code blob-code-inner js-file-line"><span class="pl-s"> 	def rw_open(self):</span></td>
       </tr>
       <tr>
         <td id="L18" class="blob-num js-line-number" data-line-number="18"></td>
-        <td id="LC18" class="blob-code blob-code-inner js-file-line">se.initSe() <span class="pl-c"><span class="pl-c">#</span> init StateEngine</span></td>
+        <td id="LC18" class="blob-code blob-code-inner js-file-line"><span class="pl-s">	    print &quot;rw_open&quot;</span></td>
       </tr>
       <tr>
         <td id="L19" class="blob-num js-line-number" data-line-number="19"></td>
-        <td id="LC19" class="blob-code blob-code-inner js-file-line">
-</td>
+        <td id="LC19" class="blob-code blob-code-inner js-file-line"><span class="pl-s">	    GPIO.output(22, GPIO.LOW)</span></td>
       </tr>
       <tr>
         <td id="L20" class="blob-num js-line-number" data-line-number="20"></td>
-        <td id="LC20" class="blob-code blob-code-inner js-file-line">StateMachine <span class="pl-k">=</span> threading.Thread(<span class="pl-v">name</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">&#39;</span>stateMachine<span class="pl-pds">&#39;</span></span>, <span class="pl-v">target</span><span class="pl-k">=</span>se.StateEngine, <span class="pl-v">args</span><span class="pl-k">=</span>(unlock,))</td>
+        <td id="LC20" class="blob-code blob-code-inner js-file-line"><span class="pl-s">	    GPIO.output(23, GPIO.HIGH)</span></td>
       </tr>
       <tr>
         <td id="L21" class="blob-num js-line-number" data-line-number="21"></td>
-        <td id="LC21" class="blob-code blob-code-inner js-file-line">StateMachine.setDaemon(<span class="pl-c1">True</span>)</td>
+        <td id="LC21" class="blob-code blob-code-inner js-file-line"><span class="pl-s">	def rw_close(self):</span></td>
       </tr>
       <tr>
         <td id="L22" class="blob-num js-line-number" data-line-number="22"></td>
-        <td id="LC22" class="blob-code blob-code-inner js-file-line">
-</td>
+        <td id="LC22" class="blob-code blob-code-inner js-file-line"><span class="pl-s">	    print &quot;rw_close&quot;</span></td>
       </tr>
       <tr>
         <td id="L23" class="blob-num js-line-number" data-line-number="23"></td>
-        <td id="LC23" class="blob-code blob-code-inner js-file-line">StateMachine.start()</td>
+        <td id="LC23" class="blob-code blob-code-inner js-file-line"><span class="pl-s">	    GPIO.output(22, GPIO.HIGH)</span></td>
       </tr>
       <tr>
         <td id="L24" class="blob-num js-line-number" data-line-number="24"></td>
-        <td id="LC24" class="blob-code blob-code-inner js-file-line">
-</td>
+        <td id="LC24" class="blob-code blob-code-inner js-file-line"><span class="pl-s">	    GPIO.output(23, GPIO.LOW)</span></td>
       </tr>
       <tr>
         <td id="L25" class="blob-num js-line-number" data-line-number="25"></td>
-        <td id="LC25" class="blob-code blob-code-inner js-file-line">action <span class="pl-k">=</span> actions()</td>
+        <td id="LC25" class="blob-code blob-code-inner js-file-line"><span class="pl-s">	def rw_open(self):</span></td>
       </tr>
       <tr>
         <td id="L26" class="blob-num js-line-number" data-line-number="26"></td>
-        <td id="LC26" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> motorcontrol = motorcontrol()</span></td>
+        <td id="LC26" class="blob-code blob-code-inner js-file-line"><span class="pl-s">	    print &quot;rw_open&quot;</span></td>
       </tr>
       <tr>
         <td id="L27" class="blob-num js-line-number" data-line-number="27"></td>
-        <td id="LC27" class="blob-code blob-code-inner js-file-line">
-</td>
+        <td id="LC27" class="blob-code blob-code-inner js-file-line"><span class="pl-s">	    GPIO.output(22, GPIO.LOW)</span></td>
       </tr>
       <tr>
         <td id="L28" class="blob-num js-line-number" data-line-number="28"></td>
-        <td id="LC28" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> GPIO.setup(19, GPIO.IN, pull_up_down=GPIO.PUD_UP)</span></td>
+        <td id="LC28" class="blob-code blob-code-inner js-file-line"><span class="pl-s">	    GPIO.output(23, GPIO.HIGH)</span></td>
       </tr>
       <tr>
         <td id="L29" class="blob-num js-line-number" data-line-number="29"></td>
-        <td id="LC29" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span></span></td>
+        <td id="LC29" class="blob-code blob-code-inner js-file-line"><span class="pl-s">	def rw_init(self):</span></td>
       </tr>
       <tr>
         <td id="L30" class="blob-num js-line-number" data-line-number="30"></td>
-        <td id="LC30" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span></span></td>
+        <td id="LC30" class="blob-code blob-code-inner js-file-line"><span class="pl-s">		print &quot;init&quot;</span></td>
       </tr>
       <tr>
         <td id="L31" class="blob-num js-line-number" data-line-number="31"></td>
-        <td id="LC31" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> def my_callback(channel):</span></td>
+        <td id="LC31" class="blob-code blob-code-inner js-file-line"><span class="pl-s"><span class="pl-pds">&#39;&#39;&#39;</span></span></td>
       </tr>
       <tr>
         <td id="L32" class="blob-num js-line-number" data-line-number="32"></td>
-        <td id="LC32" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span>   print &quot;falling edge detected&quot;</span></td>
+        <td id="LC32" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span>class StateEngine(threading.Thread):</span></td>
       </tr>
       <tr>
         <td id="L33" class="blob-num js-line-number" data-line-number="33"></td>
-        <td id="LC33" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span>   for client in clients:</span></td>
+        <td id="LC33" class="blob-code blob-code-inner js-file-line"><span class="pl-k">def</span> <span class="pl-en">initSe</span>():</td>
       </tr>
       <tr>
         <td id="L34" class="blob-num js-line-number" data-line-number="34"></td>
-        <td id="LC34" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span>     client.sendMessage(u&quot;&quot;+json.dumps({&quot;action&quot;: &quot;text&quot;, &quot;item&quot;: &quot;div1&quot;, &quot;value&quot;: &quot;aus&quot;}))</span></td>
+        <td id="LC34" class="blob-code blob-code-inner js-file-line">    <span class="pl-c1">GPIO</span>.setup(mapping.door.out1, <span class="pl-c1">GPIO</span>.<span class="pl-c1">OUT</span>)</td>
       </tr>
       <tr>
         <td id="L35" class="blob-num js-line-number" data-line-number="35"></td>
-        <td id="LC35" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span>   GPIO.remove_event_detect(19)</span></td>
+        <td id="LC35" class="blob-code blob-code-inner js-file-line">    <span class="pl-c1">GPIO</span>.setup(mapping.door.out2, <span class="pl-c1">GPIO</span>.<span class="pl-c1">OUT</span>)</td>
       </tr>
       <tr>
         <td id="L36" class="blob-num js-line-number" data-line-number="36"></td>
-        <td id="LC36" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span>   GPIO.add_event_detect(19, GPIO.RISING, callback=my_callback2, bouncetime=300)</span></td>
+        <td id="LC36" class="blob-code blob-code-inner js-file-line">    <span class="pl-c1">GPIO</span>.setup(mapping.door.in1, <span class="pl-c1">GPIO</span>.<span class="pl-c1">IN</span>, <span class="pl-v">pull_up_down</span><span class="pl-k">=</span><span class="pl-c1">GPIO</span>.<span class="pl-c1">PUD_UP</span>)</td>
       </tr>
       <tr>
         <td id="L37" class="blob-num js-line-number" data-line-number="37"></td>
-        <td id="LC37" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span></span></td>
+        <td id="LC37" class="blob-code blob-code-inner js-file-line">    <span class="pl-c1">GPIO</span>.setup(mapping.lock.out1, <span class="pl-c1">GPIO</span>.<span class="pl-c1">OUT</span>)</td>
       </tr>
       <tr>
         <td id="L38" class="blob-num js-line-number" data-line-number="38"></td>
-        <td id="LC38" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> def my_callback2(channel):</span></td>
+        <td id="LC38" class="blob-code blob-code-inner js-file-line">    <span class="pl-c1">GPIO</span>.setup(mapping.lock.out2, <span class="pl-c1">GPIO</span>.<span class="pl-c1">OUT</span>)</td>
       </tr>
       <tr>
         <td id="L39" class="blob-num js-line-number" data-line-number="39"></td>
-        <td id="LC39" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span>   print &quot;rising edge detected&quot;</span></td>
+        <td id="LC39" class="blob-code blob-code-inner js-file-line">    <span class="pl-c1">GPIO</span>.setup(mapping.lock.in1, <span class="pl-c1">GPIO</span>.<span class="pl-c1">IN</span>, <span class="pl-v">pull_up_down</span><span class="pl-k">=</span><span class="pl-c1">GPIO</span>.<span class="pl-c1">PUD_UP</span>)</td>
       </tr>
       <tr>
         <td id="L40" class="blob-num js-line-number" data-line-number="40"></td>
-        <td id="LC40" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span>   for client in clients:</span></td>
+        <td id="LC40" class="blob-code blob-code-inner js-file-line">    <span class="pl-c1">GPIO</span>.setup(mapping.lock.in2, <span class="pl-c1">GPIO</span>.<span class="pl-c1">IN</span>, <span class="pl-v">pull_up_down</span><span class="pl-k">=</span><span class="pl-c1">GPIO</span>.<span class="pl-c1">PUD_UP</span>)</td>
       </tr>
       <tr>
         <td id="L41" class="blob-num js-line-number" data-line-number="41"></td>
-        <td id="LC41" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span>     client.sendMessage(u&#39;{&quot;action&quot;: &quot;text&quot;, &quot;item&quot;: &quot;div1&quot;, &quot;value&quot;: &quot;an&quot;}&#39;)</span></td>
+        <td id="LC41" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> state.state <span class="pl-k">==</span> state.stateName.index(<span class="pl-s"><span class="pl-pds">&quot;</span>init<span class="pl-pds">&quot;</span></span>):</td>
       </tr>
       <tr>
         <td id="L42" class="blob-num js-line-number" data-line-number="42"></td>
-        <td id="LC42" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span>   GPIO.remove_event_detect(19)</span></td>
+        <td id="LC42" class="blob-code blob-code-inner js-file-line">		logging.debug(<span class="pl-s"><span class="pl-pds">&quot;</span>Initializing StateEngine<span class="pl-pds">&quot;</span></span>)</td>
       </tr>
       <tr>
         <td id="L43" class="blob-num js-line-number" data-line-number="43"></td>
-        <td id="LC43" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span>   GPIO.add_event_detect(19, GPIO.FALLING, callback=my_callback, bouncetime=300)</span></td>
+        <td id="LC43" class="blob-code blob-code-inner js-file-line">    logging.debug(<span class="pl-s"><span class="pl-pds">&quot;</span>closing door<span class="pl-pds">&quot;</span></span>)</td>
       </tr>
       <tr>
         <td id="L44" class="blob-num js-line-number" data-line-number="44"></td>
-        <td id="LC44" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span></span></td>
+        <td id="LC44" class="blob-code blob-code-inner js-file-line">    d1 <span class="pl-k">=</span> <span class="pl-c1">GPIO</span>.PWM(mapping.door.out1, <span class="pl-c1">200</span>)</td>
       </tr>
       <tr>
         <td id="L45" class="blob-num js-line-number" data-line-number="45"></td>
-        <td id="LC45" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> GPIO.add_event_detect(19, GPIO.FALLING, callback=my_callback, bouncetime=300)</span></td>
+        <td id="LC45" class="blob-code blob-code-inner js-file-line">    d2 <span class="pl-k">=</span> <span class="pl-c1">GPIO</span>.PWM(mapping.door.out2, <span class="pl-c1">200</span>)</td>
       </tr>
       <tr>
         <td id="L46" class="blob-num js-line-number" data-line-number="46"></td>
-        <td id="LC46" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span>GPIO.add_event_detect(19, GPIO.RISING, callback=my_callback2, bouncetime=300)</span></td>
+        <td id="LC46" class="blob-code blob-code-inner js-file-line">    i <span class="pl-k">=</span> <span class="pl-c1">0</span></td>
       </tr>
       <tr>
         <td id="L47" class="blob-num js-line-number" data-line-number="47"></td>
-        <td id="LC47" class="blob-code blob-code-inner js-file-line">
-</td>
+        <td id="LC47" class="blob-code blob-code-inner js-file-line">    d1.start(i)</td>
       </tr>
       <tr>
         <td id="L48" class="blob-num js-line-number" data-line-number="48"></td>
-        <td id="LC48" class="blob-code blob-code-inner js-file-line">
-</td>
+        <td id="LC48" class="blob-code blob-code-inner js-file-line">    d2.start(<span class="pl-c1">0</span>)</td>
       </tr>
       <tr>
         <td id="L49" class="blob-num js-line-number" data-line-number="49"></td>
-        <td id="LC49" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> clients = [];</span></td>
+        <td id="LC49" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">while</span> <span class="pl-c1">GPIO</span>.input(mapping.door.in1):</td>
       </tr>
       <tr>
         <td id="L50" class="blob-num js-line-number" data-line-number="50"></td>
-        <td id="LC50" class="blob-code blob-code-inner js-file-line">
-</td>
+        <td id="LC50" class="blob-code blob-code-inner js-file-line">        i <span class="pl-k">+=</span> <span class="pl-c1">1</span> <span class="pl-k">if</span> i <span class="pl-k">&lt;</span> vclose <span class="pl-k">else</span> <span class="pl-c1">0</span></td>
       </tr>
       <tr>
         <td id="L51" class="blob-num js-line-number" data-line-number="51"></td>
-        <td id="LC51" class="blob-code blob-code-inner js-file-line"><span class="pl-k">def</span> <span class="pl-en">handle</span>(<span class="pl-smi">msg</span>):</td>
+        <td id="LC51" class="blob-code blob-code-inner js-file-line">        d1.ChangeDutyCycle(i)</td>
       </tr>
       <tr>
         <td id="L52" class="blob-num js-line-number" data-line-number="52"></td>
-        <td id="LC52" class="blob-code blob-code-inner js-file-line">  logging.debug(<span class="pl-s"><span class="pl-pds">&quot;</span>message income<span class="pl-pds">&quot;</span></span>)</td>
+        <td id="LC52" class="blob-code blob-code-inner js-file-line">        time.sleep(<span class="pl-c1">float</span>(rampDuration)<span class="pl-k">/</span>vclose)</td>
       </tr>
       <tr>
         <td id="L53" class="blob-num js-line-number" data-line-number="53"></td>
-        <td id="LC53" class="blob-code blob-code-inner js-file-line">  <span class="pl-c"><span class="pl-c">#</span> print msg</span></td>
+        <td id="LC53" class="blob-code blob-code-inner js-file-line">    d1.stop()</td>
       </tr>
       <tr>
         <td id="L54" class="blob-num js-line-number" data-line-number="54"></td>
-        <td id="LC54" class="blob-code blob-code-inner js-file-line">  event <span class="pl-k">=</span> json.loads(msg)</td>
+        <td id="LC54" class="blob-code blob-code-inner js-file-line">    d2.stop()</td>
       </tr>
       <tr>
         <td id="L55" class="blob-num js-line-number" data-line-number="55"></td>
-        <td id="LC55" class="blob-code blob-code-inner js-file-line">  logging.debug(<span class="pl-s"><span class="pl-pds">&quot;</span>action: <span class="pl-c1">%s</span><span class="pl-pds">&quot;</span></span>,event[<span class="pl-s"><span class="pl-pds">&quot;</span>action<span class="pl-pds">&quot;</span></span>])</td>
+        <td id="LC55" class="blob-code blob-code-inner js-file-line">    logging.debug(<span class="pl-s"><span class="pl-pds">&quot;</span>door closed<span class="pl-pds">&quot;</span></span>)</td>
       </tr>
       <tr>
         <td id="L56" class="blob-num js-line-number" data-line-number="56"></td>
-        <td id="LC56" class="blob-code blob-code-inner js-file-line">  <span class="pl-c"><span class="pl-c">#</span> echo = &quot;&quot;</span></td>
+        <td id="LC56" class="blob-code blob-code-inner js-file-line">    logging.debug(<span class="pl-s"><span class="pl-pds">&quot;</span>closing lock<span class="pl-pds">&quot;</span></span>)</td>
       </tr>
       <tr>
         <td id="L57" class="blob-num js-line-number" data-line-number="57"></td>
-        <td id="LC57" class="blob-code blob-code-inner js-file-line">  <span class="pl-k">if</span> <span class="pl-c1">hasattr</span>(action, event[<span class="pl-s"><span class="pl-pds">&quot;</span>action<span class="pl-pds">&quot;</span></span>]):</td>
+        <td id="LC57" class="blob-code blob-code-inner js-file-line">    l1 <span class="pl-k">=</span> <span class="pl-c1">GPIO</span>.PWM(mapping.lock.out1, <span class="pl-c1">200</span>)</td>
       </tr>
       <tr>
         <td id="L58" class="blob-num js-line-number" data-line-number="58"></td>
-        <td id="LC58" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">try</span>:</td>
+        <td id="LC58" class="blob-code blob-code-inner js-file-line">    l2 <span class="pl-k">=</span> <span class="pl-c1">GPIO</span>.PWM(mapping.lock.out2, <span class="pl-c1">200</span>)</td>
       </tr>
       <tr>
         <td id="L59" class="blob-num js-line-number" data-line-number="59"></td>
-        <td id="LC59" class="blob-code blob-code-inner js-file-line">      logging.debug(<span class="pl-s"><span class="pl-pds">&quot;</span>arguments: <span class="pl-c1">%s</span><span class="pl-pds">&quot;</span></span>,event[<span class="pl-s"><span class="pl-pds">&quot;</span>arg<span class="pl-pds">&quot;</span></span>])</td>
+        <td id="LC59" class="blob-code blob-code-inner js-file-line">    i <span class="pl-k">=</span> <span class="pl-c1">0</span></td>
       </tr>
       <tr>
         <td id="L60" class="blob-num js-line-number" data-line-number="60"></td>
-        <td id="LC60" class="blob-code blob-code-inner js-file-line">      <span class="pl-c1">getattr</span>(action, event[<span class="pl-s"><span class="pl-pds">&quot;</span>action<span class="pl-pds">&quot;</span></span>])(event[<span class="pl-s"><span class="pl-pds">&quot;</span>arg<span class="pl-pds">&quot;</span></span>])</td>
+        <td id="LC60" class="blob-code blob-code-inner js-file-line">    l1.start(<span class="pl-c1">0</span>)</td>
       </tr>
       <tr>
         <td id="L61" class="blob-num js-line-number" data-line-number="61"></td>
-        <td id="LC61" class="blob-code blob-code-inner js-file-line">      <span class="pl-c"><span class="pl-c">#</span> echo = function</span></td>
+        <td id="LC61" class="blob-code blob-code-inner js-file-line">    l2.start(i)</td>
       </tr>
       <tr>
         <td id="L62" class="blob-num js-line-number" data-line-number="62"></td>
-        <td id="LC62" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">except</span>:</td>
+        <td id="LC62" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">while</span> <span class="pl-c1">GPIO</span>.input(mapping.lock.in2):</td>
       </tr>
       <tr>
         <td id="L63" class="blob-num js-line-number" data-line-number="63"></td>
-        <td id="LC63" class="blob-code blob-code-inner js-file-line">      logging.debug(<span class="pl-s"><span class="pl-pds">&quot;</span>arguments: none<span class="pl-pds">&quot;</span></span>)</td>
+        <td id="LC63" class="blob-code blob-code-inner js-file-line">        i <span class="pl-k">+=</span> <span class="pl-c1">1</span> <span class="pl-k">if</span> i <span class="pl-k">&lt;</span> <span class="pl-c1">50</span> <span class="pl-k">else</span> <span class="pl-c1">0</span></td>
       </tr>
       <tr>
         <td id="L64" class="blob-num js-line-number" data-line-number="64"></td>
-        <td id="LC64" class="blob-code blob-code-inner js-file-line">      <span class="pl-c1">getattr</span>(action, event[<span class="pl-s"><span class="pl-pds">&quot;</span>action<span class="pl-pds">&quot;</span></span>])()</td>
+        <td id="LC64" class="blob-code blob-code-inner js-file-line">        l2.ChangeDutyCycle(i)</td>
       </tr>
       <tr>
         <td id="L65" class="blob-num js-line-number" data-line-number="65"></td>
-        <td id="LC65" class="blob-code blob-code-inner js-file-line">
-</td>
+        <td id="LC65" class="blob-code blob-code-inner js-file-line">        time.sleep(<span class="pl-c1">0.01</span>)</td>
       </tr>
       <tr>
         <td id="L66" class="blob-num js-line-number" data-line-number="66"></td>
-        <td id="LC66" class="blob-code blob-code-inner js-file-line"><span class="pl-k">class</span> <span class="pl-en">protocol</span>(<span class="pl-e">WebSocket</span>):</td>
+        <td id="LC66" class="blob-code blob-code-inner js-file-line">    l1.stop()</td>
       </tr>
       <tr>
         <td id="L67" class="blob-num js-line-number" data-line-number="67"></td>
-        <td id="LC67" class="blob-code blob-code-inner js-file-line">  <span class="pl-k">def</span> <span class="pl-en">handleMessage</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>):</td>
+        <td id="LC67" class="blob-code blob-code-inner js-file-line">    l2.stop()</td>
       </tr>
       <tr>
         <td id="L68" class="blob-num js-line-number" data-line-number="68"></td>
-        <td id="LC68" class="blob-code blob-code-inner js-file-line">    <span class="pl-c"><span class="pl-c">#</span> echo message back to client</span></td>
+        <td id="LC68" class="blob-code blob-code-inner js-file-line">    logging.debug(<span class="pl-s"><span class="pl-pds">&quot;</span>lock closed<span class="pl-pds">&quot;</span></span>)</td>
       </tr>
       <tr>
         <td id="L69" class="blob-num js-line-number" data-line-number="69"></td>
-        <td id="LC69" class="blob-code blob-code-inner js-file-line">    <span class="pl-c"><span class="pl-c">#</span> print self.data;</span></td>
+        <td id="LC69" class="blob-code blob-code-inner js-file-line">    logging.debug(<span class="pl-s"><span class="pl-pds">&quot;</span>motors initialized<span class="pl-pds">&quot;</span></span>)</td>
       </tr>
       <tr>
         <td id="L70" class="blob-num js-line-number" data-line-number="70"></td>
-        <td id="LC70" class="blob-code blob-code-inner js-file-line">
-</td>
+        <td id="LC70" class="blob-code blob-code-inner js-file-line">    state.state <span class="pl-k">=</span> state.stateName.index(<span class="pl-s"><span class="pl-pds">&#39;</span>locked<span class="pl-pds">&#39;</span></span>)</td>
       </tr>
       <tr>
         <td id="L71" class="blob-num js-line-number" data-line-number="71"></td>
-        <td id="LC71" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">for</span> client <span class="pl-k">in</span> clients:</td>
+        <td id="LC71" class="blob-code blob-code-inner js-file-line">
+</td>
       </tr>
       <tr>
         <td id="L72" class="blob-num js-line-number" data-line-number="72"></td>
-        <td id="LC72" class="blob-code blob-code-inner js-file-line">      client.sendMessage(<span class="pl-c1">self</span>.data)</td>
+        <td id="LC72" class="blob-code blob-code-inner js-file-line"><span class="pl-k">def</span> <span class="pl-en">StateEngine</span>(<span class="pl-smi">e</span>):</td>
       </tr>
       <tr>
         <td id="L73" class="blob-num js-line-number" data-line-number="73"></td>
-        <td id="LC73" class="blob-code blob-code-inner js-file-line">    handle(<span class="pl-c1">self</span>.data)</td>
+        <td id="LC73" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">while</span> <span class="pl-c1">1</span>:</td>
       </tr>
       <tr>
         <td id="L74" class="blob-num js-line-number" data-line-number="74"></td>
-        <td id="LC74" class="blob-code blob-code-inner js-file-line">
-</td>
+        <td id="LC74" class="blob-code blob-code-inner js-file-line">      time.sleep(<span class="pl-c1">0.1</span>)</td>
       </tr>
       <tr>
         <td id="L75" class="blob-num js-line-number" data-line-number="75"></td>
-        <td id="LC75" class="blob-code blob-code-inner js-file-line">  <span class="pl-k">def</span> <span class="pl-en">handleConnected</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>):</td>
+        <td id="LC75" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">if</span> e.isSet():</td>
       </tr>
       <tr>
         <td id="L76" class="blob-num js-line-number" data-line-number="76"></td>
-        <td id="LC76" class="blob-code blob-code-inner js-file-line">    logging.debug(<span class="pl-s"><span class="pl-pds">&#39;</span><span class="pl-c1">%s</span> connected<span class="pl-pds">&#39;</span></span>, <span class="pl-c1">self</span>.address)</td>
+        <td id="LC76" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">while</span> <span class="pl-c1">1</span>:</td>
       </tr>
       <tr>
         <td id="L77" class="blob-num js-line-number" data-line-number="77"></td>
-        <td id="LC77" class="blob-code blob-code-inner js-file-line">    <span class="pl-c"><span class="pl-c">#</span>for client in clients:</span></td>
+        <td id="LC77" class="blob-code blob-code-inner js-file-line">          time.sleep(<span class="pl-c1">0.05</span>)</td>
       </tr>
       <tr>
         <td id="L78" class="blob-num js-line-number" data-line-number="78"></td>
-        <td id="LC78" class="blob-code blob-code-inner js-file-line">    <span class="pl-c"><span class="pl-c">#</span>  client.sendMessage(u&quot;connected&quot;)</span></td>
+        <td id="LC78" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">if</span> e.isSet():</td>
       </tr>
       <tr>
         <td id="L79" class="blob-num js-line-number" data-line-number="79"></td>
-        <td id="LC79" class="blob-code blob-code-inner js-file-line">    clients.append(<span class="pl-c1">self</span>)</td>
+        <td id="LC79" class="blob-code blob-code-inner js-file-line">            state.state <span class="pl-k">=</span> state.stateName.index(<span class="pl-s"><span class="pl-pds">&#39;</span>rw_opening<span class="pl-pds">&#39;</span></span>)</td>
       </tr>
       <tr>
         <td id="L80" class="blob-num js-line-number" data-line-number="80"></td>
-        <td id="LC80" class="blob-code blob-code-inner js-file-line">
-</td>
+        <td id="LC80" class="blob-code blob-code-inner js-file-line">            sendToClients({<span class="pl-s"><span class="pl-pds">&quot;</span>action<span class="pl-pds">&quot;</span></span>: <span class="pl-s"><span class="pl-pds">&quot;</span>result_get_state<span class="pl-pds">&quot;</span></span>, <span class="pl-s"><span class="pl-pds">&quot;</span>value<span class="pl-pds">&quot;</span></span>: <span class="pl-c1">str</span>(state.state)})</td>
       </tr>
       <tr>
         <td id="L81" class="blob-num js-line-number" data-line-number="81"></td>
-        <td id="LC81" class="blob-code blob-code-inner js-file-line">  <span class="pl-k">def</span> <span class="pl-en">handleClose</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>):</td>
+        <td id="LC81" class="blob-code blob-code-inner js-file-line">            <span class="pl-c1">GPIO</span>.setmode(<span class="pl-c1">GPIO</span>.<span class="pl-c1">BCM</span>)</td>
       </tr>
       <tr>
         <td id="L82" class="blob-num js-line-number" data-line-number="82"></td>
-        <td id="LC82" class="blob-code blob-code-inner js-file-line">    logging.debug(<span class="pl-s"><span class="pl-pds">&#39;</span><span class="pl-c1">%s</span> closed<span class="pl-pds">&#39;</span></span>, <span class="pl-c1">self</span>.address)</td>
+        <td id="LC82" class="blob-code blob-code-inner js-file-line">            logging.debug(<span class="pl-s"><span class="pl-pds">&quot;</span>opening lock<span class="pl-pds">&quot;</span></span>)</td>
       </tr>
       <tr>
         <td id="L83" class="blob-num js-line-number" data-line-number="83"></td>
-        <td id="LC83" class="blob-code blob-code-inner js-file-line">    clients.remove(<span class="pl-c1">self</span>)</td>
+        <td id="LC83" class="blob-code blob-code-inner js-file-line">            l1 <span class="pl-k">=</span> <span class="pl-c1">GPIO</span>.PWM(mapping.lock.out1, <span class="pl-c1">200</span>)</td>
       </tr>
       <tr>
         <td id="L84" class="blob-num js-line-number" data-line-number="84"></td>
-        <td id="LC84" class="blob-code blob-code-inner js-file-line">
-</td>
+        <td id="LC84" class="blob-code blob-code-inner js-file-line">            l2 <span class="pl-k">=</span> <span class="pl-c1">GPIO</span>.PWM(mapping.lock.out2, <span class="pl-c1">200</span>)</td>
       </tr>
       <tr>
         <td id="L85" class="blob-num js-line-number" data-line-number="85"></td>
-        <td id="LC85" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span>getattr(action, &quot;testfun&quot;)()</span></td>
+        <td id="LC85" class="blob-code blob-code-inner js-file-line">            i <span class="pl-k">=</span> <span class="pl-c1">0</span></td>
       </tr>
       <tr>
         <td id="L86" class="blob-num js-line-number" data-line-number="86"></td>
-        <td id="LC86" class="blob-code blob-code-inner js-file-line">logging.debug(<span class="pl-s"><span class="pl-pds">&quot;</span>Starting WebSocket Server on localhost:8000<span class="pl-pds">&quot;</span></span>)</td>
+        <td id="LC86" class="blob-code blob-code-inner js-file-line">            l1.start(i)</td>
       </tr>
       <tr>
         <td id="L87" class="blob-num js-line-number" data-line-number="87"></td>
-        <td id="LC87" class="blob-code blob-code-inner js-file-line">server <span class="pl-k">=</span> SimpleWebSocketServer(<span class="pl-s"><span class="pl-pds">&#39;</span><span class="pl-pds">&#39;</span></span>, <span class="pl-c1">8000</span>, protocol)</td>
+        <td id="LC87" class="blob-code blob-code-inner js-file-line">            l2.start(<span class="pl-c1">0</span>)</td>
       </tr>
       <tr>
         <td id="L88" class="blob-num js-line-number" data-line-number="88"></td>
-        <td id="LC88" class="blob-code blob-code-inner js-file-line">logging.debug(<span class="pl-s"><span class="pl-pds">&quot;</span>WebSocket Server started at localhost:8000<span class="pl-pds">&quot;</span></span>)</td>
+        <td id="LC88" class="blob-code blob-code-inner js-file-line">            <span class="pl-c"><span class="pl-c">#</span> print &quot;PWMs initialized&quot;</span></td>
       </tr>
       <tr>
         <td id="L89" class="blob-num js-line-number" data-line-number="89"></td>
-        <td id="LC89" class="blob-code blob-code-inner js-file-line">server.serveforever()</td>
+        <td id="LC89" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">while</span> <span class="pl-c1">GPIO</span>.input(mapping.lock.in1):</td>
+      </tr>
+      <tr>
+        <td id="L90" class="blob-num js-line-number" data-line-number="90"></td>
+        <td id="LC90" class="blob-code blob-code-inner js-file-line">              <span class="pl-c"><span class="pl-c">#</span> print &quot;moving lock&quot;, i</span></td>
+      </tr>
+      <tr>
+        <td id="L91" class="blob-num js-line-number" data-line-number="91"></td>
+        <td id="LC91" class="blob-code blob-code-inner js-file-line">              i <span class="pl-k">+=</span> <span class="pl-c1">1</span> <span class="pl-k">if</span> i <span class="pl-k">&lt;</span> <span class="pl-c1">100</span> <span class="pl-k">else</span> <span class="pl-c1">0</span></td>
+      </tr>
+      <tr>
+        <td id="L92" class="blob-num js-line-number" data-line-number="92"></td>
+        <td id="LC92" class="blob-code blob-code-inner js-file-line">              l1.ChangeDutyCycle(i)</td>
+      </tr>
+      <tr>
+        <td id="L93" class="blob-num js-line-number" data-line-number="93"></td>
+        <td id="LC93" class="blob-code blob-code-inner js-file-line">              time.sleep(<span class="pl-c1">0.01</span>)</td>
+      </tr>
+      <tr>
+        <td id="L94" class="blob-num js-line-number" data-line-number="94"></td>
+        <td id="LC94" class="blob-code blob-code-inner js-file-line">            l1.stop()</td>
+      </tr>
+      <tr>
+        <td id="L95" class="blob-num js-line-number" data-line-number="95"></td>
+        <td id="LC95" class="blob-code blob-code-inner js-file-line">            l2.stop()</td>
+      </tr>
+      <tr>
+        <td id="L96" class="blob-num js-line-number" data-line-number="96"></td>
+        <td id="LC96" class="blob-code blob-code-inner js-file-line">            logging.debug(<span class="pl-s"><span class="pl-pds">&quot;</span>lock open<span class="pl-pds">&quot;</span></span>)</td>
+      </tr>
+      <tr>
+        <td id="L97" class="blob-num js-line-number" data-line-number="97"></td>
+        <td id="LC97" class="blob-code blob-code-inner js-file-line">            state.state <span class="pl-k">=</span> state.stateName.index(<span class="pl-s"><span class="pl-pds">&#39;</span>rw_unlocked<span class="pl-pds">&#39;</span></span>)</td>
+      </tr>
+      <tr>
+        <td id="L98" class="blob-num js-line-number" data-line-number="98"></td>
+        <td id="LC98" class="blob-code blob-code-inner js-file-line">            sendToClients({<span class="pl-s"><span class="pl-pds">&quot;</span>action<span class="pl-pds">&quot;</span></span>: <span class="pl-s"><span class="pl-pds">&quot;</span>result_get_state<span class="pl-pds">&quot;</span></span>, <span class="pl-s"><span class="pl-pds">&quot;</span>value<span class="pl-pds">&quot;</span></span>: <span class="pl-c1">str</span>(state.state)})</td>
+      </tr>
+      <tr>
+        <td id="L99" class="blob-num js-line-number" data-line-number="99"></td>
+        <td id="LC99" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">if</span> openDuration <span class="pl-k">&lt;</span> <span class="pl-c1">2</span> <span class="pl-k">*</span> rampDuration:</td>
+      </tr>
+      <tr>
+        <td id="L100" class="blob-num js-line-number" data-line-number="100"></td>
+        <td id="LC100" class="blob-code blob-code-inner js-file-line">              logging.warning(<span class="pl-s"><span class="pl-pds">&quot;</span>cant open door, please set openDuration &gt; 2 * rampDuration<span class="pl-pds">&quot;</span></span>)</td>
+      </tr>
+      <tr>
+        <td id="L101" class="blob-num js-line-number" data-line-number="101"></td>
+        <td id="LC101" class="blob-code blob-code-inner js-file-line">              e.clear()</td>
+      </tr>
+      <tr>
+        <td id="L102" class="blob-num js-line-number" data-line-number="102"></td>
+        <td id="LC102" class="blob-code blob-code-inner js-file-line">              <span class="pl-k">break</span></td>
+      </tr>
+      <tr>
+        <td id="L103" class="blob-num js-line-number" data-line-number="103"></td>
+        <td id="LC103" class="blob-code blob-code-inner js-file-line">            logging.debug(<span class="pl-s"><span class="pl-pds">&quot;</span>opening door<span class="pl-pds">&quot;</span></span>)</td>
+      </tr>
+      <tr>
+        <td id="L104" class="blob-num js-line-number" data-line-number="104"></td>
+        <td id="LC104" class="blob-code blob-code-inner js-file-line">            state.state <span class="pl-k">=</span> state.stateName.index(<span class="pl-s"><span class="pl-pds">&#39;</span>safe_door_opening<span class="pl-pds">&#39;</span></span>)</td>
+      </tr>
+      <tr>
+        <td id="L105" class="blob-num js-line-number" data-line-number="105"></td>
+        <td id="LC105" class="blob-code blob-code-inner js-file-line">            sendToClients({<span class="pl-s"><span class="pl-pds">&quot;</span>action<span class="pl-pds">&quot;</span></span>: <span class="pl-s"><span class="pl-pds">&quot;</span>result_get_state<span class="pl-pds">&quot;</span></span>, <span class="pl-s"><span class="pl-pds">&quot;</span>value<span class="pl-pds">&quot;</span></span>: <span class="pl-c1">str</span>(state.state)})</td>
+      </tr>
+      <tr>
+        <td id="L106" class="blob-num js-line-number" data-line-number="106"></td>
+        <td id="LC106" class="blob-code blob-code-inner js-file-line">            d1 <span class="pl-k">=</span> <span class="pl-c1">GPIO</span>.PWM(mapping.door.out1, <span class="pl-c1">200</span>)</td>
+      </tr>
+      <tr>
+        <td id="L107" class="blob-num js-line-number" data-line-number="107"></td>
+        <td id="LC107" class="blob-code blob-code-inner js-file-line">            d2 <span class="pl-k">=</span> <span class="pl-c1">GPIO</span>.PWM(mapping.door.out2, <span class="pl-c1">200</span>)</td>
+      </tr>
+      <tr>
+        <td id="L108" class="blob-num js-line-number" data-line-number="108"></td>
+        <td id="LC108" class="blob-code blob-code-inner js-file-line">            i <span class="pl-k">=</span> <span class="pl-c1">0</span></td>
+      </tr>
+      <tr>
+        <td id="L109" class="blob-num js-line-number" data-line-number="109"></td>
+        <td id="LC109" class="blob-code blob-code-inner js-file-line">            d1.start(<span class="pl-c1">0</span>)</td>
+      </tr>
+      <tr>
+        <td id="L110" class="blob-num js-line-number" data-line-number="110"></td>
+        <td id="LC110" class="blob-code blob-code-inner js-file-line">            d2.start(i)</td>
+      </tr>
+      <tr>
+        <td id="L111" class="blob-num js-line-number" data-line-number="111"></td>
+        <td id="LC111" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">if</span> vmax <span class="pl-k">&gt;</span> <span class="pl-c1">100</span>:</td>
+      </tr>
+      <tr>
+        <td id="L112" class="blob-num js-line-number" data-line-number="112"></td>
+        <td id="LC112" class="blob-code blob-code-inner js-file-line">              logging.warning(<span class="pl-s"><span class="pl-pds">&quot;</span>cant open door, please set vmax &lt;= 100<span class="pl-pds">&quot;</span></span>)</td>
+      </tr>
+      <tr>
+        <td id="L113" class="blob-num js-line-number" data-line-number="113"></td>
+        <td id="LC113" class="blob-code blob-code-inner js-file-line">              <span class="pl-k">break</span></td>
+      </tr>
+      <tr>
+        <td id="L114" class="blob-num js-line-number" data-line-number="114"></td>
+        <td id="LC114" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">while</span> i <span class="pl-k">&lt;</span> vmax:</td>
+      </tr>
+      <tr>
+        <td id="L115" class="blob-num js-line-number" data-line-number="115"></td>
+        <td id="LC115" class="blob-code blob-code-inner js-file-line">              i <span class="pl-k">+=</span> <span class="pl-c1">1</span></td>
+      </tr>
+      <tr>
+        <td id="L116" class="blob-num js-line-number" data-line-number="116"></td>
+        <td id="LC116" class="blob-code blob-code-inner js-file-line">              d2.ChangeDutyCycle(i)</td>
+      </tr>
+      <tr>
+        <td id="L117" class="blob-num js-line-number" data-line-number="117"></td>
+        <td id="LC117" class="blob-code blob-code-inner js-file-line">              time.sleep(<span class="pl-c1">float</span>(rampDuration)<span class="pl-k">/</span>vmax)</td>
+      </tr>
+      <tr>
+        <td id="L118" class="blob-num js-line-number" data-line-number="118"></td>
+        <td id="LC118" class="blob-code blob-code-inner js-file-line">            before <span class="pl-k">=</span> time.time()</td>
+      </tr>
+      <tr>
+        <td id="L119" class="blob-num js-line-number" data-line-number="119"></td>
+        <td id="LC119" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">while</span> before <span class="pl-k">+</span> (openDuration <span class="pl-k">-</span> <span class="pl-c1">2</span> <span class="pl-k">*</span> rampDuration) <span class="pl-k">&gt;</span> time.time():</td>
+      </tr>
+      <tr>
+        <td id="L120" class="blob-num js-line-number" data-line-number="120"></td>
+        <td id="LC120" class="blob-code blob-code-inner js-file-line">              time.sleep(<span class="pl-c1">0.1</span>)</td>
+      </tr>
+      <tr>
+        <td id="L121" class="blob-num js-line-number" data-line-number="121"></td>
+        <td id="LC121" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">while</span> i <span class="pl-k">&gt;</span> <span class="pl-c1">0</span>:</td>
+      </tr>
+      <tr>
+        <td id="L122" class="blob-num js-line-number" data-line-number="122"></td>
+        <td id="LC122" class="blob-code blob-code-inner js-file-line">              i <span class="pl-k">-=</span> <span class="pl-c1">1</span></td>
+      </tr>
+      <tr>
+        <td id="L123" class="blob-num js-line-number" data-line-number="123"></td>
+        <td id="LC123" class="blob-code blob-code-inner js-file-line">              d2.ChangeDutyCycle(i)</td>
+      </tr>
+      <tr>
+        <td id="L124" class="blob-num js-line-number" data-line-number="124"></td>
+        <td id="LC124" class="blob-code blob-code-inner js-file-line">              time.sleep(<span class="pl-c1">float</span>(rampDuration)<span class="pl-k">/</span>vmax)</td>
+      </tr>
+      <tr>
+        <td id="L125" class="blob-num js-line-number" data-line-number="125"></td>
+        <td id="LC125" class="blob-code blob-code-inner js-file-line">            d1.stop()</td>
+      </tr>
+      <tr>
+        <td id="L126" class="blob-num js-line-number" data-line-number="126"></td>
+        <td id="LC126" class="blob-code blob-code-inner js-file-line">            d2.stop()</td>
+      </tr>
+      <tr>
+        <td id="L127" class="blob-num js-line-number" data-line-number="127"></td>
+        <td id="LC127" class="blob-code blob-code-inner js-file-line">            logging.debug(<span class="pl-s"><span class="pl-pds">&quot;</span>unlocked<span class="pl-pds">&quot;</span></span>)</td>
+      </tr>
+      <tr>
+        <td id="L128" class="blob-num js-line-number" data-line-number="128"></td>
+        <td id="LC128" class="blob-code blob-code-inner js-file-line">            state.state <span class="pl-k">=</span> state.stateName.index(<span class="pl-s"><span class="pl-pds">&#39;</span>unlocked<span class="pl-pds">&#39;</span></span>)</td>
+      </tr>
+      <tr>
+        <td id="L129" class="blob-num js-line-number" data-line-number="129"></td>
+        <td id="LC129" class="blob-code blob-code-inner js-file-line">            sendToClients({<span class="pl-s"><span class="pl-pds">&quot;</span>action<span class="pl-pds">&quot;</span></span>: <span class="pl-s"><span class="pl-pds">&quot;</span>result_get_state<span class="pl-pds">&quot;</span></span>, <span class="pl-s"><span class="pl-pds">&quot;</span>value<span class="pl-pds">&quot;</span></span>: <span class="pl-c1">str</span>(state.state)})</td>
+      </tr>
+      <tr>
+        <td id="L130" class="blob-num js-line-number" data-line-number="130"></td>
+        <td id="LC130" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">while</span> e.isSet():</td>
+      </tr>
+      <tr>
+        <td id="L131" class="blob-num js-line-number" data-line-number="131"></td>
+        <td id="LC131" class="blob-code blob-code-inner js-file-line">              time.sleep(<span class="pl-c1">0.1</span>)</td>
+      </tr>
+      <tr>
+        <td id="L132" class="blob-num js-line-number" data-line-number="132"></td>
+        <td id="LC132" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">else</span>:</td>
+      </tr>
+      <tr>
+        <td id="L133" class="blob-num js-line-number" data-line-number="133"></td>
+        <td id="LC133" class="blob-code blob-code-inner js-file-line">            state.state <span class="pl-k">=</span> state.stateName.index(<span class="pl-s"><span class="pl-pds">&#39;</span>rw_unlocked<span class="pl-pds">&#39;</span></span>)</td>
+      </tr>
+      <tr>
+        <td id="L134" class="blob-num js-line-number" data-line-number="134"></td>
+        <td id="LC134" class="blob-code blob-code-inner js-file-line">            sendToClients({<span class="pl-s"><span class="pl-pds">&quot;</span>action<span class="pl-pds">&quot;</span></span>: <span class="pl-s"><span class="pl-pds">&quot;</span>result_get_state<span class="pl-pds">&quot;</span></span>, <span class="pl-s"><span class="pl-pds">&quot;</span>value<span class="pl-pds">&quot;</span></span>: <span class="pl-c1">str</span>(state.state)})</td>
+      </tr>
+      <tr>
+        <td id="L135" class="blob-num js-line-number" data-line-number="135"></td>
+        <td id="LC135" class="blob-code blob-code-inner js-file-line">            <span class="pl-c1">GPIO</span>.setmode(<span class="pl-c1">GPIO</span>.<span class="pl-c1">BCM</span>)</td>
+      </tr>
+      <tr>
+        <td id="L136" class="blob-num js-line-number" data-line-number="136"></td>
+        <td id="LC136" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">if</span> openDuration <span class="pl-k">&lt;</span> <span class="pl-c1">2</span> <span class="pl-k">*</span> rampDuration:</td>
+      </tr>
+      <tr>
+        <td id="L137" class="blob-num js-line-number" data-line-number="137"></td>
+        <td id="LC137" class="blob-code blob-code-inner js-file-line">              logging.warning(<span class="pl-s"><span class="pl-pds">&quot;</span>cant close door, please set openDuration &gt; 2 * rampDuration<span class="pl-pds">&quot;</span></span>)</td>
+      </tr>
+      <tr>
+        <td id="L138" class="blob-num js-line-number" data-line-number="138"></td>
+        <td id="LC138" class="blob-code blob-code-inner js-file-line">              e.set()</td>
+      </tr>
+      <tr>
+        <td id="L139" class="blob-num js-line-number" data-line-number="139"></td>
+        <td id="LC139" class="blob-code blob-code-inner js-file-line">              <span class="pl-k">break</span></td>
+      </tr>
+      <tr>
+        <td id="L140" class="blob-num js-line-number" data-line-number="140"></td>
+        <td id="LC140" class="blob-code blob-code-inner js-file-line">            logging.debug(<span class="pl-s"><span class="pl-pds">&quot;</span>closing door<span class="pl-pds">&quot;</span></span>)</td>
+      </tr>
+      <tr>
+        <td id="L141" class="blob-num js-line-number" data-line-number="141"></td>
+        <td id="LC141" class="blob-code blob-code-inner js-file-line">            state.state <span class="pl-k">=</span> state.stateName.index(<span class="pl-s"><span class="pl-pds">&#39;</span>safe_door_closing<span class="pl-pds">&#39;</span></span>)</td>
+      </tr>
+      <tr>
+        <td id="L142" class="blob-num js-line-number" data-line-number="142"></td>
+        <td id="LC142" class="blob-code blob-code-inner js-file-line">            sendToClients({<span class="pl-s"><span class="pl-pds">&quot;</span>action<span class="pl-pds">&quot;</span></span>: <span class="pl-s"><span class="pl-pds">&quot;</span>result_get_state<span class="pl-pds">&quot;</span></span>, <span class="pl-s"><span class="pl-pds">&quot;</span>value<span class="pl-pds">&quot;</span></span>: <span class="pl-c1">str</span>(state.state)})</td>
+      </tr>
+      <tr>
+        <td id="L143" class="blob-num js-line-number" data-line-number="143"></td>
+        <td id="LC143" class="blob-code blob-code-inner js-file-line">            d1 <span class="pl-k">=</span> <span class="pl-c1">GPIO</span>.PWM(mapping.door.out1, <span class="pl-c1">200</span>)</td>
+      </tr>
+      <tr>
+        <td id="L144" class="blob-num js-line-number" data-line-number="144"></td>
+        <td id="LC144" class="blob-code blob-code-inner js-file-line">            d2 <span class="pl-k">=</span> <span class="pl-c1">GPIO</span>.PWM(mapping.door.out2, <span class="pl-c1">200</span>)</td>
+      </tr>
+      <tr>
+        <td id="L145" class="blob-num js-line-number" data-line-number="145"></td>
+        <td id="LC145" class="blob-code blob-code-inner js-file-line">            i <span class="pl-k">=</span> <span class="pl-c1">0</span></td>
+      </tr>
+      <tr>
+        <td id="L146" class="blob-num js-line-number" data-line-number="146"></td>
+        <td id="LC146" class="blob-code blob-code-inner js-file-line">            d1.start(i)</td>
+      </tr>
+      <tr>
+        <td id="L147" class="blob-num js-line-number" data-line-number="147"></td>
+        <td id="LC147" class="blob-code blob-code-inner js-file-line">            d2.start(<span class="pl-c1">0</span>)</td>
+      </tr>
+      <tr>
+        <td id="L148" class="blob-num js-line-number" data-line-number="148"></td>
+        <td id="LC148" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">if</span> vmax <span class="pl-k">&gt;</span> <span class="pl-c1">100</span>:</td>
+      </tr>
+      <tr>
+        <td id="L149" class="blob-num js-line-number" data-line-number="149"></td>
+        <td id="LC149" class="blob-code blob-code-inner js-file-line">              logging.warning(<span class="pl-s"><span class="pl-pds">&quot;</span>cant close door, please set vmax &lt;= 100<span class="pl-pds">&quot;</span></span>)</td>
+      </tr>
+      <tr>
+        <td id="L150" class="blob-num js-line-number" data-line-number="150"></td>
+        <td id="LC150" class="blob-code blob-code-inner js-file-line">              <span class="pl-k">break</span></td>
+      </tr>
+      <tr>
+        <td id="L151" class="blob-num js-line-number" data-line-number="151"></td>
+        <td id="LC151" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">while</span> i <span class="pl-k">&lt;</span> vmax <span class="pl-k">and</span> <span class="pl-c1">GPIO</span>.input(mapping.door.in1):</td>
+      </tr>
+      <tr>
+        <td id="L152" class="blob-num js-line-number" data-line-number="152"></td>
+        <td id="LC152" class="blob-code blob-code-inner js-file-line">              i <span class="pl-k">+=</span> <span class="pl-c1">1</span></td>
+      </tr>
+      <tr>
+        <td id="L153" class="blob-num js-line-number" data-line-number="153"></td>
+        <td id="LC153" class="blob-code blob-code-inner js-file-line">              d1.ChangeDutyCycle(i)</td>
+      </tr>
+      <tr>
+        <td id="L154" class="blob-num js-line-number" data-line-number="154"></td>
+        <td id="LC154" class="blob-code blob-code-inner js-file-line">              time.sleep(<span class="pl-c1">float</span>(rampDuration)<span class="pl-k">/</span>vmax)</td>
+      </tr>
+      <tr>
+        <td id="L155" class="blob-num js-line-number" data-line-number="155"></td>
+        <td id="LC155" class="blob-code blob-code-inner js-file-line">            before <span class="pl-k">=</span> time.time()</td>
+      </tr>
+      <tr>
+        <td id="L156" class="blob-num js-line-number" data-line-number="156"></td>
+        <td id="LC156" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">while</span> before <span class="pl-k">+</span> (openDuration <span class="pl-k">-</span> <span class="pl-c1">2</span> <span class="pl-k">*</span> rampDuration <span class="pl-k">-</span> <span class="pl-c1">1</span>) <span class="pl-k">&gt;</span> time.time() <span class="pl-k">and</span> <span class="pl-c1">GPIO</span>.input(mapping.door.in1):</td>
+      </tr>
+      <tr>
+        <td id="L157" class="blob-num js-line-number" data-line-number="157"></td>
+        <td id="LC157" class="blob-code blob-code-inner js-file-line">              time.sleep(<span class="pl-c1">0.1</span>)</td>
+      </tr>
+      <tr>
+        <td id="L158" class="blob-num js-line-number" data-line-number="158"></td>
+        <td id="LC158" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">while</span> i <span class="pl-k">&gt;</span> vclose <span class="pl-k">and</span> <span class="pl-c1">GPIO</span>.input(mapping.door.in1):</td>
+      </tr>
+      <tr>
+        <td id="L159" class="blob-num js-line-number" data-line-number="159"></td>
+        <td id="LC159" class="blob-code blob-code-inner js-file-line">              i <span class="pl-k">-=</span> <span class="pl-c1">1</span></td>
+      </tr>
+      <tr>
+        <td id="L160" class="blob-num js-line-number" data-line-number="160"></td>
+        <td id="LC160" class="blob-code blob-code-inner js-file-line">              d1.ChangeDutyCycle(i)</td>
+      </tr>
+      <tr>
+        <td id="L161" class="blob-num js-line-number" data-line-number="161"></td>
+        <td id="LC161" class="blob-code blob-code-inner js-file-line">              time.sleep(<span class="pl-c1">float</span>(rampDuration)<span class="pl-k">/</span>vmax)</td>
+      </tr>
+      <tr>
+        <td id="L162" class="blob-num js-line-number" data-line-number="162"></td>
+        <td id="LC162" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">while</span> <span class="pl-c1">GPIO</span>.input(mapping.door.in1):</td>
+      </tr>
+      <tr>
+        <td id="L163" class="blob-num js-line-number" data-line-number="163"></td>
+        <td id="LC163" class="blob-code blob-code-inner js-file-line">              time.sleep(<span class="pl-c1">0.1</span>)</td>
+      </tr>
+      <tr>
+        <td id="L164" class="blob-num js-line-number" data-line-number="164"></td>
+        <td id="LC164" class="blob-code blob-code-inner js-file-line">            d1.stop()</td>
+      </tr>
+      <tr>
+        <td id="L165" class="blob-num js-line-number" data-line-number="165"></td>
+        <td id="LC165" class="blob-code blob-code-inner js-file-line">            d2.stop()</td>
+      </tr>
+      <tr>
+        <td id="L166" class="blob-num js-line-number" data-line-number="166"></td>
+        <td id="LC166" class="blob-code blob-code-inner js-file-line">            logging.debug(<span class="pl-s"><span class="pl-pds">&quot;</span>door closed<span class="pl-pds">&quot;</span></span>)</td>
+      </tr>
+      <tr>
+        <td id="L167" class="blob-num js-line-number" data-line-number="167"></td>
+        <td id="LC167" class="blob-code blob-code-inner js-file-line">            state.state <span class="pl-k">=</span> state.stateName.index(<span class="pl-s"><span class="pl-pds">&#39;</span>rw_unlocked<span class="pl-pds">&#39;</span></span>)</td>
+      </tr>
+      <tr>
+        <td id="L168" class="blob-num js-line-number" data-line-number="168"></td>
+        <td id="LC168" class="blob-code blob-code-inner js-file-line">            sendToClients({<span class="pl-s"><span class="pl-pds">&quot;</span>action<span class="pl-pds">&quot;</span></span>: <span class="pl-s"><span class="pl-pds">&quot;</span>result_get_state<span class="pl-pds">&quot;</span></span>, <span class="pl-s"><span class="pl-pds">&quot;</span>value<span class="pl-pds">&quot;</span></span>: <span class="pl-c1">str</span>(state.state)})</td>
+      </tr>
+      <tr>
+        <td id="L169" class="blob-num js-line-number" data-line-number="169"></td>
+        <td id="LC169" class="blob-code blob-code-inner js-file-line">            logging.debug(<span class="pl-s"><span class="pl-pds">&quot;</span>closing lock<span class="pl-pds">&quot;</span></span>)</td>
+      </tr>
+      <tr>
+        <td id="L170" class="blob-num js-line-number" data-line-number="170"></td>
+        <td id="LC170" class="blob-code blob-code-inner js-file-line">            l1 <span class="pl-k">=</span> <span class="pl-c1">GPIO</span>.PWM(mapping.lock.out1, <span class="pl-c1">200</span>)</td>
+      </tr>
+      <tr>
+        <td id="L171" class="blob-num js-line-number" data-line-number="171"></td>
+        <td id="LC171" class="blob-code blob-code-inner js-file-line">            l2 <span class="pl-k">=</span> <span class="pl-c1">GPIO</span>.PWM(mapping.lock.out2, <span class="pl-c1">200</span>)</td>
+      </tr>
+      <tr>
+        <td id="L172" class="blob-num js-line-number" data-line-number="172"></td>
+        <td id="LC172" class="blob-code blob-code-inner js-file-line">            i <span class="pl-k">=</span> <span class="pl-c1">0</span></td>
+      </tr>
+      <tr>
+        <td id="L173" class="blob-num js-line-number" data-line-number="173"></td>
+        <td id="LC173" class="blob-code blob-code-inner js-file-line">            l1.start(<span class="pl-c1">0</span>)</td>
+      </tr>
+      <tr>
+        <td id="L174" class="blob-num js-line-number" data-line-number="174"></td>
+        <td id="LC174" class="blob-code blob-code-inner js-file-line">            l2.start(i)</td>
+      </tr>
+      <tr>
+        <td id="L175" class="blob-num js-line-number" data-line-number="175"></td>
+        <td id="LC175" class="blob-code blob-code-inner js-file-line">            <span class="pl-c"><span class="pl-c">#</span> print &quot;PWMs initialized&quot;</span></td>
+      </tr>
+      <tr>
+        <td id="L176" class="blob-num js-line-number" data-line-number="176"></td>
+        <td id="LC176" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">while</span> <span class="pl-c1">GPIO</span>.input(mapping.lock.in2):</td>
+      </tr>
+      <tr>
+        <td id="L177" class="blob-num js-line-number" data-line-number="177"></td>
+        <td id="LC177" class="blob-code blob-code-inner js-file-line">              <span class="pl-c"><span class="pl-c">#</span> print &quot;moving lock&quot;, i</span></td>
+      </tr>
+      <tr>
+        <td id="L178" class="blob-num js-line-number" data-line-number="178"></td>
+        <td id="LC178" class="blob-code blob-code-inner js-file-line">              i <span class="pl-k">+=</span> <span class="pl-c1">1</span> <span class="pl-k">if</span> i <span class="pl-k">&lt;</span> <span class="pl-c1">70</span> <span class="pl-k">else</span> <span class="pl-c1">0</span></td>
+      </tr>
+      <tr>
+        <td id="L179" class="blob-num js-line-number" data-line-number="179"></td>
+        <td id="LC179" class="blob-code blob-code-inner js-file-line">              l2.ChangeDutyCycle(i)</td>
+      </tr>
+      <tr>
+        <td id="L180" class="blob-num js-line-number" data-line-number="180"></td>
+        <td id="LC180" class="blob-code blob-code-inner js-file-line">              time.sleep(<span class="pl-c1">0.01</span>)</td>
+      </tr>
+      <tr>
+        <td id="L181" class="blob-num js-line-number" data-line-number="181"></td>
+        <td id="LC181" class="blob-code blob-code-inner js-file-line">            l1.stop()</td>
+      </tr>
+      <tr>
+        <td id="L182" class="blob-num js-line-number" data-line-number="182"></td>
+        <td id="LC182" class="blob-code blob-code-inner js-file-line">            l2.stop()</td>
+      </tr>
+      <tr>
+        <td id="L183" class="blob-num js-line-number" data-line-number="183"></td>
+        <td id="LC183" class="blob-code blob-code-inner js-file-line">            logging.debug(<span class="pl-s"><span class="pl-pds">&quot;</span>lock closed<span class="pl-pds">&quot;</span></span>)</td>
+      </tr>
+      <tr>
+        <td id="L184" class="blob-num js-line-number" data-line-number="184"></td>
+        <td id="LC184" class="blob-code blob-code-inner js-file-line">            state.state <span class="pl-k">=</span> state.stateName.index(<span class="pl-s"><span class="pl-pds">&#39;</span>locked<span class="pl-pds">&#39;</span></span>)</td>
+      </tr>
+      <tr>
+        <td id="L185" class="blob-num js-line-number" data-line-number="185"></td>
+        <td id="LC185" class="blob-code blob-code-inner js-file-line">            sendToClients({<span class="pl-s"><span class="pl-pds">&quot;</span>action<span class="pl-pds">&quot;</span></span>: <span class="pl-s"><span class="pl-pds">&quot;</span>result_get_state<span class="pl-pds">&quot;</span></span>, <span class="pl-s"><span class="pl-pds">&quot;</span>value<span class="pl-pds">&quot;</span></span>: <span class="pl-c1">str</span>(state.state)})</td>
+      </tr>
+      <tr>
+        <td id="L186" class="blob-num js-line-number" data-line-number="186"></td>
+        <td id="LC186" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">while</span> <span class="pl-k">not</span> e.isSet():</td>
+      </tr>
+      <tr>
+        <td id="L187" class="blob-num js-line-number" data-line-number="187"></td>
+        <td id="LC187" class="blob-code blob-code-inner js-file-line">              time.sleep(<span class="pl-c1">0.1</span>)</td>
       </tr>
 </table>
 
@@ -1089,7 +1467,7 @@
       <ul class="BlobToolbar-dropdown dropdown-menu dropdown-menu-se mt-2">
         <li><clipboard-copy class="dropdown-item" id="js-copy-lines" style="cursor:pointer;" data-original-text="Copy lines">Copy lines</clipboard-copy></li>
         <li><clipboard-copy class="dropdown-item" id="js-copy-permalink" style="cursor:pointer;" data-original-text="Copy permalink">Copy permalink</clipboard-copy></li>
-        <li><a class="dropdown-item js-update-url-with-hash" id="js-view-git-blame" href="/jukisu23/pi-safe/blame/120dae27c85ce81f37d2b459a86f94d17ad05e33/py/server.py">View git blame</a></li>
+        <li><a class="dropdown-item js-update-url-with-hash" id="js-view-git-blame" href="/jukisu23/pi-safe/blame/120dae27c85ce81f37d2b459a86f94d17ad05e33/py/se.py">View git blame</a></li>
           <li><a class="dropdown-item" id="js-new-issue" href="/jukisu23/pi-safe/issues/new">Open new issue</a></li>
       </ul>
     </div>
@@ -1120,7 +1498,7 @@
 <div class="footer container-lg px-3" role="contentinfo">
   <div class="position-relative d-flex flex-justify-between pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light ">
     <ul class="list-style-none d-flex flex-wrap ">
-      <li class="mr-3">&copy; 2018 <span title="0.35322s from unicorn-f856bd998-jnrht">GitHub</span>, Inc.</li>
+      <li class="mr-3">&copy; 2018 <span title="0.25022s from unicorn-f856bd998-bjnrh">GitHub</span>, Inc.</li>
         <li class="mr-3"><a data-ga-click="Footer, go to terms, text:terms" href="https://github.com/site/terms">Terms</a></li>
         <li class="mr-3"><a data-ga-click="Footer, go to privacy, text:privacy" href="https://github.com/site/privacy">Privacy</a></li>
         <li class="mr-3"><a href="https://help.github.com/articles/github-security/" data-ga-click="Footer, go to security, text:security">Security</a></li>

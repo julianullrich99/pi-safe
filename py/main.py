@@ -1,5 +1,5 @@
 import RPi.GPIO as GPIO
-print "Starting WebSocket Server on localhost:8000..."
+
 
 
 try:
@@ -15,5 +15,3 @@ finally:
   print "Cleaning up GPIO settings..."
   GPIO.cleanup()
   print "Fininshed."
-  
-
