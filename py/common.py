@@ -18,6 +18,7 @@ class mapping:
     lock = Object()
     ledBody = Object()
     ledEdge = Object()
+    ledInner = Object()
     door.out1 = 10 #zu
     door.out2 = 9 #auf
     door.in1 = 11 #zu
@@ -31,6 +32,7 @@ class mapping:
     ledEdge.r = 5
     ledEdge.g = 6
     ledEdge.b = 13
+    ledInner.w = 19
 
 class state:
     stateName = [

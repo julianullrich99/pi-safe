@@ -83,7 +83,7 @@ class protocol(WebSocket):
     logging.debug('%s closed', self.address)
     clients.remove(self)
 
-#getattr(action, "testfun")()
+
 logging.debug("Starting WebSocket Server on localhost:8000")
 server = SimpleWebSocketServer('', 8000, protocol)
 logging.debug("WebSocket Server started at localhost:8000")

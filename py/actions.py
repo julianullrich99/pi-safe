@@ -135,7 +135,8 @@ class actions:
       logging.debug("RGB2: " + str(arr_rgb["r2"])+ " " + str(arr_rgb["g2"])+ " " + str(arr_rgb["b2"]))
 
 
-      #GPIO.setWarnings(false)
+      # GPIO.setWarnings(false)
+      # RGB Edges
       GPIO.setup(mapping.ledEdge.r, GPIO.OUT) #R1
       GPIO.setup(mapping.ledEdge.g, GPIO.OUT) #G1
       GPIO.setup(mapping.ledEdge.b, GPIO.OUT)#B1
@@ -148,31 +149,45 @@ class actions:
       self.g1.start(self.correctur_g * (arr_rgb["g1"]*100/255))
       self.b1.start(self.correctur_b * (arr_rgb["b1"]*100/255))
 
+      # RGB Body
       GPIO.setup(mapping.ledBody.r, GPIO.OUT)#R2
       GPIO.setup(mapping.ledBody.g, GPIO.OUT)#G2
       GPIO.setup(mapping.ledBody.b, GPIO.OUT)#B2
+
       self.r2 = GPIO.PWM(mapping.ledBody.r, 200)
       self.g2 = GPIO.PWM(mapping.ledBody.g, 200)
       self.b2 = GPIO.PWM(mapping.ledBody.b, 200)
+
       self.r2.start(self.correctur_r * (arr_rgb["r2"]*100/255))
       self.g2.start(self.correctur_r * (arr_rgb["g2"]*100/255))
       self.b2.start(self.correctur_r * (arr_rgb["b2"]*100/255))
+
+      # LED White Inner Safe
+      GPIO.setup(mapping.ledInner.w, GPIO.OUT) #Pin 19, white LED
+      self.w1 = GPIO.PWM(mapping.ledInner.w, 200)
+      self.w1.start(0) # off per default
+
 
     def ledon(self):
         # GPIO.output(5, GPIO.HIGH)
         # GPIO.output(6, GPIO.HIGH)
         # GPIO.output(13, GPIO.HIGH)
-        self.r1.ChangeDutyCycle(100)
-        self.g1.ChangeDutyCycle(100)
-        self.b1.ChangeDutyCycle(100)
+
+        # self.r1.ChangeDutyCycle(100)
+        # self.g1.ChangeDutyCycle(100)
+        # self.b1.ChangeDutyCycle(100)
+        self.w1.ChangeDutyCycle(100)
+
 
     def ledoff(self):
         # GPIO.output(5, GPIO.LOW)
         # GPIO.output(6, GPIO.LOW)
         # GPIO.output(13, GPIO.LOW)
-        self.r1.ChangeDutyCycle(0)
-        self.g1.ChangeDutyCycle(0)
-        self.b1.ChangeDutyCycle(0)
+
+        # self.r1.ChangeDutyCycle(0)
+        # self.g1.ChangeDutyCycle(0)
+        # self.b1.ChangeDutyCycle(0)
+        self.w1.ChangeDutyCycle(0)
 
     def change_ledcolor1(self, arg):
         self.r1.ChangeDutyCycle(arg['r']*100/255)
@@ -247,14 +262,17 @@ class actions:
         filename_response = '/DCIM/'+filename
         logging.debug("Filename: %s ",filename)
         #self.camera.resolution = (800, 600)
+        self.ledon()
         try:
           self.camera.resolution = (1024, 768)
           self.camera.capture( path + filename )
           sendToClients({"action": "result_camerapicture", "value": 1, "filename": filename_response,"arg": arg})
           store_picture(1,filename,ts)
+          self.ledoff()
         except Exception as e:
           sendToClients({"action": "error", "type": "cameraPicture"})
           logging.debug("Error in taking picture: %s",e)
+          self.ledoff()
 
     def compare_code(self,arg):
         self.pw = get_password(1)
