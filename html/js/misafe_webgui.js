@@ -17,7 +17,7 @@ $(document).ready(function(){
       arg: {pin:pin}
     };
     socket.send(JSON.stringify(arr));
-    playClick1();
+    //playClick1();
   });
 
   // change code button
@@ -391,7 +391,7 @@ class messagehandler {
 
         }else{
           reset_code();
-          $('#pinfield').css('color','lime').html('Door is opening...');
+          // $('#pinfield').css('color','lime').html('Door is opening...');
           // Schloss fährt auf -> Zahleneingabe weg und Animation zeigen.
         }
       case "result_change_password":
@@ -403,6 +403,11 @@ class messagehandler {
       case "result_get_rgb":
         if(event.value != undefined){
           set_colorwheel(event.value);
+        }
+        
+      case "state":
+        if(event.value != undefined){
+          console.log(event.value);
         }
 
       case "result_camerapicture":

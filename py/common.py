@@ -34,11 +34,13 @@ class mapping:
 
 class state:
     state = 5
-    stateName = ['locked',
-                'rw_opening',
-                'rw_closing',
-                'rw_unlocked',
-                'safe_door_opening',
-                'safe_door_closing',
-                'unlocked',
-                'init']
+    stateName = [
+    'locked',           #0
+    'rw_opening',       #1
+    'rw_closing',       #2
+    'rw_unlocked',      #3
+    'safe_door_opening',#4
+    'safe_door_closing',#5
+    'unlocked',         #6
+    'init'              #7
+    ]
