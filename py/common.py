@@ -33,7 +33,7 @@ class mapping:
     ledEdge.b = 13
 
 class state:
-    state = 5
+    state = stateName.index('init')
     stateName = [
     'locked',           #0
     'rw_opening',       #1

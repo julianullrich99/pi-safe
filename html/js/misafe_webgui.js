@@ -96,7 +96,7 @@ $(document).ready(function(){
       selected_color = $(this).attr('selection');
   });
 
-  // timer zum Holen des State
+  // timer zum Holen des State oder zum öffnen des sockets
   tick();
 
 });
@@ -152,8 +152,9 @@ function set_colorwheel(rgb)
   return true;
 }
 
-function init() {
-
+function open_socket()
+{
+  console.log('trying to open Websocket Port 8000')
   // Socket öffnen
   socket = new WebSocket("ws://" + window.location.hostname + ":8000");
   mh = new messagehandler();
@@ -166,10 +167,19 @@ function init() {
     mh.handle(event.data);
   };
 
-  // erst wenn offen ist kann der Colorpicker initialisiert werden, sonst geht eine Message eher raus als der Port offen ist.
+  // erst wenn socket offen ist kann eine Message verschickt werden
   socket.onopen = function(){
     socket_open = true;
+    console.log('websocket is open');
   };
+  // wenn geschlossen wurde, darf per Timer nochmal das Öffnen probiert werden
+  socket.onclose = function(){
+    socket_open = false;
+    console.log('websocket is closed')
+  };
+}
+
+function init() {
 
   var width = window.innerWidth || (window.document.documentElement.clientWidth || window.document.body.clientWidth);
   var height = window.innerHeight || (window.document.documentElement.clientHeight || window.document.body.clientHeight);
@@ -240,7 +250,6 @@ function init() {
 
 //});
 
-  //$('#page3').css('background-image','url("DCIM/temp.jpg")').css('background-size','100%');
 
   colorWheel1 = new iro.ColorPicker("#colorpicker1", {
     width: 500,
@@ -326,6 +335,9 @@ function get_state()
 function tick()
 {
   var intervall = 5000;
+  if(socket_open == false){
+    open_socket();
+  }
   //get_state();
   window.setTimeout("tick();", intervall);
 }
@@ -404,7 +416,7 @@ class messagehandler {
         if(event.value != undefined){
           set_colorwheel(event.value);
         }
-        
+
       case "state":
         if(event.value != undefined){
           console.log(event.value);
