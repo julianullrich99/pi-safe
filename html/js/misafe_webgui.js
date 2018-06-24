@@ -311,6 +311,20 @@ function get_rgb(which)
   if(socket_open){socket.send(JSON.stringify(arr));}
 }
 
+function light(on)
+{
+  var arr = {
+    action: "ledoff"
+  };
+  if(on == 1){
+    arr = {
+      action: "ledon"
+    };
+  }
+
+  if(socket_open){socket.send(JSON.stringify(arr));}
+}
+
 function takeCameraPicture()
 {
 
