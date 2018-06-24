@@ -12,8 +12,9 @@ FORMAT = "[%(filename)s:%(lineno)s - %(funcName)15s() ] %(message)s"
 logging.basicConfig(format=FORMAT, level=logging.DEBUG)
 
 GPIO.setwarnings(False)
-
 GPIO.setmode(GPIO.BCM)
+action = actions()
+
 
 se.initSe() # init StateEngine
 
@@ -22,7 +23,7 @@ StateMachine.setDaemon(True)
 
 StateMachine.start()
 
-action = actions()
+
 # motorcontrol = motorcontrol()
 
 # GPIO.setup(19, GPIO.IN, pull_up_down=GPIO.PUD_UP)

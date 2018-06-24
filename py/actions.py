@@ -185,9 +185,8 @@ class actions:
         self.b2.ChangeDutyCycle(arg['b']*100/255)
 
     def get_state(self):
-        sendToClients({"action": "result_get_state", "value": str(state.state)})
+        sendToClients({"action": "state", "value": str(state.state)})
         logging.debug("sending state: %s",state.state)
-        # print (str(global_state))
 
     def morphto(self, rgb, which):
         logging.debug(("morphing : " + str(which)))
