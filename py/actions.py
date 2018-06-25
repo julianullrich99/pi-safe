@@ -170,23 +170,11 @@ class actions:
 
     def ledon(self):
         # GPIO.output(5, GPIO.HIGH)
-        # GPIO.output(6, GPIO.HIGH)
-        # GPIO.output(13, GPIO.HIGH)
-
-        # self.r1.ChangeDutyCycle(100)
-        # self.g1.ChangeDutyCycle(100)
-        # self.b1.ChangeDutyCycle(100)
         self.w1.ChangeDutyCycle(100)
 
 
     def ledoff(self):
         # GPIO.output(5, GPIO.LOW)
-        # GPIO.output(6, GPIO.LOW)
-        # GPIO.output(13, GPIO.LOW)
-
-        # self.r1.ChangeDutyCycle(0)
-        # self.g1.ChangeDutyCycle(0)
-        # self.b1.ChangeDutyCycle(0)
         self.w1.ChangeDutyCycle(0)
 
     def change_ledcolor1(self, arg):
@@ -217,8 +205,6 @@ class actions:
         dr1 = arr_rgb_end["r"] - r1 #Differenz Ende - Anfang
         dg1 = arr_rgb_end["g"] - g1
         db1 = arr_rgb_end["b"] - b1
-
-
 
         for counter in range(0,n+1):
           r1_end = r1 + (counter * dr1 /100)
