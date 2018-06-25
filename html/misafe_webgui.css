@@ -7,6 +7,7 @@ html{
   background-color:#000000;
 }
 
+* {cursor: none;}
 /*
 * {
   box-sizing: border-box;
