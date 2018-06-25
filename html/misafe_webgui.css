@@ -8,14 +8,8 @@ html{
 }
 
 *{
-  /*cursor: none;*/
+  cursor: none;
 }
-
-/*
-* {
-  box-sizing: border-box;
-}
-*/
 
 .swiper-container {
     width: 100vw;
