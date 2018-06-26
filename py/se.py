@@ -116,7 +116,7 @@ def StateEngine(e):
                     while e.isSet():
                         time.sleep(0.1)
                 else:
-                    triggerLED("morphto", __main__.ColorMachine.get_ledcolor(colors.blinkWhich), colors.blinkWhich, lockDuration+openDuration, colors.colorOpen)
+                    #triggerLED("morphto", __main__.ColorMachine.get_ledcolor(colors.blinkWhich), colors.blinkWhich, lockDuration+openDuration, colors.colorOpen)
                     state.state = state.stateName.index('rw_unlocked')
                     sendToClients(
                         {"action": "state", "value": str(state.state)})

@@ -184,7 +184,8 @@ class actions:
         if str(self.pw) == str(arg['pin']):
             logging.debug("PIN corect")
             sendToClients({"action": "result_compare_code", "value": 1})
-            unlocked.set()
+            #unlocked.set()
+            opened.set()
         else:
             logging.debug("PIN wrong")
             sendToClients({"action": "result_compare_code", "value": 0})
@@ -201,7 +202,8 @@ class actions:
             sendToClients({"action": "result_change_password", "value": 0})
 
     def lock(self):
-        unlocked.clear()
+        #unlocked.clear()
+        opened.clear()
 
     def pinView(self, arg):
 		option = arg['view']

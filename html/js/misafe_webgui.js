@@ -114,9 +114,8 @@ $(document).ready(function() {
   });
 
   // timer zum Holen des State oder zum öffnen des sockets
-  setInterval(tick, 1000);
+  setInterval(tick, 10000);
   tick();
-
 });
 
 function select_color(which) {
@@ -378,6 +377,7 @@ class messagehandler {
       case "text":
         console.log(event.value);
         this.items[event.item][this.options[event.option]] = event.value;
+        return;
       case "result_compare_code":
         if (event.value == 0) {
           // Blinkern weil falsch und Wert löschen
@@ -395,22 +395,27 @@ class messagehandler {
           // $('#pinfield').css('color','lime').html('Door is opening...');
           // Schloss fährt auf -> Zahleneingabe weg und Animation zeigen.
         }
+        return;
+        
       case "result_change_password":
         if (event.value == 1) {
           $('#pinfield').html('Passwort geändert');
           reset_code();
         }
-
+        return;
+        
       case "result_get_rgb":
         if (event.value != undefined) {
           set_colorwheel(event.value);
         }
-
+        return;
+        
       case "state":
         if (event.value != undefined) {
-          console.log("state:"+ event.value);
+          console.log("state",event.value);
         }
-
+        return;
+        
       case "result_camerapicture":
         if (event.value == 1) {
           var filename = event.filename;
@@ -420,6 +425,7 @@ class messagehandler {
         return;
       case "unlocked":
         $('#b_lock_safe').css('display', 'block');
+        return;
     };
   };
 };
