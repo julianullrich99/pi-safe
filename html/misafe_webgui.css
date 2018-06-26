@@ -8,7 +8,7 @@ html{
 }
 
 *{
-  cursor: none;
+  /*cursor: none;*/
 }
 
 .swiper-container {
@@ -150,10 +150,8 @@ div.container{
 .camerabutton{
   width:80px;
   height:80px;
-  bottom:20px;
-  margin-left:auto;
-  margin-right:auto;
 }
+
 .camerabutton:hover, active{
   background-color:red;
 }
@@ -167,8 +165,7 @@ div.container{
 }
 
 #b_snapshot{
-  bottom:10px;
-  left:45%;
+  
 }
 
 #pinpad{

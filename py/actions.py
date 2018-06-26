@@ -36,13 +36,12 @@ def create_db():
     cursor.execute(sql)
     con.commit()
 
-    # Tabelle user erzeugen
+    # Tabelle colors erzeugen
     sql = 'CREATE TABLE colors(id INTEGER, id_user INTEGER, r1 INTEGER, g1 INTEGER, b1 INTEGER, r2 INTEGER, g2 INTEGER, b2 INTEGER)'
     cursor.execute(sql)
     sql = "INSERT INTO colors (id,id_user,r1,g1,b1,r2,g2,b2)VALUES(1,1,255,0,255,255,255,0)"
     cursor.execute(sql)
     con.commit()
-
     con.close()
     logging.debug("Database " + dbfile + "created with content %s", sql)
 

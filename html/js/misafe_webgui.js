@@ -44,14 +44,20 @@ $(document).ready(function() {
     lock_safe();
   })
 
+  /*
   // Kamerabutton
   $('#b_snapshot').click(function() {
-    takeCameraPicture();
-    playClick1();
+    alert('test');
+    //takeCameraPicture();
+    //playClick1();
   });
-
+*/
   $('button').click(function() {
     playClick1();
+  });  
+  
+  $('button#b_snapshot').click(function() {
+    takeCameraPicture();
   });
 
   $('.pp_number').click(function() {
@@ -194,7 +200,7 @@ function init() {
   mySwiper = new Swiper ('.swiper-container', {
       // Optional parameters
       direction: 'horizontal',
-      loop: true,
+      loop: false,
       noSwiping: true,
 
       // If we need pagination
@@ -211,22 +217,27 @@ function init() {
 
       on: {
         slideChangeTransitionEnd: function(){
-          console.log(this.activeIndex);
-          switch (this.activeIndex){
-            case 2:
+          //console.log("acticeIndex:"+this.activeIndex);
+          console.log("realIndex:"+this.realIndex);
+          switch (this.realIndex){
+            case 0:
+              get_state();
+              break;
+            case 1:
               get_rgb(selected_color);
               break;
-            case 3:
-              takeCameraPicture();
-              break;
-            case 0:
+            case 2:
               takeCameraPicture();
               break;
             default:
               break;
           }
-        }
-      }
+        },
+        init: function () {
+          // Events der Elemente
+          
+        },
+      },
       // And if we need scrollbar
       // scrollbar: {
       //   el: '.swiper-scrollbar',
@@ -397,7 +408,7 @@ class messagehandler {
 
       case "state":
         if (event.value != undefined) {
-          console.log(event.value);
+          console.log("state:"+ event.value);
         }
 
       case "result_camerapicture":
