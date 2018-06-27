@@ -8,6 +8,16 @@ import __main__
 
 GPIO.setmode(GPIO.BCM)
 
+def get_ledcolor1(arg):
+    arr_rgb = get_rgb()
+    r = arr_rgb["r" + str(arg)]  # Anfangswerte
+    g = arr_rgb["g" + str(arg)]
+    b = arr_rgb["b" + str(arg)]
+    rgb = {"r": r, "g": g, "b": b}
+    #sendToClients({"action": "result_get_rgb","value": rgb, "arg": arg})
+    return rgb
+
+
 def initSe():
     GPIO.setup(mapping.door.out1, GPIO.OUT)
     GPIO.setup(mapping.door.out2, GPIO.OUT)
@@ -117,6 +127,12 @@ def StateEngine(e):
                         time.sleep(0.1)
                 else:
                     #triggerLED("morphto", __main__.ColorMachine.get_ledcolor(colors.blinkWhich), colors.blinkWhich, lockDuration+openDuration, colors.colorOpen)
+                    #triggerLED("morphto", __main__.ColorEngine.get_ledcolor(colors.blinkWhich), colors.blinkWhich, lockDuration+openDuration, colors.colorOpen)
+                    
+                    current_color = get_ledcolor1(colors.blinkWhich)
+                    logging.debug("current_color"+str(current_color))
+                    triggerLED("morphto", current_color, colors.blinkWhich, lockDuration+openDuration, colors.colorOpen)
+                    
                     state.state = state.stateName.index('rw_unlocked')
                     sendToClients(
                         {"action": "state", "value": str(state.state)})
@@ -179,6 +195,8 @@ def StateEngine(e):
                     triggerLED("ledoff")
                     while not e.isSet():
                         time.sleep(0.1)
+                        
+                        
 
 class ColorEngine(threading.Thread):
     def __init__(self, e):
