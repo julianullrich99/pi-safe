@@ -2,34 +2,12 @@ import RPi.GPIO as GPIO
 import threading
 import time
 from common import *
-from actions import sendToClients
+from actions import sendToClients, actions
 import logging
+import __main__
 
 GPIO.setmode(GPIO.BCM)
-'''
-class motorcontrol:
- 	def __init__(self):
-	    print "Initializing Motors"
-	    # GPIO.setup(22, GPIO.OUT) #DIR1
-	    # GPIO.setup(23, GPIO.OUT) #DIR2
-	    # GPIO.output(22, GPIO.HIGH)
-	    # GPIO.output(23, GPIO.HIGH)
- 	def rw_open(self):
-	    print "rw_open"
-	    GPIO.output(22, GPIO.LOW)
-	    GPIO.output(23, GPIO.HIGH)
-	def rw_close(self):
-	    print "rw_close"
-	    GPIO.output(22, GPIO.HIGH)
-	    GPIO.output(23, GPIO.LOW)
-	def rw_open(self):
-	    print "rw_open"
-	    GPIO.output(22, GPIO.LOW)
-	    GPIO.output(23, GPIO.HIGH)
-	def rw_init(self):
-		print "init"
-'''
-#class StateEngine(threading.Thread):
+
 def initSe():
     GPIO.setup(mapping.door.out1, GPIO.OUT)
     GPIO.setup(mapping.door.out2, GPIO.OUT)
@@ -76,6 +54,7 @@ def StateEngine(e):
         while 1:
           time.sleep(0.05)
           if e.isSet():
+            __main__.action.ledon()
             state.state = state.stateName.index('rw_opening')
             sendToClients({"action": "state", "value": str(state.state)})
             GPIO.setmode(GPIO.BCM)
@@ -183,5 +162,6 @@ def StateEngine(e):
             logging.debug("lock closed")
             state.state = state.stateName.index('locked')
             sendToClients({"action": "state", "value": str(state.state)})
+            __main__.action.ledoff()
             while not e.isSet():
               time.sleep(0.1)
