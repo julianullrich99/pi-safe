@@ -190,34 +190,77 @@ function init() {
   var height_knopp = height / 3;
 
   // Slider initialisieren
-  $('.slick').slick({
-    dots: true,
-    infinite: true,
-    speed: 200,
-    slidesToShow: 1,
-    centerMode: true,
-    arrows: true,
-    adaptiveHeight: false,
 
-    //prevArrow:"<img class='a-left control-c prev slick-prev' src='arrow-left-thin.svg'>",
-    //nextArrow:"<img class='a-right control-c next slick-next' src='arrow-right-thin.svg'>"
-  });
+  mySwiper = new Swiper ('.swiper-container', {
+      // Optional parameters
+      direction: 'horizontal',
+      loop: true,
+      noSwiping: true,
+
+      // If we need pagination
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+
+      // Navigation arrows
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+
+      on: {
+        slideChangeTransitionEnd: function(){
+          console.log(this.activeIndex);
+          switch (this.activeIndex){
+            case 2:
+              get_rgb(selected_color);
+              break;
+            case 3:
+              takeCameraPicture();
+              break;
+            case 0:
+              takeCameraPicture();
+              break;
+            default:
+              break;
+          }
+        }
+      }
+      // And if we need scrollbar
+      // scrollbar: {
+      //   el: '.swiper-scrollbar',
+      // },
+    })
+
+  // $('.slick').slick({
+  //   dots: true,
+  //   infinite: true,
+  //   speed: 200,
+  //   slidesToShow: 1,
+  //   centerMode: true,
+  //   arrows: true,
+  //   adaptiveHeight: false,
+  //
+  //   //prevArrow:"<img class='a-left control-c prev slick-prev' src='arrow-left-thin.svg'>",
+  //   //nextArrow:"<img class='a-right control-c next slick-next' src='arrow-right-thin.svg'>"
+  // });
 
   //$('.slick_inn').css('height',sliderheight + 'px');
 
-  $('.slick').on('swipe', function(event, slick, direction) {
-    console.log("current page:" + slick.currentSlide);
-    if (slick.currentSlide == 1) {
-      get_rgb(selected_color);
-    }
-    if (slick.currentSlide == 2) {
-      takeCameraPicture();
-    }
-    // left
-  });
+  // $('.slick').on('swipe', function(event, slick, direction) {
+  //   console.log("current page:" + slick.currentSlide);
+  //   if (slick.currentSlide == 1) {
+  //     get_rgb(selected_color);
+  //   }
+  //   if (slick.currentSlide == 2) {
+  //     takeCameraPicture();
+  //   }
+  //   // left
+  // });
 
   // Verschiebesperre
-  $('*[draggable!=true]', '#knopp').unbind('dragstart');
+  // $('*[draggable!=true]', '#knopp').unbind('dragstart');
   // Init Knob
   $(".dial").knob({
     'min': 0,

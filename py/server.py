@@ -18,7 +18,7 @@ action = actions()
 
 se.initSe() # init StateEngine
 
-StateMachine = threading.Thread(name='stateMachine', target=se.StateEngine, args=(unlock,))
+StateMachine = threading.Thread(name='stateMachine', target=se.StateEngine, args=(opened,))
 StateMachine.setDaemon(True)
 
 StateMachine.start()

@@ -4,7 +4,7 @@ html, body {
   height: 100%;
 }
 html{
-  background-color:#000000;
+  background-color:blue;
 }
 
 * {cursor: none;}
@@ -14,12 +14,14 @@ html{
 }
 */
 
-#container_slider{
+.swiper-container {
+    width: 100vw;
+    height: 100vh;
   /*display:none;*/
   margin-left:auto;
   margin-right:auto;
-  width:99%;
-  height:799px;
+  /*width:99%;
+  height:799px;*/
   background-image:url("media/wp_elegant4.jpg");
   background-size: 100% 100%;
   display: flex;
@@ -40,13 +42,9 @@ html{
 
 }
 
-.slick-slide {
+.swiper-slide {
   margin: 5px 5px;
-  height:600px;
-
-
-  transition: all ease-in-out .3s;
-  opacity: .0;
+  padding-top: 5vh;
 }
 
 .slick-slide img {
@@ -244,4 +242,3 @@ div.container{
   display: block;
   float:left;
 }
-

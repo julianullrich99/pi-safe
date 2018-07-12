@@ -4,7 +4,8 @@ dbfile = "/var/www/db/misafe.db"
 clients = []
 globalrgb = {}
 
-unlock = threading.Event()
+opened = threading.Event()
+unlocked = threading.Event()
 
 
 class colors:
@@ -56,6 +57,7 @@ class state:
     'safe_door_opening',#4
     'safe_door_closing',#5
     'unlocked',         #6
-    'init'              #7
+    'init',             #7
+    'open'              #8
     ]
     state = stateName.index('init')

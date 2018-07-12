@@ -109,8 +109,8 @@ def StateEngine(e):
                         time.sleep(float(rampDuration) / vmax)
                     d1.stop()
                     d2.stop()
-                    logging.debug("unlocked")
-                    state.state = state.stateName.index('unlocked')
+                    logging.debug("open")
+                    state.state = state.stateName.index('open')
                     sendToClients(
                         {"action": "state", "value": str(state.state)})
                     while e.isSet():
@@ -176,7 +176,7 @@ def StateEngine(e):
                     state.state = state.stateName.index('locked')
                     sendToClients(
                         {"action": "state", "value": str(state.state)})
-                    triggerLED("ledofff")
+                    triggerLED("ledoff")
                     while not e.isSet():
                         time.sleep(0.1)
 
@@ -244,7 +244,6 @@ class ColorEngine(threading.Thread):
 
     def ledon(self):
         # GPIO.output(5, GPIO.HIGH)
-        logging.debug("ledonn")
         self.w1.ChangeDutyCycle(100)
 
     def ledoff(self):
