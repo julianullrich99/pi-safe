@@ -8,21 +8,25 @@ from actions import actions
 from common import *
 import se
 
-FORMAT = "[%(filename)s:%(lineno)s - %(funcName)15s() ] %(message)s"
+FORMAT = "[%(lineno)4s:%(filename)-10s - %(funcName)10s()] %(message)s"
+# FORMAT = "[%(filename)s:%(lineno)s - %(funcName)s()] %(message)s"
 logging.basicConfig(format=FORMAT, level=logging.DEBUG)
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
 action = actions()
 
-
 se.initSe() # init StateEngine
 
-StateMachine = threading.Thread(name='stateMachine', target=se.StateEngine, args=(unlock,))
+StateMachine = threading.Thread(name='stateMachine', target=se.StateEngine, args=(opened,))
 StateMachine.setDaemon(True)
 
 StateMachine.start()
 
+ColorMachine = se.ColorEngine(colors.colorTrigger)
+ColorMachine.setDaemon(True)
+
+ColorMachine.start()
 
 # motorcontrol = motorcontrol()
 

@@ -1,11 +1,25 @@
-# from __main__ import threading
 import threading
 
+dbfile = "/var/www/db/misafe.db"
 clients = []
+globalrgb = {}
 
-unlock = threading.Event()
+opened = threading.Event()
+unlocked = threading.Event()
 
-openDuration = 2.0
+
+class colors:
+    blinkWrong = {"r": 255, "g": 0, "b": 0}
+    colorOpen = {"r": 0, "g": 255, "b": 0}
+    blinkCount = 5
+    blinkSpeed = 1 # in sec
+    blinkWhich = 1
+    colorTrigger = threading.Event()
+    colorEvent = None
+    colorEventArgs = None
+
+lockDuration = 3
+openDuration = 1.0
 rampDuration = 0.5
 vmax = 100
 vclose = 70
@@ -43,6 +57,7 @@ class state:
     'safe_door_opening',#4
     'safe_door_closing',#5
     'unlocked',         #6
-    'init'              #7
+    'init',             #7
+    'open'              #8
     ]
     state = stateName.index('init')
