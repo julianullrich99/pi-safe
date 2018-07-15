@@ -216,6 +216,8 @@ div.container{
   margin:5px;
   background-color: rgba(255,255,255,0.2);
   border: 1px solid white;
+  color:white;
+  
 }
 
 .switch_container {
