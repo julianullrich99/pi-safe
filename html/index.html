@@ -45,44 +45,75 @@
       <div class="swiper-container">
         <div class="swiper-wrapper">
           <div class="swiper-slide" id="page1">
-
-            <!-- Rounded switch for pinpad or knob-->
-            <div class="switch_container swiper-no-swiping">
-              <div class="switch_lbl sk" id="sk1"></div>
-              <div class="switch_lbl" id="sc1">
-                <label class="switch">
-                  <input type="checkbox" id="chk_pinview">
-                  <span class="slider round"></span>
-                </label>
+            
+            <!-- wenn State noch locked -->
+            <div class="container_page1" id="container_authorisation">
+              <!-- Rounded switch for pinpad or knob-->
+              <div class="switch_container swiper-no-swiping">
+                <div class="switch_lbl sk" id="sk1"></div>
+                <div class="switch_lbl" id="sc1">
+                  <label class="switch">
+                    <input type="checkbox" id="chk_pinview">
+                    <span class="slider round"></span>
+                  </label>
+                </div>
+                <div class="switch_lbl sk" id="sk2"></div>
               </div>
-              <div class="switch_lbl sk" id="sk2"></div>
-            </div>
 
-            <div id="pinfield"></div>
-            <div id="knopp" class="swiper-no-swiping">
-              <input data-width="100%" data-cursor="true" data-fgcolor="#222222" data-thickness="0.1" value="0" class="dial"/>
-            </div>
-            <div id="pinpad" class="swiper-no-swiping">
-              <button class="pp_number" number="1">1</button>
-              <button class="pp_number" number="2">2</button>
-              <button class="pp_number" number="3">3</button>
-              <button class="pp_number" number="4">4</button>
-              <button class="pp_number" number="5">5</button>
-              <button class="pp_number" number="6">6</button>
-              <button class="pp_number" number="7">7</button>
-              <button class="pp_number" number="8">8</button>
-              <button class="pp_number" number="9">9</button>
-              <div class="pp_dummynumber"></div>
-              <button class="pp_number" number="0">0</button>
-            </div>
+              <div class="pinfield"></div>
+              <div id="knopp" class="swiper-no-swiping">
+                <input data-width="100%" data-cursor="true" data-fgcolor="#222222" data-thickness="0.1" value="0" class="dial"/>
+              </div>
+              <div id="pinpad1" class="pinpad swiper-no-swiping">
+                <button class="pp_number" number="1">1</button>
+                <button class="pp_number" number="2">2</button>
+                <button class="pp_number" number="3">3</button>
+                <button class="pp_number" number="4">4</button>
+                <button class="pp_number" number="5">5</button>
+                <button class="pp_number" number="6">6</button>
+                <button class="pp_number" number="7">7</button>
+                <button class="pp_number" number="8">8</button>
+                <button class="pp_number" number="9">9</button>
+                <div class="pp_dummynumber"></div>
+                <button class="pp_number" number="0">0</button>
+              </div>
 
-            <!--<div class="mybutton" id="b_sendcode">Unlock</div><div class="mybutton" id="b_changecode">change</div><div class="mybutton" id="b_reset_code">Clear</div>-->
-            <div id="controlbuttons">
-              <button class="controlbutton swiper-no-swiping" id="b_sendcode">Unlock</button>
-              <!--<button class="controlbutton" id="b_changecode">change</button>-->
-              <button class="controlbutton swiper-no-swiping" id="b_reset_code">Clear</button>
-              <button class="controlbutton swiper-no-swiping" id="b_lock_safe">Lock</button>
+              <!--<div class="mybutton" id="b_sendcode">Unlock</div><div class="mybutton" id="b_changecode">change</div><div class="mybutton" id="b_reset_code">Clear</div>-->
+              <div class="controlbuttons">
+                <button class="controlbutton swiper-no-swiping" id="b_sendcode">Unlock</button>
+                <!--<button class="controlbutton" id="b_changecode">change</button>-->
+                <button class="controlbutton swiper-no-swiping" id="b_reset_code">Clear</button>
+                
+              </div>
+            </div><!-- end container_authorisation -->
+            
+            <div class="container_page1" id="container_inprogress">
+              <div class="label" id="l_progress1"></div>
             </div>
+            
+            <div class="container_page1" id="container_isopen">
+              <div class="pinfield"></div>
+              <div class="controlbuttons swiper-no-swiping" >
+                <button class="controlbutton" id="b_lock_safe">Lock</button>
+                <button class="controlbutton" id="b_changecode">change</button>
+              </div>
+              <div id="pinpad_changecode" class="pinpad swiper-no-swiping">
+                <button class="pp_number" number="1">1</button>
+                <button class="pp_number" number="2">2</button>
+                <button class="pp_number" number="3">3</button>
+                <button class="pp_number" number="4">4</button>
+                <button class="pp_number" number="5">5</button>
+                <button class="pp_number" number="6">6</button>
+                <button class="pp_number" number="7">7</button>
+                <button class="pp_number" number="8">8</button>
+                <button class="pp_number" number="9">9</button>
+                <div class="pp_dummynumber"></div>
+                <button class="pp_number" number="0">0</button>
+              </div>
+            </div>
+            
+            
+            
           </div>
           <div class="swiper-slide" id="page2">
 

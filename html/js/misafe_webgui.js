@@ -6,6 +6,8 @@ var number_bak = 0;
 var socket_open = false;
 var selected_color = 1;
 
+var current_state = -1; // Status zum Steuern der Anazeige
+
 $(document).ready(function() {
   // Init Slider
   init();
@@ -85,7 +87,7 @@ $(document).ready(function() {
           view: "pad"
         }
       };
-      $('#pinpad').show();
+      $('#pinpad1').show();
       $('#knopp').hide();
     } else {
       arr = {
@@ -94,7 +96,7 @@ $(document).ready(function() {
           view: "knopp"
         }
       };
-      $('#pinpad').hide();
+      $('#pinpad1').hide();
       $('#knopp').show();
     }
     socket.send(JSON.stringify(arr));
@@ -130,7 +132,7 @@ function ts() {
 
 function reset_code() {
   $('.dial').val(0).trigger('change');
-  $('#pinfield').html('').css('color', 'black');
+  $('.pinfield').html('').css('color', 'black');
   pin = '';
 }
 
@@ -138,7 +140,7 @@ function add_pin(number) {
   var s_pin = pin.toString();
   var s_number = number.toString();
   pin = s_pin + s_number;
-  $('#pinfield').html(pin);
+  $('.pinfield').html(pin);
 }
 
 function playClick() {
@@ -180,6 +182,7 @@ function open_socket() {
   socket.onopen = function() {
     socket_open = true;
     console.log('websocket is open');
+    get_state();
   };
   // wenn geschlossen wurde, darf per Timer nochmal das Öffnen probiert werden
   socket.onclose = function() {
@@ -213,6 +216,8 @@ function init() {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
       },
+      
+      
 
       on: {
         slideChangeTransitionEnd: function(){
@@ -234,7 +239,7 @@ function init() {
         },
         init: function () {
           // Events der Elemente
-          
+          get_state();
         },
       },
       // And if we need scrollbar
@@ -381,7 +386,7 @@ class messagehandler {
       case "result_compare_code":
         if (event.value == 0) {
           // Blinkern weil falsch und Wert löschen
-          $('#pinfield').css('color', 'red')
+          $('.pinfield').css('color', 'red')
             .fadeIn(100).fadeOut(100)
             .fadeIn(100).fadeOut(100)
             .fadeIn(100).fadeOut(100)
@@ -392,14 +397,13 @@ class messagehandler {
 
         } else {
           reset_code();
-          // $('#pinfield').css('color','lime').html('Door is opening...');
-          // Schloss fährt auf -> Zahleneingabe weg und Animation zeigen.
+          
         }
         return;
         
       case "result_change_password":
         if (event.value == 1) {
-          $('#pinfield').html('Passwort geändert');
+          $('.pinfield').html('Passwort geändert');
           reset_code();
         }
         return;
@@ -412,7 +416,39 @@ class messagehandler {
         
       case "state":
         if (event.value != undefined) {
-          console.log("state",event.value);
+          current_state = parseInt(event.value);
+          console.log("state",current_state);
+          $("div.container_page1").hide(); // erstmal alles verstecken
+          switch(current_state){
+            
+            case 0: $("div#container_authorisation").show()
+              console.log('Safe is closed');
+              break;
+            case 1: $("div#container_inprogress").show();
+              $("#l_progress1").html("Boltwork is opening...");
+              break;
+            case 2: $("div#container_inprogress").show();
+              $("#l_progress1").html("Boltwork is closing...");
+              break;
+            case 3: $("div#container_inprogress").show();
+              $("#l_progress1").html("Boltwork is closing...");
+              break;
+            case 4: $("div#container_inprogress").show();
+              $("#l_progress1").html("Safe Door is opening...");
+              break;
+            case 5: $("div#container_inprogress").show();
+              $("#l_progress1").html("Safe Door is closing...");
+              break;
+            case 6: $("div#container_inprogress").show();
+              $("#l_progress1").html("Safe is unlocked...");
+              break;
+            case 7: $("div#container_inprogress").show();
+              $("#l_progress1").html("Safedoor initializing...");
+              break;
+            case 8: $("div#container_isopen").show();
+              //$("#l_progress1").html("Safedoor is open...");
+              break;
+          } 
         }
         return;
         

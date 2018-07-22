@@ -76,7 +76,7 @@ html{
   margin-top:10px;
 }
 
-#pinfield{
+.pinfield{
   width:50%;
   min-width:300px;
   height:70px;
@@ -168,13 +168,17 @@ div.container{
   
 }
 
-#pinpad{
+.pinpad{
     height:300px;
     width:300px;
     margin-left:auto;
     margin-right:auto;
     margin-top:10px;
-    display:none;
+    
+}
+
+#pinpad1{
+  display:none;
 }
 
 .pp_number{
@@ -192,7 +196,7 @@ div.container{
     float:left;
 }
 
-#controlbuttons{
+.controlbuttons{
   height:200px;
   width:200px;
   position:absolute;
@@ -208,7 +212,10 @@ div.container{
   background-color: rgba(255,255,255,0.2);
   border: 1px solid white;
   color:white;
-  
+}
+
+.container_page1{
+  display:none;
 }
 
 .switch_container {
@@ -237,4 +244,15 @@ div.container{
 .colorchoice {
   display: block;
   float:left;
+}
+
+#l_progress1{
+  color:white;
+  font-size:60px;
+  text-align:center;
+  vertical-align:middle;
+  padding:auto;
+  font-family:arial;
+  margin-left:auto;
+  margin-right:auto;
 }
