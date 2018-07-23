@@ -11,6 +11,11 @@ html{
   /*cursor: none;*/
 }
 
+@viewport {
+   width: device-width;
+   zoom:1;
+}
+
 .swiper-container {
     width: 100vw;
     height: 100vh;
