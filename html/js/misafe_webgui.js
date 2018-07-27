@@ -35,6 +35,17 @@ $(document).ready(function() {
     };
     socket.send(JSON.stringify(arr));
     reset_code();
+  });// change code button
+  
+  $('#b_resetcode').click(function() {
+    var arr = {
+      action: "change_code",
+      arg: {
+        pin: '1234'
+      }
+    };
+    socket.send(JSON.stringify(arr));
+    reset_code();
   });
 
   // clear button
