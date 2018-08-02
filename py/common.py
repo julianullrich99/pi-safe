@@ -46,7 +46,7 @@ class mapping:
     ledEdge.r = 5
     ledEdge.g = 6
     ledEdge.b = 13
-    ledInner.w = 19
+    ledInner.w = 20
 
 class state:
     stateName = [

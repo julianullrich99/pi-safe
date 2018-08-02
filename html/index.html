@@ -78,12 +78,15 @@
                 <button class="pp_number" number="0">0</button>
               </div>
 
-              <div class="controlbuttons">
-                <button class="controlbutton swiper-no-swiping" id="b_sendcode">Unlock</button>
+              <div class="controlbuttons swiper-no-swiping">
+                <button class="controlbutton" id="b_sendcode">Unlock</button>
                 <!--<button class="controlbutton" id="b_resetcode">reset</button>-->
-                <button class="controlbutton swiper-no-swiping" id="b_reset_code">Clear</button>
+                <button class="controlbutton" id="b_reset_code">Clear</button>
                 
               </div>
+             
+              <svg xmlns="http://www.w3.org/2000/svg" class="lock" width="100" height="100" viewBox="0 0 24 24"><path d="M18 10v-4c0-3.313-2.687-6-6-6s-6 2.687-6 6v4h-3v14h18v-14h-3zm-10 0v-4c0-2.206 1.794-4 4-4s4 1.794 4 4v4h-8z"/></svg>
+
             </div><!-- end container_authorisation -->
             
             <div class="container_page1" id="container_inprogress">
@@ -94,7 +97,22 @@
               <div class="pinfield"></div>
               <div class="controlbuttons swiper-no-swiping" >
                 <button class="controlbutton" id="b_lock_safe">Lock</button>
-                <button class="controlbutton" id="b_changecode">change</button>
+                <button class="controlbutton" style="font-size:40px" id="b_newpin">new PIN-Code</button>
+              </div>
+              
+              
+              <svg xmlns="http://www.w3.org/2000/svg" class="lock" width="100" height="100" viewBox="0 0 24 24"><path d="M12 10v-4c0-3.313-2.687-6-6-6s-6 2.687-6 6v3h2v-3c0-2.206 1.794-4 4-4s4 1.794 4 4v4h-4v14h18v-14h-12z"/></svg>
+              
+            </div>
+            
+            <div class="container_page1" id="container_isopen_message">
+              <div class="messagefield"></div>         
+            </div>
+            
+            <div class="container_page1" id="container_isopen_change_pin">
+              <div class="pinfield"></div>
+              <div class="controlbuttons swiper-no-swiping" >
+                <button class="controlbutton" id="b_changecode" style="font-size:40px">change PIN</button>
               </div>
               <div id="pinpad_changecode" class="pinpad swiper-no-swiping">
                 <button class="pp_number" number="1">1</button>
@@ -109,6 +127,9 @@
                 <div class="pp_dummynumber"></div>
                 <button class="pp_number" number="0">0</button>
               </div>
+              
+              <svg xmlns="http://www.w3.org/2000/svg" class="lock" width="100" height="100" viewBox="0 0 24 24"><path d="M12 10v-4c0-3.313-2.687-6-6-6s-6 2.687-6 6v3h2v-3c0-2.206 1.794-4 4-4s4 1.794 4 4v4h-4v14h18v-14h-12z"/></svg>
+              
             </div>
             
             

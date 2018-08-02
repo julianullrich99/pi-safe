@@ -24,6 +24,14 @@ $(document).ready(function() {
     reset_code();
     //playClick1();
   });
+  
+  // change code button
+  $('#b_newpin').click(function() {
+    
+    $('#container_isopen').fadeOut(500,function(){
+      $('#container_isopen_change_pin').fadeIn(500);
+    });
+  });
 
   // change code button
   $('#b_changecode').click(function() {
@@ -414,8 +422,17 @@ class messagehandler {
         
       case "result_change_password":
         if (event.value == 1) {
-          $('.pinfield').html('Passwort geändert');
-          reset_code();
+          //$('.pinfield').val('Passwort geändert');
+          $('.messagefield').html('Pin was changed successfully');
+          $('#container_isopen_change_pin').fadeOut(500,function(){
+            $('#container_isopen_message').fadeIn(200,function(){
+              $('#container_isopen_message').fadeOut(3000,function(){
+                $('#container_isopen').fadeIn(500,function(){
+                  reset_code();
+                });
+              });
+            });
+          });
         }
         return;
         
