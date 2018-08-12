@@ -41,8 +41,8 @@ ColorMachine.start()
 # GPIO.setup(19, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 #
 #
-# def my_callback(channel):
-#   print "falling edge detected"
+ def my_callback(channel):
+   print "falling edge detected"
 #   for client in clients:
 #     client.sendMessage(u""+json.dumps({"action": "text", "item": "div1", "value": "aus"}))
 #   GPIO.remove_event_detect(19)
@@ -55,8 +55,8 @@ ColorMachine.start()
 #   GPIO.remove_event_detect(19)
 #   GPIO.add_event_detect(19, GPIO.FALLING, callback=my_callback, bouncetime=300)
 #
-# GPIO.add_event_detect(19, GPIO.FALLING, callback=my_callback, bouncetime=300)
-#GPIO.add_event_detect(19, GPIO.RISING, callback=my_callback2, bouncetime=300)
+GPIO.add_event_detect(19, GPIO.FALLING, callback=my_callback, bouncetime=300)
+# GPIO.add_event_detect(19, GPIO.RISING, callback=my_callback, bouncetime=300)
 
 
 # clients = [];
