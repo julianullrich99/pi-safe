@@ -10,7 +10,7 @@ var current_state = -1; // Status zum Steuern der Anazeige
 
 $(document).ready(function() {
   // Init Slider
-  init();
+  // init();
 
   // confirm button
   $('#b_sendcode').click(function() {
@@ -88,11 +88,10 @@ $(document).ready(function() {
   
   // Event, wenn das Video fertig ist - dann weiter
   $('video').bind('ended', function (e) {
-    // do something
     console.log('ready');
     $(this).fadeOut(100,function(){
-        //$('.swiper-container').fadeIn();
-        $('main').show();
+        $('.swiper-container').fadeIn();
+        //$('main').show();
         init();
     });
   });
