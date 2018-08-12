@@ -85,17 +85,18 @@ $(document).ready(function() {
     add_pin($(this).attr('number'));
   });
 
-  /*
+  
   // Event, wenn das Video fertig ist - dann weiter
   $('video').bind('ended', function (e) {
     // do something
     console.log('ready');
     $(this).fadeOut(100,function(){
-        $('#container_slider').fadeIn();
+        //$('.swiper-container').fadeIn();
+        $('main').show();
         init();
     });
   });
-  */
+  
 
   $('#chk_pinview').click(function() {
     var arr;

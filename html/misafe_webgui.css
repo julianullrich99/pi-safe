@@ -4,7 +4,7 @@ html, body {
   height: 100%;
 }
 html{
-  background-color:blue;
+  background-color:#000000;
 }
 
 *{
@@ -16,10 +16,13 @@ html{
    zoom:1;
 }
 
+main{
+  display:none;
+}
 .swiper-container {
     width: 100vw;
     height: 100vh;
-  /*display:none;*/
+  
   margin-left:auto;
   margin-right:auto;
   /*width:99%;
@@ -33,7 +36,7 @@ html{
 }
 
 #videocontainer{
-  display:none;
+  /*display:none;*/
 }
 
 .slick {
