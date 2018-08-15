@@ -32,14 +32,24 @@ class Timer(threading.Thread):
 
 def startTimeout():
     global timeout
+    global t
     logging.debug('Timeout started')
-    timeout = 0
+    timeout = 1
     t.start() # after x seconds, function will called
+    
+def stopTimeout():
+    global timeout
+    global t
+    t.stop() # manually stop
+    logging.debug('Timeout stop')
+    timeout = 0
+    
 
 def fireTimeout():
     global timeout
+    global t
     logging.debug('Timeout expired')
-    timeout = 1
+    timeout = 2
     t.stop()
     
     
@@ -71,12 +81,13 @@ def initSe():
     i = 0
     d1.start(i)
     d2.start(0)
-    startTimeout()
+    if (GPIO.input(mapping.door.in1)) : startTimeout()
     while GPIO.input(mapping.door.in1):
-        if timeout == 1:
+        if timeout == 2: #expired
           state.state = state.stateName.index('timeout')
           d1.stop()
           d2.stop()
+          stopTimeout()
           return
         #logging.debug("timeout:%s",timeout)
         i += 1 if i < vclose else 0
@@ -84,6 +95,8 @@ def initSe():
         time.sleep(float(rampDuration) / vclose)
     d1.stop()
     d2.stop()
+    if timeout == 1: stopTimeout()
+    
     logging.debug("door closed")
     logging.debug("closing lock")
     l1 = GPIO.PWM(mapping.lock.out1, 200)

@@ -187,6 +187,20 @@ div.container{
   float:left;
 }
 
+#b_snapshot{
+  margin-right:auto;
+  margin-left:auto;
+}
+
+.img-gallery{
+  width: 200px;
+  background-size: 100% 100%;
+  display: inline-block;
+  border: 5px solid white;
+  border-radius:10px;
+  margin: 10px;
+}
+
 
 .pinpad{
     height:300px;

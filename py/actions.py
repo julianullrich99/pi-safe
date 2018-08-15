@@ -137,9 +137,22 @@ def triggerLED(functionName, *args):
     
 def get_pictures(count):
     global dbfile
+    limit = 20
     con = sqlite3.connect(dbfile)
     cursor = con.cursor()
-    sql = "SELECT * FROM pictures LIMIT 10"
+    
+    
+    sql = "SELECT count(*) FROM pictures"
+    try:
+        cursor.execute(sql)
+        result = cursor.fetchone()
+        countall = result[0]
+        logging.debug("Count of Pictures: "+str(countall))
+    except:
+        logging.debug("Unexpected error: %s", sys.exc_info())
+        raise
+       
+    sql = "SELECT  * FROM pictures LIMIT "+str(limit)+" OFFSET " + str(countall - limit)
     logging.debug(sql)
     try:
         cursor.execute(sql)

@@ -390,6 +390,22 @@ function tick() {
   }
 }
 
+function draw_gallery(list)
+{
+  var gallery = '';
+  if (list.files != undefined){
+    $.each(list.files,function(index,value){
+      
+      //gallery += '<div class="img-gallery" style="background-image:url(\"DCIM/'+value.filename+'\");"></div>';
+      //gallery += '<img class="img-gallery" src="DCIM/'+value.filename+'" />';
+      gallery += '<a data-fancybox="gallery" href="DCIM/'+value.filename+'"><img src="DCIM/'+value.filename+'" class="img-gallery"></a>';
+    })
+  }
+  $('#cameraimage').html(gallery);
+  console.debug(gallery);
+}
+
+
 class messagehandler {
   handle(msg) {
     var event = JSON.parse(msg);
@@ -454,9 +470,12 @@ class messagehandler {
         return;
       case "result_get_gallery":
         if (event.list != undefined) {
+          /*
           $.each(event.list,function(index,value){
             console.debug(value);
           })
+          */
+          draw_gallery(event.list);
         }
         return;
         
