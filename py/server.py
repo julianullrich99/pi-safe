@@ -7,6 +7,7 @@ from actions import actions
 # from se import *
 from common import *
 import se
+import smtplib
 
 FORMAT = "[%(lineno)4s:%(filename)-10s - %(funcName)10s()] %(message)s"
 # FORMAT = "[%(filename)s:%(lineno)s - %(funcName)s()] %(message)s"
@@ -16,6 +17,24 @@ GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
 action = actions()
 
+
+############## Mail Send ###############
+'''
+logging.debug('Mailtest')
+Empfaenger = 'dirk.hanisch@gunnebo.com'
+USERNAME = 'sdrum01@gmail.com'
+PASSWORD = '_01LiquiduM_'
+smtpserver = smtplib.SMTP('smtp.gmail.com', 587)
+SMTPServer.starttls()
+SMTPServer.login(USERNAME, PASSWORD)
+
+msg['Subject'] = 'Nachricht vom Raspberry Pi - %s' % Datum.strftime('%b %d %Y')
+
+Wert = str(sys.argv[1])
+Wert += " "
+Wert += str(sys.argv[2])
+msg = MIMEText(Wert)
+'''
 
 logging.debug('Init StateEngine')
 se.initSe() # init StateEngine
