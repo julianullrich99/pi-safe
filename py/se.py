@@ -8,6 +8,43 @@ import __main__
 
 GPIO.setmode(GPIO.BCM)
 
+timeout = 0
+timeout_time = 10
+
+class Timer(threading.Thread):
+    def __init__(self, func, sec=10):
+        super(Timer, self).__init__()
+        self.func = func
+        self.sec = sec
+        self.running = True
+
+    def stop(self):
+        self.running = False
+
+    def run(self):
+        while self.running:
+            t = time.time()
+            
+            time_elapsed = time.time()-t
+            time.sleep(self.sec-time_elapsed if time_elapsed > 0 else 0)
+            self.func()
+
+
+def startTimeout():
+    global timeout
+    logging.debug('Timeout started')
+    timeout = 0
+    t.start() # after x seconds, function will called
+
+def fireTimeout():
+    global timeout
+    logging.debug('Timeout expired')
+    timeout = 1
+    t.stop()
+    
+    
+t = Timer(fireTimeout,timeout_time)
+
 def get_ledcolor1(arg):
     arr_rgb = get_rgb()
     r = arr_rgb["r" + str(arg)]  # Anfangswerte
@@ -34,7 +71,14 @@ def initSe():
     i = 0
     d1.start(i)
     d2.start(0)
+    startTimeout()
     while GPIO.input(mapping.door.in1):
+        if timeout == 1:
+          state.state = state.stateName.index('timeout')
+          d1.stop()
+          d2.stop()
+          return
+        #logging.debug("timeout:%s",timeout)
         i += 1 if i < vclose else 0
         d1.ChangeDutyCycle(i)
         time.sleep(float(rampDuration) / vclose)

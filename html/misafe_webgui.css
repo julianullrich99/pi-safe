@@ -132,7 +132,7 @@ button{
 }
 
 button:hover{
-  background-color:#a5f2ff;
+  /*background-color:#a5f2ff;*/
 }
 button:active{
   background-color:red;
@@ -151,15 +151,12 @@ button:active{
 }
 
 .mybutton:hover{
-  background-color:#efefef;
+  /*background-color:#efefef;*/
 }
 .mybutton:active{
   background-color:red;
 }
 
-.wheel{
-
-}
 
 div.container{
 
@@ -191,9 +188,6 @@ div.container{
   float:left;
 }
 
-#b_snapshot{
-  
-}
 
 .pinpad{
     height:300px;

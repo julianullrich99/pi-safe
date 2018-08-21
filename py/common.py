@@ -58,6 +58,7 @@ class state:
     'safe_door_closing',#5
     'unlocked',         #6
     'init',             #7
-    'open'              #8
+    'open',             #8
+    'timeout'              #9
     ]
     state = stateName.index('init')

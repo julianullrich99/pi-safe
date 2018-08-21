@@ -16,6 +16,13 @@ GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
 action = actions()
 
+
+
+
+
+
+
+logging.debug('Init StateEngine')
 se.initSe() # init StateEngine
 
 StateMachine = threading.Thread(name='stateMachine', target=se.StateEngine, args=(opened,))
@@ -53,6 +60,7 @@ ColorMachine.start()
 
 
 # clients = [];
+
 
 def handle(msg):
   logging.debug("message income")
@@ -93,3 +101,7 @@ logging.debug("Starting WebSocket Server on localhost:8000")
 server = SimpleWebSocketServer('', 8000, protocol)
 logging.debug("WebSocket Server started at localhost:8000")
 server.serveforever()
+
+
+
+

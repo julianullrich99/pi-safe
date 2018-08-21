@@ -476,6 +476,10 @@ class messagehandler {
             case 8: $("div#container_isopen").show();
               //$("#l_progress1").html("Safedoor is open...");
               break;
+            //case 9: $("div#container_inprogress").show();
+            case 9: $("div#container_authorisation").show();
+              $("#l_progress1").html("Error while moving the Safedoor");
+              break;
           } 
         }
         return;
