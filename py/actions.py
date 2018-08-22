@@ -114,8 +114,7 @@ def store_picture(user, filename, ts):
     global dbfile
     con = sqlite3.connect(dbfile)
     cursor = con.cursor()
-    sql = "INSERT INTO pictures (filename, ts, user)  VALUES ('" + \
-        filename + "', " + ts + ", " + str(user) + ")"
+    sql = "INSERT INTO pictures (filename, ts, user)  VALUES ('" + filename + "', " + ts + ", " + str(user) + ")"
     logging.debug(sql)
     try:
         cursor.execute(sql)
@@ -170,7 +169,46 @@ def get_pictures(count):
     except:
         logging.debug("Unexpected error: %s", sys.exc_info())
         raise
+
+def do_del_picture(file):
+    global dbfile
+    con = sqlite3.connect(dbfile)
+    cursor = con.cursor()
+    sql = "DELETE FROM pictures WHERE filename = '" + str(file) + "'"
+    logging.debug(sql)
+    try:
+        cursor.execute(sql)
+        con.commit()
+        con.close()
+    except:
+        logging.debug("Unexpected error: %s", sys.exc_info())
+        raise
+    return (1)
     
+def takeCameraPicture(arg):
+    logging.debug("test: %s ", 'start cameraPicture')
+    
+    ts = str(int(time.time()))
+    path = '/var/www/html/DCIM/'
+    filename = 'pisnap_' + ts + '.jpg'
+    filename_response = '/DCIM/' + filename
+    logging.debug("Filename: %s ", filename)
+    
+    triggerLED("ledon")
+    try:
+        camera = PiCamera()
+        camera.resolution = (1024, 768)
+        #camera.resolution = (800, 600)
+        camera.capture(path + filename)
+        #sendToClients({"action": "result_camerapicture","value": 1, "filename": filename_response, "arg": arg})
+        store_picture(1, filename, ts)
+        triggerLED("ledoff")
+        return (1)
+    except Exception as e:
+        #sendToClients({"action": "error", "type": "cameraPicture"})
+        logging.debug("Error in taking picture: %s", e)
+        triggerLED("ledoff")
+        return (2)
 
 class actions:
     def __init__(self):
@@ -178,7 +216,7 @@ class actions:
         logging.debug("Connecting to Database")
         dbconnect()
         logging.debug("Database Connected")
-        self.camera = PiCamera()
+        #self.camera = PiCamera()
 
     def get_state(self):
         sendToClients({"action": "state", "value": str(state.state)})
@@ -193,7 +231,7 @@ class actions:
 
     def get_ledcolor(self, arg):
         triggerLED("get_ledcolor", arg)
-
+    '''
     def cameraPicture(self, arg):
         ts = str(int(time.time()))
         path = '/var/www/html/DCIM/'
@@ -203,18 +241,24 @@ class actions:
         # self.camera.resolution = (800, 600)
         triggerLED("ledon")
         try:
-            #self.camera.resolution = (1024, 768)
-            self.camera.resolution = (800, 600)
+            self.camera.resolution = (1024, 768)
+            #self.camera.resolution = (800, 600)
             self.camera.capture(path + filename)
-            sendToClients({"action": "result_camerapicture",
-                           "value": 1, "filename": filename_response, "arg": arg})
+            sendToClients({"action": "result_camerapicture","value": 1, "filename": filename_response, "arg": arg})
             store_picture(1, filename, ts)
             triggerLED("ledoff")
         except Exception as e:
             sendToClients({"action": "error", "type": "cameraPicture"})
             logging.debug("Error in taking picture: %s", e)
             triggerLED("ledoff")
+    '''
 
+    def cameraPicture(self, arg):
+        takeCameraPicture(arg)
+        arr = get_pictures(10)
+        sendToClients({"action": "result_get_gallery","list": arr, "arg": arg})
+        #sendToClients({"action": "result_camerapicture","value": 1, "filename": filename_response, "arg": arg})
+        
     def compare_code(self, arg):
         self.pw = get_password(1)
         logging.debug("stored pin: %s", str(self.pw))
@@ -250,4 +294,12 @@ class actions:
         gallery_count = arg['count']
         arr = get_pictures(gallery_count)
         sendToClients({"action": "result_get_gallery","list": arr, "arg": arg})
+        
+    def del_picture(self, arg):
+        rtn = do_del_picture(arg['file'])
+        gallery_count = arg['count']
+        if(rtn == 1):
+          arr = get_pictures(gallery_count)
+          sendToClients({"action": "result_get_gallery","list": arr, "arg": arg})
+        
         

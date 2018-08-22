@@ -157,9 +157,6 @@ button:active{
 }
 
 
-div.container{
-
-}
 
 #colorpicker1{
   height:500px;
@@ -167,49 +164,6 @@ div.container{
   bottom:20px;
   margin-left:auto;
   margin-right:auto;
-}
-
-
-.camerabutton{
-  width:80px;
-  height:80px;
-}
-
-.camerabutton:hover, active{
-  background-color:red;
-}
-
-#cameraimage{
-  height:100%;
-  margin-left:auto;
-  margin-right:auto;
-  display: block;
-  float:left;
-}
-
-#b_snapshot{
-  margin-right:auto;
-  margin-left:auto;
-}
-
-.img-gallery{
-  width: 200px;
-  background-size: 100% 100%;
-  display: inline-block;
-  border: 5px solid white;
-  border-bottom: 25px solid white;
-  border-radius:10px;
-  margin: 10px;
-}
-.img-gallery-label{
-  text-align:center;
-  display: inline;
-  position:absolute;
-  color:black;
-  
-  width: 200px;
-  margin: 10px;
-  margin-top:170px;
 }
 
 
@@ -315,3 +269,64 @@ div.container{
   margin-left:auto;
   margin-right:auto;
 }
+
+
+.img-gallery-pic{
+  width: 200px;
+}
+
+.img-gallery-frame{
+  text-align:center;
+  
+  color:black;
+  vertical-align:bottom;
+  text-align: center;
+  border: 5px solid white;
+  padding:5px;
+  border-radius:10px;
+  margin: 10px;
+  float:left;
+}
+
+.img-gallery-label{
+  background-color:white;
+}
+.img-gallery-buttonarea{
+  background-color:white;
+  text-align:left;
+  cursor:pointer;
+}
+
+.b_del_pic
+{
+  background-color:none;
+  border:none;
+  font-size:12px;
+  float:left;
+  display:inline;
+}
+
+.camerabutton{
+  width:80px;
+  height:80px;
+  position:absolute;
+}
+
+.camerabutton:hover, active{
+  background-color:red;
+}
+
+#cameraimage{
+  margin-top:0px;
+  height:95%;
+  margin-left:auto;
+  margin-right:auto;
+  width: 95%;
+}
+
+#b_snapshot{
+  margin-right:auto;
+  margin-left:auto;
+}
+
+

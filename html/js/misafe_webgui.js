@@ -133,7 +133,11 @@ $(document).ready(function() {
   $('.sl').click(function() {
     selected_color = $(this).attr('selection');
   });
-
+  /*
+  $('#b_del_pic').click(function(){
+    alert('test');
+  });
+*/
   // timer zum Holen des State oder zum öffnen des sockets
   setInterval(tick, 10000);
   tick();
@@ -178,15 +182,7 @@ function lock_safe() {
   reset_code();
 }
 
-function get_gallery() {
-  var arr = {
-    action: "get_gallery",
-    arg:{
-      count: 10
-    }
-  };
-  socket.send(JSON.stringify(arr));
-}
+
 
 function set_colorwheel(rgb) {
   colorWheel1.color.rgb = rgb;
@@ -390,6 +386,29 @@ function tick() {
   }
 }
 
+function get_gallery() {
+  var arr = {
+    action: "get_gallery",
+    arg:{
+      count: 10
+    }
+  };
+  socket.send(JSON.stringify(arr));
+}
+
+function del_picture(pic) {
+  var arr = {
+    action: "del_picture",
+    arg:{
+      count: 10,
+      file:pic
+    }
+  };
+  if (socket_open) {
+    socket.send(JSON.stringify(arr));
+  }
+}
+
 function draw_gallery(list)
 {
   var gallery = '';
@@ -398,12 +417,21 @@ function draw_gallery(list)
       
       
       //gallery += '<img class="img-gallery" src="DCIM/'+value.filename+'" />';
-      gallery += '<span class="img-gallery-label">'+value.date+'</span><a data-fancybox="gallery" href="DCIM/'+value.filename+'" data-caption="'+value.date+'" ><img src="DCIM/'+value.filename+'" class="img-gallery" title="'+value.date+'"/></a>';
+      gallery += '<div class="img-gallery-frame">';
+      gallery += '<a data-fancybox="gallery" href="DCIM/'+value.filename+'" data-caption="'+value.date+'" >';
+      gallery += '<img src="DCIM/'+value.filename+'" class="img-gallery-pic" /></a>';
+      gallery += '<div class="img-gallery-label">'+value.date;
+      gallery += '<div class="img-gallery-buttonarea" ><button class="b_del_pic" onclick="del_picture(\''+value.filename+'\')" >DEL</button></div></div>';
+      gallery += '</div>';
     })
+    $('#cameraimage').html(gallery);
   }
-  $('#cameraimage').html(gallery);
+  
+  
   console.debug(gallery);
 }
+
+
 
 
 class messagehandler {
@@ -468,6 +496,7 @@ class messagehandler {
           set_colorwheel(event.value);
         }
         return;
+        
       case "result_get_gallery":
         if (event.list != undefined) {
           /*
@@ -475,6 +504,12 @@ class messagehandler {
             console.debug(value);
           })
           */
+          draw_gallery(event.list);
+        }
+        return;
+        
+      case "result_del_picture":
+        if (event.list != undefined) {
           draw_gallery(event.list);
         }
         return;

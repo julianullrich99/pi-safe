@@ -2,9 +2,10 @@ import RPi.GPIO as GPIO
 import threading
 import time
 from common import *
-from actions import sendToClients, get_rgb, store_rgb, triggerLED
+from actions import sendToClients, get_rgb, store_rgb, triggerLED, takeCameraPicture
 import logging
 import __main__
+from picamera import PiCamera
 
 GPIO.setmode(GPIO.BCM)
 
@@ -250,6 +251,7 @@ def StateEngine(e):
                     sendToClients(
                         {"action": "state", "value": str(state.state)})
                     triggerLED("ledoff")
+                    takeCameraPicture(0)
                     while not e.isSet():
                         time.sleep(0.1)
                         
