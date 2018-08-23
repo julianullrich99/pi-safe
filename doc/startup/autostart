@@ -8,4 +8,4 @@
 @xset -dpms
 
 @chromium-browser --kiosk --incognito --disable-pinch --overscroll-history-navigation=0 --noerrdialogs --disable-translate http://localhost
-@python /var/www/py/main.py >> /var/www/py/python.log
+@python /var/www/py/main.py >> py.log

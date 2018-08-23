@@ -1,4 +1,4 @@
 *.pyc
 html/DCIM/*.*
-db/*.*
+db/misafe.db
 
