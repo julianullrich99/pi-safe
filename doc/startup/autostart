@@ -1,0 +1,11 @@
+
+@lxpanel --profile LXDE-pi
+@pcmanfm --desktop --profile LXDE-pi
+# @xscreensaver -no-splash
+@point-rpi
+@xset s noblank
+@xset s off
+@xset -dpms
+
+@chromium-browser --kiosk --incognito --disable-pinch --overscroll-history-navigation=0 --noerrdialogs --disable-translate http://localhost
+@python /var/www/py/main.py >> /var/www/py/python.log
