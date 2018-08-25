@@ -17,11 +17,6 @@ GPIO.setmode(GPIO.BCM)
 action = actions()
 
 
-
-
-
-
-
 logging.debug('Init StateEngine')
 se.initSe() # init StateEngine
 
@@ -38,10 +33,10 @@ ColorMachine.start()
 
 # motorcontrol = motorcontrol()
 
-# GPIO.setup(19, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.setup(19, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 #
 #
- def my_callback(channel):
+def my_callback(channel):
    print "falling edge detected"
 #   for client in clients:
 #     client.sendMessage(u""+json.dumps({"action": "text", "item": "div1", "value": "aus"}))

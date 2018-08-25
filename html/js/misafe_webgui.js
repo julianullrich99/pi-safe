@@ -178,6 +178,16 @@ function lock_safe() {
   reset_code();
 }
 
+function get_gallery() {
+  var arr = {
+    action: "get_gallery",
+    arg:{
+      count: 10
+    }
+  };
+  socket.send(JSON.stringify(arr));
+}
+
 function set_colorwheel(rgb) {
   colorWheel1.color.rgb = rgb;
   return true;
@@ -250,7 +260,8 @@ function init() {
               get_rgb(selected_color);
               break;
             case 2:
-              takeCameraPicture();
+              //takeCameraPicture();
+              get_gallery();
               break;
             default:
               break;

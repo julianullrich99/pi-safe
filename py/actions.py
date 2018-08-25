@@ -134,6 +134,25 @@ def triggerLED(functionName, *args):
     colors.colorEventArgs = args
     colors.colorTrigger.set()
     logging.debug("triggered: %s", colors.colorEvent)
+    
+def get_pictures(count):
+    global dbfile
+    con = sqlite3.connect(dbfile)
+    cursor = con.cursor()
+    sql = "SELECT * FROM pictures LIMIT 10"
+    logging.debug(sql)
+    try:
+        cursor.execute(sql)
+        files = []
+        for data in cursor:
+            files.append({"filename":data[1],"date":data[2],"user":data[3]})
+        arr = {"files": files}
+        con.close()
+        return (arr)
+    except:
+        logging.debug("Unexpected error: %s", sys.exc_info())
+        raise
+    
 
 class actions:
     def __init__(self):
@@ -206,4 +225,10 @@ class actions:
         opened.clear()
 
     def pinView(self, arg):
-		option = arg['view']
+        option = arg['view']
+        
+    def get_gallery(self, arg):
+        gallery_count = arg['count']
+        arr = get_pictures(gallery_count)
+        sendToClients({"action": "result_get_gallery","list": arr, "arg": arg})
+        
