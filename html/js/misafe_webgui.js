@@ -452,6 +452,13 @@ class messagehandler {
           set_colorwheel(event.value);
         }
         return;
+      case "result_get_gallery":
+        if (event.list != undefined) {
+          $.each(event.list,function(index,value){
+            console.debug(value);
+          })
+        }
+        return;
         
       case "state":
         if (event.value != undefined) {
