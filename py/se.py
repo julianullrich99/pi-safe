@@ -5,7 +5,7 @@ from common import *
 from actions import sendToClients, get_rgb, store_rgb, triggerLED, takeCameraPicture
 import logging
 import __main__
-#from picamera import PiCamera
+from picamera import PiCamera
 
 GPIO.setmode(GPIO.BCM)
 
