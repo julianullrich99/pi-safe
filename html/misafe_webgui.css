@@ -277,7 +277,7 @@ button:active{
 
 .img-gallery-frame{
   text-align:center;
-  
+  display:inline;
   color:black;
   vertical-align:bottom;
   text-align: center;
@@ -286,6 +286,7 @@ button:active{
   border-radius:10px;
   margin: 10px;
   float:left;
+  min-width: 200px;
 }
 
 .img-gallery-label{

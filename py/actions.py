@@ -14,6 +14,7 @@ import __main__
 # from __main__ import clients
 
 GPIO.setmode(GPIO.BCM)
+camera = PiCamera()
 
 def sendToClients(arr):
     for client in clients:
@@ -185,7 +186,9 @@ def do_del_picture(file):
         raise
     return (1)
     
+
 def takeCameraPicture(arg):
+    global camera
     logging.debug("test: %s ", 'start cameraPicture')
     
     ts = str(int(time.time()))
@@ -196,7 +199,6 @@ def takeCameraPicture(arg):
     
     triggerLED("ledon")
     try:
-        camera = PiCamera()
         camera.resolution = (1024, 768)
         #camera.resolution = (800, 600)
         camera.capture(path + filename)
@@ -209,6 +211,7 @@ def takeCameraPicture(arg):
         logging.debug("Error in taking picture: %s", e)
         triggerLED("ledoff")
         return (2)
+
 
 class actions:
     def __init__(self):
@@ -244,21 +247,24 @@ class actions:
             self.camera.resolution = (1024, 768)
             #self.camera.resolution = (800, 600)
             self.camera.capture(path + filename)
-            sendToClients({"action": "result_camerapicture","value": 1, "filename": filename_response, "arg": arg})
+            #sendToClients({"action": "result_camerapicture","value": 1, "filename": filename_response, "arg": arg})
             store_picture(1, filename, ts)
             triggerLED("ledoff")
+            arr = get_pictures(10)
+            sendToClients({"action": "result_get_gallery","list": arr, "arg": arg})
+            
         except Exception as e:
             sendToClients({"action": "error", "type": "cameraPicture"})
             logging.debug("Error in taking picture: %s", e)
             triggerLED("ledoff")
     '''
-
+    
     def cameraPicture(self, arg):
         takeCameraPicture(arg)
         arr = get_pictures(10)
         sendToClients({"action": "result_get_gallery","list": arr, "arg": arg})
         #sendToClients({"action": "result_camerapicture","value": 1, "filename": filename_response, "arg": arg})
-        
+      
     def compare_code(self, arg):
         self.pw = get_password(1)
         logging.debug("stored pin: %s", str(self.pw))
