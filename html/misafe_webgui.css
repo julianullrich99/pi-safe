@@ -197,13 +197,19 @@ div.container{
   background-size: 100% 100%;
   display: inline-block;
   border: 5px solid white;
+  border-bottom: 25px solid white;
   border-radius:10px;
   margin: 10px;
 }
 .img-gallery-label{
   text-align:center;
-  border: 5px solid white;
-  display: inline-block;
+  display: inline;
+  position:absolute;
+  color:black;
+  
+  width: 200px;
+  margin: 10px;
+  margin-top:170px;
 }
 
 

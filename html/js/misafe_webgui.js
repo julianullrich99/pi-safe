@@ -396,9 +396,9 @@ function draw_gallery(list)
   if (list.files != undefined){
     $.each(list.files,function(index,value){
       
-      //gallery += '<div class="img-gallery" style="background-image:url(\"DCIM/'+value.filename+'\");"></div>';
+      
       //gallery += '<img class="img-gallery" src="DCIM/'+value.filename+'" />';
-      gallery += '<a data-fancybox="gallery" href="DCIM/'+value.filename+'" data-caption="'+value.date+'" ><img src="DCIM/'+value.filename+'" class="img-gallery" title="'+value.date+'"/></a>';
+      gallery += '<span class="img-gallery-label">'+value.date+'</span><a data-fancybox="gallery" href="DCIM/'+value.filename+'" data-caption="'+value.date+'" ><img src="DCIM/'+value.filename+'" class="img-gallery" title="'+value.date+'"/></a>';
     })
   }
   $('#cameraimage').html(gallery);
