@@ -398,7 +398,7 @@ function draw_gallery(list)
       
       //gallery += '<div class="img-gallery" style="background-image:url(\"DCIM/'+value.filename+'\");"></div>';
       //gallery += '<img class="img-gallery" src="DCIM/'+value.filename+'" />';
-      gallery += '<a data-fancybox="gallery" href="DCIM/'+value.filename+'"><img src="DCIM/'+value.filename+'" class="img-gallery"></a>';
+      gallery += '<a data-fancybox="gallery" href="DCIM/'+value.filename+'" data-caption="'+value.date+'" ><img src="DCIM/'+value.filename+'" class="img-gallery" title="'+value.date+'"/></a>';
     })
   }
   $('#cameraimage').html(gallery);

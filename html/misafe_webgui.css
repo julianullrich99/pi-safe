@@ -200,6 +200,11 @@ div.container{
   border-radius:10px;
   margin: 10px;
 }
+.img-gallery-label{
+  text-align:center;
+  border: 5px solid white;
+  display: inline-block;
+}
 
 
 .pinpad{

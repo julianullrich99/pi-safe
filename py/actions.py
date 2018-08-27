@@ -8,6 +8,7 @@ import json
 import os
 import sys
 import sqlite3
+from datetime import datetime
 import __main__
 
 # from __main__ import clients
@@ -141,7 +142,7 @@ def get_pictures(count):
     con = sqlite3.connect(dbfile)
     cursor = con.cursor()
     
-    
+    # Anzahl ermitteln
     sql = "SELECT count(*) FROM pictures"
     try:
         cursor.execute(sql)
@@ -158,7 +159,11 @@ def get_pictures(count):
         cursor.execute(sql)
         files = []
         for data in cursor:
-            files.append({"filename":data[1],"date":data[2],"user":data[3]})
+            filename = data[1]
+            mydate = datetime.utcfromtimestamp(int(data[2])).strftime('%Y-%m-%d %H:%M:%S')
+            user=data[3]
+            #files.append({"filename":data[1],"date":data[2],"user":data[3]})
+            files.append({"filename":filename,"date":mydate,"user":user})
         arr = {"files": files}
         con.close()
         return (arr)
@@ -198,7 +203,8 @@ class actions:
         # self.camera.resolution = (800, 600)
         triggerLED("ledon")
         try:
-            self.camera.resolution = (1024, 768)
+            #self.camera.resolution = (1024, 768)
+            self.camera.resolution = (800, 600)
             self.camera.capture(path + filename)
             sendToClients({"action": "result_camerapicture",
                            "value": 1, "filename": filename_response, "arg": arg})
