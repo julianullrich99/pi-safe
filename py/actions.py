@@ -44,6 +44,12 @@ def create_db():
     sql = "INSERT INTO colors (id,id_user,r1,g1,b1,r2,g2,b2)VALUES(1,1,255,0,255,255,255,0)"
     cursor.execute(sql)
     con.commit()
+    
+    
+    # Tabelle colors erzeugen 
+    sql = 'CREATE TABLE pictures(id INTEGER, filename STRING, user INTEGER)'
+    cursor.execute(sql)
+    con.commit()
     con.close()
     logging.debug("Database " + dbfile + "created with content %s", sql)
 
@@ -138,7 +144,7 @@ def triggerLED(functionName, *args):
     
 def get_pictures(count):
     global dbfile
-    limit = 20
+    limit = 15
     con = sqlite3.connect(dbfile)
     cursor = con.cursor()
     
@@ -211,6 +217,14 @@ def takeCameraPicture(arg):
         logging.debug("Error in taking picture: %s", e)
         triggerLED("ledoff")
         return (2)
+        
+def shutdown(arg):
+    ser.close()
+    if arg == 1:
+      os.system("sudo shutdown -h now")
+    if arg == 2:
+      os.system("sudo shutdown -r now")
+    sys.exit()
 
 
 class actions:
