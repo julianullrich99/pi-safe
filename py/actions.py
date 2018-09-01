@@ -1,6 +1,7 @@
 import RPi.GPIO as GPIO
 from picamera import PiCamera
 # import base64
+# import subprocess
 from common import *
 import logging
 import time
@@ -222,6 +223,8 @@ def shutdown(arg):
     ser.close()
     if arg == 1:
       os.system("sudo shutdown -h now")
+      # oder
+      # subprocess.call(['shutdown', '-h', 'now'], shell=False)
     if arg == 2:
       os.system("sudo shutdown -r now")
     sys.exit()
