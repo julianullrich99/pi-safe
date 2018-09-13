@@ -1,6 +1,7 @@
 import RPi.GPIO as GPIO
 from picamera import PiCamera
 # import base64
+# import subprocess
 from common import *
 import logging
 import time
@@ -42,6 +43,12 @@ def create_db():
     sql = 'CREATE TABLE colors(id INTEGER, id_user INTEGER, r1 INTEGER, g1 INTEGER, b1 INTEGER, r2 INTEGER, g2 INTEGER, b2 INTEGER)'
     cursor.execute(sql)
     sql = "INSERT INTO colors (id,id_user,r1,g1,b1,r2,g2,b2)VALUES(1,1,255,0,255,255,255,0)"
+    cursor.execute(sql)
+    con.commit()
+    
+    
+    # Tabelle colors erzeugen 
+    sql = 'CREATE TABLE pictures(id INTEGER, filename STRING, user INTEGER)'
     cursor.execute(sql)
     con.commit()
     con.close()
@@ -138,7 +145,7 @@ def triggerLED(functionName, *args):
     
 def get_pictures(count):
     global dbfile
-    limit = 20
+    limit = 15
     con = sqlite3.connect(dbfile)
     cursor = con.cursor()
     
@@ -211,6 +218,16 @@ def takeCameraPicture(arg):
         logging.debug("Error in taking picture: %s", e)
         triggerLED("ledoff")
         return (2)
+        
+def shutdown(arg):
+    ser.close()
+    if arg == 1:
+      os.system("sudo shutdown -h now")
+      # oder
+      # subprocess.call(['shutdown', '-h', 'now'], shell=False)
+    if arg == 2:
+      os.system("sudo shutdown -r now")
+    sys.exit()
 
 
 class actions:

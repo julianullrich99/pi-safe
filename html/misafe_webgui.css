@@ -309,25 +309,30 @@ button:active{
 
 .camerabutton{
   width:80px;
-  height:80px;
-  position:absolute;
 }
 
+/*
 .camerabutton:hover, active{
   background-color:red;
 }
+*/
 
 #cameraimage{
   margin-top:0px;
-  height:95%;
+  height: calc(100% - 150px);
   margin-left:auto;
   margin-right:auto;
   width: 95%;
 }
 
 #b_snapshot{
-  margin-right:auto;
-  margin-left:auto;
+  background:none;
+}
+
+#cameracontrol{
+  height:100px;
+  width:100%;
+  /*background-color:white;*/
 }
 
 
