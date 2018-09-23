@@ -10,6 +10,7 @@ import os
 import sys
 import sqlite3
 from datetime import datetime
+from mail import sendmymail
 import __main__
 
 # from __main__ import clients
@@ -45,9 +46,9 @@ def create_db():
     sql = "INSERT INTO colors (id,id_user,r1,g1,b1,r2,g2,b2)VALUES(1,1,255,0,255,255,255,0)"
     cursor.execute(sql)
     con.commit()
-    
-    
-    # Tabelle colors erzeugen 
+
+
+    # Tabelle colors erzeugen
     sql = 'CREATE TABLE pictures(id INTEGER, filename STRING, user INTEGER)'
     cursor.execute(sql)
     con.commit()
@@ -142,13 +143,13 @@ def triggerLED(functionName, *args):
     colors.colorEventArgs = args
     colors.colorTrigger.set()
     logging.debug("triggered: %s", colors.colorEvent)
-    
+
 def get_pictures(count):
     global dbfile
     limit = 15
     con = sqlite3.connect(dbfile)
     cursor = con.cursor()
-    
+
     # Anzahl ermitteln
     sql = "SELECT count(*) FROM pictures"
     try:
@@ -159,7 +160,7 @@ def get_pictures(count):
     except:
         logging.debug("Unexpected error: %s", sys.exc_info())
         raise
-       
+
     sql = "SELECT  * FROM pictures LIMIT "+str(limit)+" OFFSET " + str(countall - limit)
     logging.debug(sql)
     try:
@@ -192,18 +193,18 @@ def do_del_picture(file):
         logging.debug("Unexpected error: %s", sys.exc_info())
         raise
     return (1)
-    
+
 
 def takeCameraPicture(arg):
     global camera
     logging.debug("test: %s ", 'start cameraPicture')
-    
+
     ts = str(int(time.time()))
     path = '/var/www/html/DCIM/'
     filename = 'pisnap_' + ts + '.jpg'
     filename_response = '/DCIM/' + filename
     logging.debug("Filename: %s ", filename)
-    
+
     triggerLED("ledon")
     try:
         camera.resolution = (1024, 768)
@@ -218,7 +219,7 @@ def takeCameraPicture(arg):
         logging.debug("Error in taking picture: %s", e)
         triggerLED("ledoff")
         return (2)
-        
+
 def shutdown(arg):
     ser.close()
     if arg == 1:
@@ -251,41 +252,18 @@ class actions:
 
     def get_ledcolor(self, arg):
         triggerLED("get_ledcolor", arg)
-    '''
-    def cameraPicture(self, arg):
-        ts = str(int(time.time()))
-        path = '/var/www/html/DCIM/'
-        filename = 'pisnap_' + ts + '.jpg'
-        filename_response = '/DCIM/' + filename
-        logging.debug("Filename: %s ", filename)
-        # self.camera.resolution = (800, 600)
-        triggerLED("ledon")
-        try:
-            self.camera.resolution = (1024, 768)
-            #self.camera.resolution = (800, 600)
-            self.camera.capture(path + filename)
-            #sendToClients({"action": "result_camerapicture","value": 1, "filename": filename_response, "arg": arg})
-            store_picture(1, filename, ts)
-            triggerLED("ledoff")
-            arr = get_pictures(10)
-            sendToClients({"action": "result_get_gallery","list": arr, "arg": arg})
-            
-        except Exception as e:
-            sendToClients({"action": "error", "type": "cameraPicture"})
-            logging.debug("Error in taking picture: %s", e)
-            triggerLED("ledoff")
-    '''
-    
+
     def cameraPicture(self, arg):
         takeCameraPicture(arg)
         arr = get_pictures(10)
         sendToClients({"action": "result_get_gallery","list": arr, "arg": arg})
         #sendToClients({"action": "result_camerapicture","value": 1, "filename": filename_response, "arg": arg})
-      
+
     def compare_code(self, arg):
         self.pw = get_password(1)
         logging.debug("stored pin: %s", str(self.pw))
         logging.debug("received pin: %s", str(arg['pin']))
+
         if str(self.pw) == str(arg['pin']):
             logging.debug("PIN corect")
             sendToClients({"action": "result_compare_code", "value": 1})
@@ -296,6 +274,7 @@ class actions:
             sendToClients({"action": "result_compare_code", "value": 0})
             # triggerLED("blinkHelp", {"count": colors.blinkCount, "color": colors.blinkWrong, "which": colors.blinkWhich, "speed": colors.blinkSpeed})
             triggerLED("blink", colors.blinkCount, colors.blinkWrong, colors.blinkWhich, colors.blinkSpeed)
+            sendmymail("Pi-Safe Password Attempt wrong: "+str(arg['pin']))
 
     def change_code(self, arg):
         newpin = arg['pin']
@@ -312,17 +291,17 @@ class actions:
 
     def pinView(self, arg):
         option = arg['view']
-        
+
     def get_gallery(self, arg):
         gallery_count = arg['count']
         arr = get_pictures(gallery_count)
         sendToClients({"action": "result_get_gallery","list": arr, "arg": arg})
-        
+
     def del_picture(self, arg):
         rtn = do_del_picture(arg['file'])
         gallery_count = arg['count']
         if(rtn == 1):
           arr = get_pictures(gallery_count)
           sendToClients({"action": "result_get_gallery","list": arr, "arg": arg})
-        
-        
+
+
