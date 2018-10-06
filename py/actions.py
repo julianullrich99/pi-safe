@@ -1,5 +1,6 @@
 import RPi.GPIO as GPIO
-from picamera import PiCamera
+# from picamera import PiCamera
+import picamera
 # import base64
 # import subprocess
 from common import *
@@ -16,7 +17,8 @@ import __main__
 # from __main__ import clients
 
 GPIO.setmode(GPIO.BCM)
-camera = PiCamera()
+camera = picamera.PiCamera()
+  
 
 def sendToClients(arr):
     for client in clients:
@@ -146,7 +148,7 @@ def triggerLED(functionName, *args):
 
 def get_pictures(count):
     global dbfile
-    limit = 15
+    limit = count
     con = sqlite3.connect(dbfile)
     cursor = con.cursor()
 
@@ -172,6 +174,7 @@ def get_pictures(count):
             user=data[3]
             #files.append({"filename":data[1],"date":data[2],"user":data[3]})
             files.append({"filename":filename,"date":mydate,"user":user})
+        #arr = {"files": files, "offset": offset}
         arr = {"files": files}
         con.close()
         return (arr)
@@ -203,22 +206,22 @@ def takeCameraPicture(arg):
     path = '/var/www/html/DCIM/'
     filename = 'pisnap_' + ts + '.jpg'
     filename_response = '/DCIM/' + filename
-    logging.debug("Filename: %s ", filename)
-
+    logging.debug("Filename: %s ", path + filename)
+    camera.resolution = (1024, 768)
+    #camera.resolution = (800, 600)
     triggerLED("ledon")
     try:
-        camera.resolution = (1024, 768)
-        #camera.resolution = (800, 600)
-        camera.capture(path + filename)
-        #sendToClients({"action": "result_camerapicture","value": 1, "filename": filename_response, "arg": arg})
-        store_picture(1, filename, ts)
-        triggerLED("ledoff")
-        return (1)
+      camera.capture(path + filename)
+      #sendToClients({"action": "result_camerapicture","value": 1, "filename": filename_response, "arg": arg})
+      store_picture(1, filename, ts)
+      triggerLED("ledoff")
+      return (1)
     except Exception as e:
-        #sendToClients({"action": "error", "type": "cameraPicture"})
-        logging.debug("Error in taking picture: %s", e)
-        triggerLED("ledoff")
-        return (2)
+      #sendToClients({"action": "error", "type": "cameraPicture"})
+      logging.debug("Error in taking picture: %s", e)
+      triggerLED("ledoff")
+      raise
+      return (2)
 
 def shutdown(arg):
     ser.close()
@@ -254,8 +257,10 @@ class actions:
         triggerLED("get_ledcolor", arg)
 
     def cameraPicture(self, arg):
+        gallery_count = arg['count']
+        #gallery_offset = arg['offset']
         takeCameraPicture(arg)
-        arr = get_pictures(10)
+        arr = get_pictures(gallery_count)
         sendToClients({"action": "result_get_gallery","list": arr, "arg": arg})
         #sendToClients({"action": "result_camerapicture","value": 1, "filename": filename_response, "arg": arg})
 
@@ -274,7 +279,7 @@ class actions:
             sendToClients({"action": "result_compare_code", "value": 0})
             # triggerLED("blinkHelp", {"count": colors.blinkCount, "color": colors.blinkWrong, "which": colors.blinkWhich, "speed": colors.blinkSpeed})
             triggerLED("blink", colors.blinkCount, colors.blinkWrong, colors.blinkWhich, colors.blinkSpeed)
-            sendmymail("Pi-Safe Password Attempt wrong: "+str(arg['pin']))
+            # sendmymail("Pi-Safe Password Attempt wrong: "+str(arg['pin']))
 
     def change_code(self, arg):
         newpin = arg['pin']

@@ -8,10 +8,13 @@ from actions import actions
 from common import *
 import se
 import smtplib
+import picamera
 
 FORMAT = "[%(lineno)4s:%(filename)-10s - %(funcName)10s()] %(message)s"
 # FORMAT = "[%(filename)s:%(lineno)s - %(funcName)s()] %(message)s"
 logging.basicConfig(format=FORMAT, level=logging.DEBUG)
+
+
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)

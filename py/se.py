@@ -2,12 +2,16 @@ import RPi.GPIO as GPIO
 import threading
 import time
 from common import *
-from actions import sendToClients, get_rgb, store_rgb, triggerLED, takeCameraPicture
+#from picamera import PiCamera
+import picamera
+#from actions import sendToClients, get_rgb, store_rgb, triggerLED, takeCameraPicture
+from actions import *
 import logging
 import __main__
-from picamera import PiCamera
+
 
 GPIO.setmode(GPIO.BCM)
+
 
 timeout = 0
 timeout_time = 10

@@ -5,6 +5,8 @@ var pin = '';
 var number_bak = 0;
 var socket_open = false;
 var selected_color = 1;
+var camera_init = false;
+var gallery_count = 15
 
 var current_state = -1; // Status zum Steuern der Anazeige
 
@@ -93,6 +95,7 @@ $(document).ready(function() {
         $('.swiper-container').fadeIn();
         //$('main').show();
         init();
+        
     });
   });
   
@@ -332,6 +335,9 @@ function init() {
 
 };
 
+
+
+
 function store_rgb(which, rgb) {
   var arr = {
     action: "store_ledcolor" + which,
@@ -364,10 +370,21 @@ function light(on) {
 function takeCameraPicture() {
   var arr = {
     action: "cameraPicture",
-    arg: ts()
+    arg:{
+      count: gallery_count,
+      ts: ts()
+    }
   };
   if (socket_open) {
     socket.send(JSON.stringify(arr));
+  }
+}
+
+function check_camerainit()
+{
+if(camera_init == false){
+    takeCameraPicture();
+    camera_init = true;
   }
 }
 
@@ -377,6 +394,7 @@ function get_state() {
   };
   if (socket_open) {
     socket.send(JSON.stringify(arr));
+    check_camerainit();
   }
 }
 
@@ -390,17 +408,20 @@ function get_gallery() {
   var arr = {
     action: "get_gallery",
     arg:{
-      count: 10
+      count: gallery_count,
+      ts: ts()
     }
   };
-  socket.send(JSON.stringify(arr));
+  if (socket_open) {
+    socket.send(JSON.stringify(arr));
+  }
 }
 
 function del_picture(pic) {
   var arr = {
     action: "del_picture",
     arg:{
-      count: 10,
+      count: gallery_count,
       file:pic
     }
   };
@@ -430,7 +451,6 @@ function draw_gallery(list)
   
   console.debug(gallery);
 }
-
 
 
 
@@ -559,7 +579,8 @@ class messagehandler {
       case "result_camerapicture":
         if (event.value == 1) {
           var filename = event.filename;
-          $('#cameraimage').html('<img src="' + filename + '" alt="' + filename + '" />');
+          
+          //$('#cameraimage').html('<img src="' + filename + '" alt="' + filename + '" />');
           //$('#page3').css('background-image','url("'+filename+'")').css('background-size','100%');
         }
         return;
