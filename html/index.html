@@ -6,11 +6,11 @@
     <title>miSafe Portal Test</title>
     <meta name="description" content="miSAFE">
     <meta name="author" content="DH">
-    
+
 
     <!-- <link rel="stylesheet" href="js/slick/slick.css"> -->
     <!-- <link rel="stylesheet" href="js/slick/slick-theme.css"> -->
-    
+
     <link rel="stylesheet" href="misafe_webgui.css">
     <link rel="stylesheet" href="toggle_switch.css">
     <link rel="stylesheet" href="swiper.css"/>
@@ -34,22 +34,22 @@
     <audio preload="preload" id="click1">
       <source src="media/ClickOn.wav" type="audio/wav">
     </audio>
-    
+
      <div id="videocontainer">
         <video src="media/pi-safe.mp4" width="100%" id="player1" autoplay >
           <!--autoplay-->
           Impossible to play intro-video
         </video>
-      </div> 
-      
+      </div>
+
     <main>
 
-      
+
 
       <div class="swiper-container">
         <div class="swiper-wrapper">
           <div class="swiper-slide" id="page1">
-            
+
             <!-- wenn State noch locked -->
             <div class="container_page1" id="container_authorisation">
               <!-- Rounded switch for pinpad or knob-->
@@ -86,33 +86,33 @@
                 <button class="controlbutton" id="b_sendcode">Unlock</button>
                 <!--<button class="controlbutton" id="b_resetcode">reset</button>-->
                 <button class="controlbutton" id="b_reset_code">Clear</button>
-                
+
               </div>
-             
+
               <svg xmlns="http://www.w3.org/2000/svg" class="lock" width="100" height="100" viewBox="0 0 24 24"><path d="M18 10v-4c0-3.313-2.687-6-6-6s-6 2.687-6 6v4h-3v14h18v-14h-3zm-10 0v-4c0-2.206 1.794-4 4-4s4 1.794 4 4v4h-8z"/></svg>
 
             </div><!-- end container_authorisation -->
-            
+
             <div class="container_page1" id="container_inprogress">
               <div class="label" id="l_progress1"></div>
             </div>
-            
+
             <div class="container_page1" id="container_isopen">
               <div class="pinfield"></div>
               <div class="controlbuttons swiper-no-swiping" >
                 <button class="controlbutton" id="b_lock_safe">Lock</button>
                 <button class="controlbutton" style="font-size:40px" id="b_newpin">new PIN-Code</button>
               </div>
-              
-              
+
+
               <svg xmlns="http://www.w3.org/2000/svg" class="lock" width="100" height="100" viewBox="0 0 24 24"><path d="M12 10v-4c0-3.313-2.687-6-6-6s-6 2.687-6 6v3h2v-3c0-2.206 1.794-4 4-4s4 1.794 4 4v4h-4v14h18v-14h-12z"/></svg>
-              
+
             </div>
-            
+
             <div class="container_page1" id="container_isopen_message">
-              <div class="messagefield"></div>         
+              <div class="messagefield"></div>
             </div>
-            
+
             <div class="container_page1" id="container_isopen_change_pin">
               <div class="pinfield"></div>
               <div class="controlbuttons swiper-no-swiping" >
@@ -131,13 +131,13 @@
                 <div class="pp_dummynumber"></div>
                 <button class="pp_number" number="0">0</button>
               </div>
-              
+
               <svg xmlns="http://www.w3.org/2000/svg" class="lock" width="100" height="100" viewBox="0 0 24 24"><path d="M12 10v-4c0-3.313-2.687-6-6-6s-6 2.687-6 6v3h2v-3c0-2.206 1.794-4 4-4s4 1.794 4 4v4h-4v14h18v-14h-12z"/></svg>
-              
+
             </div>
-            
-            
-            
+
+
+
           </div>
           <div class="swiper-slide" id="page2">
 
@@ -156,18 +156,32 @@
             <div class="wheel swiper-no-swiping" id="colorpicker1"></div>
           </div>
           <div class="swiper-slide" id="page3">
-            
+
             <div id="lockOverlay">
 
             </div>
-            
-            
+
+
             <div id="cameraimage"></div>
             <div id="cameracontrol">
-            <button id="b_snapshot"><img src="media/camera-filled-50-wht.png" class="camerabutton" /></button>
+            <button class="camerabutton"  id="b_snapshot"><img src="media/camera-filled-50-wht.png" class="camerabutton" /></button>
+            <button class="camerabutton"  id="b_fback"><img src="media/toolbar_backward.png" class="camerabutton" /></button>
+            <button class="camerabutton"  id="b_fforw"><img src="media/toolbar_forward.png" class="camerabutton" /></button>
             </div>
-           
 
+
+          </div>
+          
+          <div class="swiper-slide" id="page4">
+            
+            <button class="controlbutton testbutton" id="b_test_lock_fwd">Motor lock auf</button>
+            <button class="controlbutton testbutton" id="b_test_lock_stop">Motor lock Stop</button>
+            <button class="controlbutton testbutton" id="b_test_lock_rwd">Motor lock zu</button>
+
+            <button class="controlbutton testbutton" id="b_test_door_fwd">Motor Door auf</button>
+            <button class="controlbutton testbutton" id="b_test_door_stop">Motor Door Stop</button>
+            <button class="controlbutton testbutton" id="b_test_door_rwd">Motor Door zu</button>
+            
           </div>
           <!-- <div class="slick_inn" id="page4"> <div id="testdiv1" class="testdiv">1</div> <div id="testdiv2" class="testdiv">2</div> <div id="testdiv3" class="testdiv">3</div> </div> -->
         </div>

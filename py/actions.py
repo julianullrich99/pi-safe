@@ -229,6 +229,23 @@ def shutdown(arg):
     if arg == 2:
       os.system("sudo shutdown -r now")
     sys.exit()
+    
+def move_motor(arg):
+    GPIO.setmode(GPIO.BCM)
+    l1 = GPIO.PWM(mapping.lock.out1, 200)
+    l2 = GPIO.PWM(mapping.lock.out2, 200)
+    d1 = GPIO.PWM(mapping.door.out1, 200)
+    d2 = GPIO.PWM(mapping.door.out2, 200)
+    if arg.motor == 'lock':
+        l1.start(arg.duty1)
+        l2.start(arg.duty2)
+        return(1)
+    if arg.motor == 'door':
+        d1.start(arg.duty1)
+        d2.start(arg.duty2)
+        return(2)
+        
+    
 
 
 class actions:
@@ -303,5 +320,9 @@ class actions:
         if(rtn == 1):
           arr = get_pictures(gallery_count)
           sendToClients({"action": "result_get_gallery","list": arr, "arg": arg})
+    def move_motor(self, arg):
+        rtn = move_motor(arg)
+        sendToClients({"action": "result_move_motor","arg": arg})
+        
 
 

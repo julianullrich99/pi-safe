@@ -24,10 +24,10 @@ $(document).ready(function() {
     reset_code();
     //playClick1();
   });
-  
+
   // change code button
   $('#b_newpin').click(function() {
-    
+
     $('#container_isopen').fadeOut(500,function(){
       $('#container_isopen_change_pin').fadeIn(500);
     });
@@ -44,7 +44,7 @@ $(document).ready(function() {
     socket.send(JSON.stringify(arr));
     reset_code();
   });// change code button
-  
+
   $('#b_resetcode').click(function() {
     var arr = {
       action: "change_code",
@@ -75,8 +75,50 @@ $(document).ready(function() {
 */
   $('button').click(function() {
     playClick1();
-  });  
+  });
   
+  $('.testbutton').click(function() {
+    var button = $(this).attr('id');
+    var arr = { 
+      action: "move_motor",
+      arg: {},
+    }
+    
+    if(button == 'b_test_lock_fwd'){
+      arr.arg.motor = 'lock';
+      arr.arg.duty1 = 0;
+      arr.arg.duty1 = 100;
+    }
+    if(button == 'b_test_lock_stop'){
+      arr.arg.motor = 'lock';
+      arr.arg.duty1 = 0;
+      arr.arg.duty1 = 0;
+    }
+    if(button == 'b_test_lock_rwd'){
+      arr.arg.motor = 'lock';
+      arr.arg.duty1 = 100;
+      arr.arg.duty1 = 0;
+    }
+    if(button == 'b_test_door_fwd'){
+      arr.arg.motor = 'door';
+      arr.arg.duty1 = 0;
+      arr.arg.duty1 = 100;
+    }
+    if(button == 'b_test_door_stop'){
+      arr.arg.motor = 'door';
+      arr.arg.duty1 = 0;
+      arr.arg.duty1 = 0;
+    }
+    if(button == 'b_test_door_rwd'){
+      arr.arg.motor = 'door';
+      arr.arg.duty1 = 100;
+      arr.arg.duty1 = 0;
+    }
+    socket.send(JSON.stringify(arr));
+
+    
+  });
+
   $('button#b_snapshot').click(function() {
     takeCameraPicture();
   });
@@ -85,7 +127,7 @@ $(document).ready(function() {
     add_pin($(this).attr('number'));
   });
 
-  
+
   // Event, wenn das Video fertig ist - dann weiter
   $('video').bind('ended', function (e) {
     console.log('ready');
@@ -95,7 +137,7 @@ $(document).ready(function() {
         init();
     });
   });
-  
+
 
   $('#chk_pinview').click(function() {
     var arr;
@@ -241,8 +283,8 @@ function init() {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
       },
-      
-      
+
+
 
       on: {
         slideChangeTransitionEnd: function(){
@@ -274,34 +316,7 @@ function init() {
       // },
     })
 
-  // $('.slick').slick({
-  //   dots: true,
-  //   infinite: true,
-  //   speed: 200,
-  //   slidesToShow: 1,
-  //   centerMode: true,
-  //   arrows: true,
-  //   adaptiveHeight: false,
-  //
-  //   //prevArrow:"<img class='a-left control-c prev slick-prev' src='arrow-left-thin.svg'>",
-  //   //nextArrow:"<img class='a-right control-c next slick-next' src='arrow-right-thin.svg'>"
-  // });
 
-  //$('.slick_inn').css('height',sliderheight + 'px');
-
-  // $('.slick').on('swipe', function(event, slick, direction) {
-  //   console.log("current page:" + slick.currentSlide);
-  //   if (slick.currentSlide == 1) {
-  //     get_rgb(selected_color);
-  //   }
-  //   if (slick.currentSlide == 2) {
-  //     takeCameraPicture();
-  //   }
-  //   // left
-  // });
-
-  // Verschiebesperre
-  // $('*[draggable!=true]', '#knopp').unbind('dragstart');
   // Init Knob
   $(".dial").knob({
     'min': 0,
@@ -414,8 +429,8 @@ function draw_gallery(list)
   var gallery = '';
   if (list.files != undefined){
     $.each(list.files,function(index,value){
-      
-      
+
+
       //gallery += '<img class="img-gallery" src="DCIM/'+value.filename+'" />';
       gallery += '<div class="img-gallery-frame">';
       gallery += '<a data-fancybox="gallery" href="DCIM/'+value.filename+'" data-caption="'+value.date+'" >';
@@ -426,8 +441,8 @@ function draw_gallery(list)
     })
     $('#cameraimage').html(gallery);
   }
-  
-  
+
+
   console.debug(gallery);
 }
 
@@ -471,10 +486,10 @@ class messagehandler {
 
         } else {
           reset_code();
-          
+
         }
         return;
-        
+
       case "result_change_password":
         if (event.value == 1) {
           //$('.pinfield').val('Passwort geändert');
@@ -490,13 +505,13 @@ class messagehandler {
           });
         }
         return;
-        
+
       case "result_get_rgb":
         if (event.value != undefined) {
           set_colorwheel(event.value);
         }
         return;
-        
+
       case "result_get_gallery":
         if (event.list != undefined) {
           /*
@@ -507,20 +522,20 @@ class messagehandler {
           draw_gallery(event.list);
         }
         return;
-        
+
       case "result_del_picture":
         if (event.list != undefined) {
           draw_gallery(event.list);
         }
         return;
-        
+
       case "state":
         if (event.value != undefined) {
           current_state = parseInt(event.value);
           console.log("state",current_state);
           $("div.container_page1").hide(); // erstmal alles verstecken
           switch(current_state){
-            
+
             case 0: $("div#container_authorisation").show()
               console.log('Safe is closed');
               break;
@@ -552,10 +567,10 @@ class messagehandler {
             case 9: $("div#container_authorisation").show();
               $("#l_progress1").html("Error while moving the Safedoor");
               break;
-          } 
+          }
         }
         return;
-        
+
       case "result_camerapicture":
         if (event.value == 1) {
           var filename = event.filename;
