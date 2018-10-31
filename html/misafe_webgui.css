@@ -2,6 +2,7 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
+
 }
 html{
   background-color:#000000;
@@ -9,6 +10,7 @@ html{
 
 *{
   /*cursor: none;*/
+  /*cursor:url(media/transparent.gif), auto;*/
 }
 
 @viewport {
@@ -78,6 +80,17 @@ html{
   margin-left:auto;
   margin-right:auto;
   margin-top:10px;
+}
+
+#alert{
+  width:400px;
+  height:400px;
+  background-image:url("media/alert1.gif");
+  background-size: 100%;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:10px;
+  display:none;
 }
 
 .pinfield{

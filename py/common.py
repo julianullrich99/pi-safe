@@ -33,6 +33,7 @@ class mapping:
     ledBody = Object()
     ledEdge = Object()
     ledInner = Object()
+    motion_detector = Object()
     door.out1 = 10 #zu
     door.out2 = 9 #auf
     door.in1 = 11 #zu
@@ -47,6 +48,7 @@ class mapping:
     ledEdge.g = 6
     ledEdge.b = 13
     ledInner.w = 20
+    motion_detector.in1 = 21
 
 class state:
     stateName = [
@@ -59,6 +61,7 @@ class state:
     'unlocked',         #6
     'init',             #7
     'open',             #8
-    'timeout'              #9
+    'timeout',          #9
+    'alarm'             #10
     ]
     state = stateName.index('init')

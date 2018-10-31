@@ -4,12 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>miSafe Portal Test</title>
-    <meta name="description" content="miSAFE">
+    <meta name="description" content="piSAFE">
     <meta name="author" content="DH">
 
 
-    <!-- <link rel="stylesheet" href="js/slick/slick.css"> -->
-    <!-- <link rel="stylesheet" href="js/slick/slick-theme.css"> -->
 
     <link rel="stylesheet" href="misafe_webgui.css">
     <link rel="stylesheet" href="toggle_switch.css">
@@ -19,7 +17,7 @@
 
     <script type="text/javascript" src="js/jquery.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="js/iro.min.js" charset="utf-8"></script>
-    <!-- <script type="text/javascript" src="js/slick/slick.min.js" charset="utf-8"></script> -->
+
     <script type="text/javascript" src="js/swiper.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="js/knob/jquery.knob.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="js/fancybox/jquery.fancybox.min.js" charset="utf-8"></script>
@@ -81,6 +79,7 @@
                 <div class="pp_dummynumber"></div>
                 <button class="pp_number" number="0">0</button>
               </div>
+              <div id="icon_alert"></div>
 
               <div class="controlbuttons swiper-no-swiping">
                 <button class="controlbutton" id="b_sendcode">Unlock</button>
@@ -171,17 +170,28 @@
 
 
           </div>
-          
-          <div class="swiper-slide" id="page4">
-            
-            <button class="controlbutton testbutton" id="b_test_lock_fwd">Motor lock auf</button>
-            <button class="controlbutton testbutton" id="b_test_lock_stop">Motor lock Stop</button>
-            <button class="controlbutton testbutton" id="b_test_lock_rwd">Motor lock zu</button>
 
-            <button class="controlbutton testbutton" id="b_test_door_fwd">Motor Door auf</button>
-            <button class="controlbutton testbutton" id="b_test_door_stop">Motor Door Stop</button>
-            <button class="controlbutton testbutton" id="b_test_door_rwd">Motor Door zu</button>
-            
+          <div class="swiper-slide" id="page4">
+            <table style="width:90%">
+            <tr>
+            <td style="width=33%"><button class="controlbutton testbutton" style="font-size:30px;" id="b_test_lock_fwd">Motor lock auf</button></td>
+            <td style="width=33%"><button class="controlbutton testbutton" style="font-size:30px;" id="b_test_lock_stop">Motor lock Stop</button></td>
+            <td style="width=33%"><button class="controlbutton testbutton" style="font-size:30px;" id="b_test_lock_rwd">Motor lock zu</button></td>
+            </tr>
+
+            <tr>
+            <td><button class="controlbutton testbutton" style="font-size:30px;" id="b_test_door_fwd">Motor Door auf</button></td>
+            <td><button class="controlbutton testbutton" style="font-size:30px;" id="b_test_door_stop">Motor Door Stop</button></td>
+            <td><button class="controlbutton testbutton" style="font-size:30px;" id="b_test_door_rwd">Motor Door zu</button></td>
+            </tr>
+
+            <tr>
+            <td><button class="controlbutton " style="font-size:30px;" id="b_shutdown">System Shutdown</button></td>
+            <td><button class="controlbutton " style="font-size:30px;" id="b_reboot">System Reboot</button></td>
+            <td><button class="controlbutton testbutton" style="font-size:30px;" id="b_test">test</button></td>
+            </tr>
+            </table>
+
           </div>
           <!-- <div class="slick_inn" id="page4"> <div id="testdiv1" class="testdiv">1</div> <div id="testdiv2" class="testdiv">2</div> <div id="testdiv3" class="testdiv">3</div> </div> -->
         </div>

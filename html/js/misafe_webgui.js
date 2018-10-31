@@ -76,47 +76,72 @@ $(document).ready(function() {
   $('button').click(function() {
     playClick1();
   });
-  
+
   $('.testbutton').click(function() {
     var button = $(this).attr('id');
-    var arr = { 
+    var arr = {
       action: "move_motor",
       arg: {},
     }
-    
+
     if(button == 'b_test_lock_fwd'){
       arr.arg.motor = 'lock';
       arr.arg.duty1 = 0;
-      arr.arg.duty1 = 100;
+      arr.arg.duty2 = 100;
     }
     if(button == 'b_test_lock_stop'){
       arr.arg.motor = 'lock';
       arr.arg.duty1 = 0;
-      arr.arg.duty1 = 0;
+      arr.arg.duty2 = 0;
     }
     if(button == 'b_test_lock_rwd'){
       arr.arg.motor = 'lock';
       arr.arg.duty1 = 100;
-      arr.arg.duty1 = 0;
+      arr.arg.duty2 = 0;
     }
     if(button == 'b_test_door_fwd'){
       arr.arg.motor = 'door';
       arr.arg.duty1 = 0;
-      arr.arg.duty1 = 100;
+      arr.arg.duty2 = 100;
     }
     if(button == 'b_test_door_stop'){
       arr.arg.motor = 'door';
       arr.arg.duty1 = 0;
-      arr.arg.duty1 = 0;
+      arr.arg.duty2 = 0;
     }
     if(button == 'b_test_door_rwd'){
       arr.arg.motor = 'door';
       arr.arg.duty1 = 100;
-      arr.arg.duty1 = 0;
+      arr.arg.duty2 = 0;
     }
+    if(button == 'b_test'){
+      arr.action = 'test';
+    }
+    console.debug(arr);
     socket.send(JSON.stringify(arr));
+  });
 
-    
+  $('#b_shutdown').click(function() {
+    var arr = {
+      action: "systemshutdown",
+      arg: {type: 1},
+    }
+
+    if (confirm('really system shutdown?')){
+      console.debug(arr);
+      socket.send(JSON.stringify(arr));
+    }
+  });
+
+  $('#b_reboot').click(function() {
+    var arr = {
+      action: "systemshutdown",
+      arg: {type: 2},
+    }
+    if (confirm('really reboot system?')){
+      console.debug(arr);
+      socket.send(JSON.stringify(arr));
+    }
   });
 
   $('button#b_snapshot').click(function() {
@@ -566,6 +591,10 @@ class messagehandler {
             //case 9: $("div#container_inprogress").show();
             case 9: $("div#container_authorisation").show();
               $("#l_progress1").html("Error while moving the Safedoor");
+              break;
+            case 10: 
+              $("div#alert").show();
+              $("div#knopp").hide();
               break;
           }
         }
