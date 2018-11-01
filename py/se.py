@@ -263,7 +263,7 @@ def StateEngine(e):
                     sendToClients(
                         {"action": "state", "value": str(state.state)})
                     triggerLED("ledoff")
-
+                    #sendmymail("Pi-Safe Deposit successful ")
                     takeCameraPicture(0)
                     while not e.isSet():
                         time.sleep(0.1)

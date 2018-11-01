@@ -1,18 +1,32 @@
 import smtplib
+import threading
+
 from email.MIMEMultipart import MIMEMultipart
 from email.MIMEBase import MIMEBase
 from email.MIMEText import MIMEText
 from email import Encoders
 
-def sendmymail(text):
-  gmail_user = 'sdrum01@gmail.com'
-  gmail_pwd = '_01LiquiduM_'
-  subject = 'PI-SAFE Message'
-
-
+def sendmymail(subject1,text):
+  mail_user = 'sdrum01@gmail.com'
+  mail_pwd = '_01LiquiduM_'
+  subject = 'PI-SAFE : ' + subject1
+  
+  '''
+  #Mail parameter
+  smtp_server = 'smtp.1und1.de' # 1und1 SMTP Server
+  smtp_port = 587
+  benutzer = 'xxxxx'
+  pwd = 'yyyyyy'
+  sender = 'zzzz.de'
+  receiver = 'aaa@bbb.de' # mehrer receiver muessen mit ', ' getrennt werden
+  subject = 'testtext'
+  preambletext = ''
+  filepath_selected = "/media/usb/daten/*.png"
+  '''
+  
   msg = MIMEMultipart()
-  msg['From'] = gmail_user
-  msg['To'] = gmail_user
+  msg['From'] = mail_user
+  msg['To'] = mail_user
   msg['Subject'] = subject
 
   msg.attach(MIMEText(text))
@@ -25,6 +39,8 @@ def sendmymail(text):
   mailServer.ehlo()
   mailServer.starttls()
   mailServer.ehlo()
-  mailServer.login(gmail_user, gmail_pwd)
-  mailServer.sendmail(gmail_user,gmail_user, msg.as_string())
+  mailServer.login(mail_user, mail_pwd)
+  mailServer.sendmail(mail_user,mail_user, msg.as_string())
   mailServer.close()
+  
+  print('Mail sent')

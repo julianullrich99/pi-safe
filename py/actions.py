@@ -32,7 +32,7 @@ def set_alarm(channel):
      #GPIO.add_event_detect(21, GPIO.RISING, callback=set_alarm, bouncetime=100)
 
 #GPIO.setup(21, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-GPIO.setup(21, GPIO.IN)
+GPIO.setup(21, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 #GPIO.add_event_detect(21, GPIO.FALLING, callback=set_alarm, bouncetime=300)
 GPIO.add_event_detect(21, GPIO.FALLING, callback=set_alarm, bouncetime=300)
 
@@ -320,11 +320,12 @@ class actions:
             #unlocked.set()
             opened.set()
         else:
+            
             logging.debug("PIN wrong")
             sendToClients({"action": "result_compare_code", "value": 0})
             # triggerLED("blinkHelp", {"count": colors.blinkCount, "color": colors.blinkWrong, "which": colors.blinkWhich, "speed": colors.blinkSpeed})
             triggerLED("blink", colors.blinkCount, colors.blinkWrong, colors.blinkWhich, colors.blinkSpeed)
-            # sendmymail("Pi-Safe Password Attempt wrong: "+str(arg['pin']))
+            sendmymail("Wrong Password","Pi-Safe Password Attempt wrong: "+str(arg['pin']))
 
     def change_code(self, arg):
         newpin = arg['pin']
@@ -366,5 +367,8 @@ class actions:
 
     def confirm_alert(self, arg):
         sendToClients({"action": "alarm", "value": 0})
+        
+    def send_email(self, arg):
+        sendmymail(arg['subject'],arg['text'])
 
 

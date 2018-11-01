@@ -31,6 +31,8 @@ StateMachine = threading.Thread(name='stateMachine', target=se.StateEngine, args
 #StateMachine = threading.Thread(name='stateMachine', target=se.StateEngine, args=(unlocked,))
 StateMachine.setDaemon(True)
 
+
+
 StateMachine.start()
 
 ColorMachine = se.ColorEngine(colors.colorTrigger)

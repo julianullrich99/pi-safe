@@ -542,6 +542,21 @@ class messagehandler {
             .fadeIn(100).fadeOut(100)
             .fadeIn(100).fadeOut(100)
             .fadeIn(100, function() {
+              
+              /*
+              // Email senden lassen
+              if (socket_open) {
+                var arr = {
+                  action: "send_email",
+                  arg:{
+                    subject: "wrong Password",
+                    text:"Pi-Safe Password Attempt wrong: " + pin
+                  }
+                };
+                socket.send(JSON.stringify(arr));
+              }
+              */
+              
               reset_code();
             });
 
