@@ -32,6 +32,10 @@
     <audio preload="preload" id="click1">
       <source src="media/ClickOn.wav" type="audio/wav">
     </audio>
+    <audio preload="preload" id="alarmsound">
+      <!--<source src="media/submarine.mp3" type="audio/mp3">-->
+      <source src="media/ting.ogg" type="audio/ogg">
+    </audio>
 
      <div id="videocontainer">
         <video src="media/pi-safe.mp4" width="100%" id="player1" autoplay >
@@ -47,7 +51,7 @@
       <div class="swiper-container">
         <div class="swiper-wrapper">
           <div class="swiper-slide" id="page1">
-
+          <div id="alertknopp"></div>
             <!-- wenn State noch locked -->
             <div class="container_page1" id="container_authorisation">
               <!-- Rounded switch for pinpad or knob-->
@@ -79,7 +83,7 @@
                 <div class="pp_dummynumber"></div>
                 <button class="pp_number" number="0">0</button>
               </div>
-              <div id="icon_alert"></div>
+              
 
               <div class="controlbuttons swiper-no-swiping">
                 <button class="controlbutton" id="b_sendcode">Unlock</button>
@@ -175,20 +179,19 @@
             <table style="width:90%">
             <tr>
             <td style="width=33%"><button class="controlbutton testbutton" style="font-size:30px;" id="b_test_lock_fwd">Motor lock auf</button></td>
-            <td style="width=33%"><button class="controlbutton testbutton" style="font-size:30px;" id="b_test_lock_stop">Motor lock Stop</button></td>
+            <!--<td style="width=33%"><button class="controlbutton testbutton" style="font-size:30px;" id="b_test_lock_stop">Motor lock Stop</button></td>-->
             <td style="width=33%"><button class="controlbutton testbutton" style="font-size:30px;" id="b_test_lock_rwd">Motor lock zu</button></td>
-            </tr>
-
-            <tr>
             <td><button class="controlbutton testbutton" style="font-size:30px;" id="b_test_door_fwd">Motor Door auf</button></td>
-            <td><button class="controlbutton testbutton" style="font-size:30px;" id="b_test_door_stop">Motor Door Stop</button></td>
+            <!--<td><button class="controlbutton testbutton" style="font-size:30px;" id="b_test_door_stop">Motor Door Stop</button></td>-->
             <td><button class="controlbutton testbutton" style="font-size:30px;" id="b_test_door_rwd">Motor Door zu</button></td>
             </tr>
+
 
             <tr>
             <td><button class="controlbutton " style="font-size:30px;" id="b_shutdown">System Shutdown</button></td>
             <td><button class="controlbutton " style="font-size:30px;" id="b_reboot">System Reboot</button></td>
-            <td><button class="controlbutton testbutton" style="font-size:30px;" id="b_test">test</button></td>
+            <td><button class="controlbutton testbutton" style="font-size:30px;" id="b_test">test1</button></td>
+            <td><button class="controlbutton testbutton" style="font-size:30px;" id="b_test2">test2</button></td>
             </tr>
             </table>
 

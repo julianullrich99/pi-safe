@@ -117,7 +117,7 @@ $(document).ready(function() {
       arr.arg.duty2 = 0;
     }
     if(button == 'b_test'){
-      arr.action = 'test';
+      arr.action = 'testfunction';
     }
     console.debug(arr);
     socket.send(JSON.stringify(arr));
@@ -152,6 +152,10 @@ $(document).ready(function() {
 
   $('.pp_number').click(function() {
     add_pin($(this).attr('number'));
+  });
+
+  $("#alertknopp").click(function() {
+    confirm_alert();
   });
 
 
@@ -242,6 +246,10 @@ function playClick() {
 
 function playClick1() {
   $("#click1").trigger('play');
+}
+
+function playAlarmsound() {
+  $("#alarmsound").trigger('play');
 }
 
 function lock_safe() {
@@ -375,7 +383,15 @@ function init() {
 
 };
 
-
+function confirm_alert(){
+  var arr = {
+    action: "confirm_alert",
+    arg: {}
+  };
+  if (socket_open) {
+    socket.send(JSON.stringify(arr));
+  }
+}
 
 
 function store_rgb(which, rgb) {
@@ -573,6 +589,17 @@ class messagehandler {
           draw_gallery(event.list);
         }
         return;
+      
+      case "alarm":
+         if (event.value != undefined) {
+           if(event.value == 1){
+             $("div#alertknopp").show();
+             playAlarmsound();
+           }else{
+             $("div#alertknopp").fadeOut(1000);
+           }
+        }
+        return;
 
       case "state":
         if (event.value != undefined) {
@@ -611,10 +638,6 @@ class messagehandler {
             //case 9: $("div#container_inprogress").show();
             case 9: $("div#container_authorisation").show();
               $("#l_progress1").html("Error while moving the Safedoor");
-              break;
-            case 10: 
-              $("div#alert").show();
-              $("div#knopp").hide();
               break;
           }
         }

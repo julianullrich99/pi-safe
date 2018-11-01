@@ -119,10 +119,17 @@ def initSe():
     logging.debug("motors initialized")
     state.state = state.stateName.index('locked')
 
+#testmode = 1
+    
 def StateEngine(e):
+    global testmode
     GPIO.setmode(GPIO.BCM)
     while 1:
         time.sleep(0.1)
+        #if testmode == 1:
+        #  logging.debug("testmode: SE exit")
+        #  return(0) #raus!
+          
         if e.isSet():
             while 1:
                 time.sleep(0.05)
@@ -190,6 +197,7 @@ def StateEngine(e):
                 else:
                     #triggerLED("morphto", __main__.ColorMachine.get_ledcolor(colors.blinkWhich), colors.blinkWhich, lockDuration+openDuration, colors.colorOpen)
                     #triggerLED("morphto", __main__.ColorEngine.get_ledcolor(colors.blinkWhich), colors.blinkWhich, lockDuration+openDuration, colors.colorOpen)
+                    logging.debug("SE not set")
                     
                     current_color = get_ledcolor1(colors.blinkWhich)
                     logging.debug("current_color"+str(current_color))

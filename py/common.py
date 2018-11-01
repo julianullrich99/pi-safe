@@ -61,7 +61,6 @@ class state:
     'unlocked',         #6
     'init',             #7
     'open',             #8
-    'timeout',          #9
-    'alarm'             #10
+    'timeout'           #9
     ]
     state = stateName.index('init')
