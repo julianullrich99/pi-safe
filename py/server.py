@@ -40,7 +40,7 @@ ColorMachine.start()
 
 # motorcontrol = motorcontrol()
 
-GPIO.setup(19, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+#GPIO.setup(19, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 #
 #
 def my_callback(channel):
@@ -57,7 +57,7 @@ def my_callback(channel):
 #   GPIO.remove_event_detect(19)
 #   GPIO.add_event_detect(19, GPIO.FALLING, callback=my_callback, bouncetime=300)
 #
-GPIO.add_event_detect(19, GPIO.FALLING, callback=my_callback, bouncetime=300)
+# GPIO.add_event_detect(19, GPIO.FALLING, callback=my_callback, bouncetime=300)
 # GPIO.add_event_detect(19, GPIO.RISING, callback=my_callback, bouncetime=300)
 
 

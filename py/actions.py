@@ -3,6 +3,7 @@ import RPi.GPIO as GPIO
 import picamera
 # import base64
 # import subprocess
+from subprocess import call
 from common import *
 import logging
 import time
@@ -19,6 +20,15 @@ import __main__
 GPIO.setmode(GPIO.BCM)
 camera = picamera.PiCamera()
   
+
+# wenn Pin 21 gewackelt hat, soll ein Alarm ausgeloest werden!
+def set_alarm(channel):
+   print "Alarm!!"
+   state.state = state.stateName.index('alarm')
+
+
+GPIO.setup(21, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.add_event_detect(21, GPIO.FALLING, callback=set_alarm, bouncetime=300)
 
 def sendToClients(arr):
     for client in clients:
@@ -224,14 +234,38 @@ def takeCameraPicture(arg):
       return (2)
 
 def shutdown(arg):
-    ser.close()
-    if arg == 1:
-      os.system("sudo shutdown -h now")
+    #call("sudo nohup shutdown -h now", shell=True)
+    #ser.close()
+    logging.debug("Remote Shutdown: %s ", arg['type'])
+    if arg['type'] == 1:
+      call("sudo shutdown -h now", shell=True)
+    #  os.system("sudo shutdown -h now")
       # oder
       # subprocess.call(['shutdown', '-h', 'now'], shell=False)
-    if arg == 2:
-      os.system("sudo shutdown -r now")
-    sys.exit()
+    if arg['type'] == 2:
+      call("sudo shutdown -r now", shell=True)
+    #  os.system("sudo shutdown -r now")
+    #sys.exit()
+
+def testmove_motor(arg):
+    logging.debug("Testmove Motor: %s ", arg['motor'])
+    logging.debug("duty1: %s ", arg['duty1'])
+    logging.debug("duty2: %s ", arg['duty2'])
+    GPIO.setmode(GPIO.BCM)
+    if arg['motor'] == 'lock':
+        l1 = GPIO.PWM(mapping.lock.out1, 200)
+        l2 = GPIO.PWM(mapping.lock.out2, 200)
+        l1.start(int(arg['duty1']))
+        l2.start(int(arg['duty2']))
+        return(1)
+    if arg['motor'] == 'door':
+        d1 = GPIO.PWM(mapping.door.out1, 200)
+        d2 = GPIO.PWM(mapping.door.out2, 200)
+        d1.start(int(arg['duty1']))
+        d2.start(int(arg['duty2']))
+        return(2)
+
+
 
 
 class actions:
@@ -308,5 +342,16 @@ class actions:
         if(rtn == 1):
           arr = get_pictures(gallery_count)
           sendToClients({"action": "result_get_gallery","list": arr, "arg": arg})
+
+    def move_motor(self, arg):
+        rtn = testmove_motor(arg)
+        sendToClients({"action": "result_move_motor","arg": arg})
+
+    def systemshutdown(self, arg):
+        shutdown(arg)
+        
+    def testfunction(self, arg):
+        state.state = 10
+        sendToClients({"action": "state", "value": str(state.state)})
 
 

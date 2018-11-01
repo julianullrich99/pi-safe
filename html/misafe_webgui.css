@@ -2,6 +2,7 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
+
 }
 html{
   background-color:#000000;
@@ -9,6 +10,7 @@ html{
 
 *{
   /*cursor: none;*/
+  /*cursor:url(media/transparent.gif), auto;*/
 }
 
 @viewport {
@@ -80,6 +82,17 @@ html{
   margin-top:10px;
 }
 
+#alert{
+  width:400px;
+  height:400px;
+  background-image:url("media/alert1.gif");
+  background-size: 100%;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:10px;
+  display:none;
+}
+
 .pinfield{
   width:50%;
   min-width:300px;
@@ -105,13 +118,13 @@ html{
   height:50px;
   min-height:300px;
   border-radius:10px;
- 
+
   font-size:60px;
   text-align:center;
   vertical-align: middle;
   padding:auto;
   font-family:arial;
-  
+
   margin-left:auto;
   margin-right:auto;
 
@@ -173,7 +186,7 @@ button:active{
     margin-left:auto;
     margin-right:auto;
     margin-top:10px;
-    
+
 }
 
 #pinpad1{
@@ -219,7 +232,7 @@ button:active{
 
 
 .controlbutton{
-  width:100%;
+  width:95%;
   height:80px;
   margin:5px;
   background-color: rgba(255,255,255,0.2);
@@ -308,7 +321,9 @@ button:active{
 }
 
 .camerabutton{
-  width:80px;
+  width:50px;
+  background:none;
+  padding:10px:
 }
 
 /*
@@ -326,13 +341,13 @@ button:active{
 }
 
 #b_snapshot{
-  background:none;
+
 }
 
 #cameracontrol{
-  height:100px;
-  width:100%;
-  /*background-color:white;*/
+  height:80px;
+  position: absolute;
+  bottom: 10;
 }
 
 
