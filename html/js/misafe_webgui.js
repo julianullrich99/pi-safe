@@ -594,7 +594,7 @@ class messagehandler {
          if (event.value != undefined) {
            if(event.value == 1){
              $("div#alertknopp").show();
-             playAlarmsound();
+             //playAlarmsound();
            }else{
              $("div#alertknopp").fadeOut(1000);
            }
