@@ -25,9 +25,9 @@ GPIO.setmode(GPIO.BCM)
 
 try:
   camera = picamera.PiCamera()
-  camera.sharpness = 0
+  camera.sharpness = 50
   camera.contrast = 0
-  camera.brightness = 50
+  camera.brightness = 60
   camera.saturation = 0
   camera.ISO = 0
   camera.video_stabilization = False
@@ -35,8 +35,8 @@ try:
   #camera.exposure_mode = 'auto'
   camera.exposure_mode = 'off'
   camera.meter_mode = 'average'
-  #camera.awb_mode = 'auto'
-  camera.awb_mode = 'tungsten'
+  camera.awb_mode = 'auto'
+  #camera.awb_mode = 'tungsten'
   #camera.image_effect = 'none'
   #camera.color_effects = None
   camera.rotation = 0
@@ -221,9 +221,26 @@ def get_pictures(count):
 
 def do_del_picture(file):
     global dbfile
+    path = '/var/www/html/DCIM/'
     con = sqlite3.connect(dbfile)
     cursor = con.cursor()
     sql = "DELETE FROM pictures WHERE filename = '" + str(file) + "'"
+    logging.debug(sql)
+    try:
+        cursor.execute(sql)
+        con.commit()
+        con.close()
+        os.remove(path + str(file))
+    except:
+        logging.debug("Unexpected error: %s", sys.exc_info())
+        raise
+    return (1)
+
+def do_del_all_pictures():
+    global dbfile
+    con = sqlite3.connect(dbfile)
+    cursor = con.cursor()
+    sql = "DELETE FROM pictures"
     logging.debug(sql)
     try:
         cursor.execute(sql)
@@ -253,7 +270,7 @@ def takeCameraPicture(arg,preview):
     try:
       if(preview != 0):
         camera.start_preview()
-        time.sleep(2)
+        time.sleep(3)
         camera.stop_preview()
       camera.capture(path + filename)
       #sendToClients({"action": "result_camerapicture","value": 1, "filename": filename_response, "arg": arg})
@@ -379,6 +396,13 @@ class actions:
 
     def del_picture(self, arg):
         rtn = do_del_picture(arg['file'])
+        gallery_count = arg['count']
+        if(rtn == 1):
+          arr = get_pictures(gallery_count)
+          sendToClients({"action": "result_get_gallery","list": arr, "arg": arg})
+          
+    def del_allpictures(self, arg):
+        rtn = do_del_all_pictures()
         gallery_count = arg['count']
         if(rtn == 1):
           arr = get_pictures(gallery_count)

@@ -140,6 +140,11 @@ $(document).ready(function() {
       arr.action = 'toggle_light';
       arr.arg.lightstate = lightstate;
     }
+    
+    if(button == 'b_del_allpictures'){
+      arr.action = 'del_allpictures';
+      //arr.arg.lightstate = lightstate;
+    }
 
     console.debug(arr);
     socket.send(JSON.stringify(arr));
@@ -501,6 +506,18 @@ function del_picture(pic) {
     arg:{
       count: gallery_count,
       file:pic
+    }
+  };
+  if (socket_open) {
+    socket.send(JSON.stringify(arr));
+  }
+}
+
+function del_allpictures() {
+  var arr = {
+    action: "del_allpictures",
+    arg:{
+      count: gallery_count
     }
   };
   if (socket_open) {
