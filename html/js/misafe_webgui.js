@@ -116,8 +116,20 @@ $(document).ready(function() {
       arr.arg.duty1 = 100;
       arr.arg.duty2 = 0;
     }
-    if(button == 'b_test'){
-      arr.action = 'testfunction';
+    if(button == 'b_test1'){
+      arr.action = 'testfunction1';
+    }
+    if(button == 'b_test2'){
+      if (socket_open) {
+        var arr = {
+          action: "send_email",
+          arg:{
+            subject: "test",
+            text:"Pi-Safe test" + pin
+          }
+        };
+        socket.send(JSON.stringify(arr));
+      }
     }
     console.debug(arr);
     socket.send(JSON.stringify(arr));

@@ -7,8 +7,9 @@ from email.MIMEText import MIMEText
 from email import Encoders
 
 def sendmymail(subject1,text):
-  mail_user = 'sdrum01@gmail.com'
-  mail_pwd = '_01LiquiduM_'
+  mail_user = 'Info.Markersdorf.DE@Gunnebo.com'
+  mail_to = 'Dirk.Hanisch@gunnebo.com'
+  mail_pwd = ' '
   subject = 'PI-SAFE : ' + subject1
   
   '''
@@ -26,7 +27,7 @@ def sendmymail(subject1,text):
   
   msg = MIMEMultipart()
   msg['From'] = mail_user
-  msg['To'] = mail_user
+  msg['To'] = 'Dirk.Hanisch@gunnebo.com'
   msg['Subject'] = subject
 
   msg.attach(MIMEText(text))
@@ -35,12 +36,13 @@ def sendmymail(subject1,text):
 
   Encoders.encode_base64(part)
 
-  mailServer = smtplib.SMTP("smtp.gmail.com", 587)
+  #mailServer = smtplib.SMTP("smtp.gmail.com", 587) #oder 25?
+  mailServer = smtplib.SMTP("EUDC1MAIL01", 587)
   mailServer.ehlo()
   mailServer.starttls()
   mailServer.ehlo()
   mailServer.login(mail_user, mail_pwd)
-  mailServer.sendmail(mail_user,mail_user, msg.as_string())
+  mailServer.sendmail(mail_user,mail_to, msg.as_string())
   mailServer.close()
   
   print('Mail sent')

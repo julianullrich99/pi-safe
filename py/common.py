@@ -19,7 +19,7 @@ class colors:
     colorEventArgs = None
 
 lockDuration = 3
-openDuration = 1.0
+openDuration = 5.0
 rampDuration = 0.5
 vmax = 100
 vclose = 70
