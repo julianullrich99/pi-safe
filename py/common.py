@@ -21,8 +21,8 @@ class colors:
 lockDuration = 3
 openDuration = 9.0
 rampDuration = 0.5
-vmax = 100
-vclose = 70
+vmax = 50
+vclose = 50
 
 class Object(object):
     pass
