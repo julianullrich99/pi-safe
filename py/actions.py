@@ -1,6 +1,10 @@
 import RPi.GPIO as GPIO
+try:
+  import picamera
+except :
+  print("Kamera nicht gefunden")
 # from picamera import PiCamera
-import picamera
+
 # import base64
 # import subprocess
 from subprocess import call
@@ -18,10 +22,30 @@ import __main__
 # from __main__ import clients
 
 GPIO.setmode(GPIO.BCM)
-camera = picamera.PiCamera()
 
-
-
+try:
+  camera = picamera.PiCamera()
+  camera.sharpness = 0
+  camera.contrast = 0
+  camera.brightness = 50
+  camera.saturation = 0
+  camera.ISO = 0
+  camera.video_stabilization = False
+  camera.exposure_compensation = 0
+  #camera.exposure_mode = 'auto'
+  camera.exposure_mode = 'off'
+  camera.meter_mode = 'average'
+  #camera.awb_mode = 'auto'
+  camera.awb_mode = 'tungsten'
+  #camera.image_effect = 'none'
+  #camera.color_effects = None
+  camera.rotation = 0
+  camera.hflip = False
+  camera.vflip = False
+  #camera.crop = (0.0, 0.0, 1.0, 1.0)
+  pass
+except :
+  print("Kamera nicht gefunden")
 
 # wenn Pin 21 gewackelt hat, soll ein Alarm ausgeloest werden!
 def set_alarm(channel):
@@ -211,7 +235,7 @@ def do_del_picture(file):
     return (1)
 
 
-def takeCameraPicture(arg):
+def takeCameraPicture(arg,preview):
     global camera
     logging.debug("test: %s ", 'start cameraPicture')
 
@@ -220,14 +244,22 @@ def takeCameraPicture(arg):
     filename = 'pisnap_' + ts + '.jpg'
     filename_response = '/DCIM/' + filename
     logging.debug("Filename: %s ", path + filename)
-    camera.resolution = (1024, 768)
-    #camera.resolution = (800, 600)
+    try:
+      camera.resolution = (1024, 768)
+    except Exception as e:
+      logging.debug("Error in taking picture: %s", e)
+      #camera.resolution = (800, 600)
     triggerLED("ledon")
     try:
+      if(preview != 0):
+        camera.start_preview()
+        time.sleep(2)
+        camera.stop_preview()
       camera.capture(path + filename)
       #sendToClients({"action": "result_camerapicture","value": 1, "filename": filename_response, "arg": arg})
       store_picture(1, filename, ts)
-      triggerLED("ledoff")
+      if state.state != state.stateName.index("open"):
+        triggerLED("ledoff")
       return (1)
     except Exception as e:
       #sendToClients({"action": "error", "type": "cameraPicture"})
@@ -261,13 +293,13 @@ def testmove_motor(arg):
         l1.start(int(arg['duty1']))
         l2.start(int(arg['duty2']))
         time.sleep(1)
-        
-        
+
+
         return(1)
     if arg['motor'] == 'door':
         d1 = GPIO.PWM(mapping.door.out1, 200)
         d2 = GPIO.PWM(mapping.door.out2, 200)
-        
+
         d1.start(int(arg['duty1']))
         d2.start(int(arg['duty2']))
         time.sleep(1)
@@ -301,7 +333,7 @@ class actions:
     def cameraPicture(self, arg):
         gallery_count = arg['count']
         #gallery_offset = arg['offset']
-        takeCameraPicture(arg)
+        takeCameraPicture(arg,1)
         arr = get_pictures(gallery_count)
         sendToClients({"action": "result_get_gallery","list": arr, "arg": arg})
         #sendToClients({"action": "result_camerapicture","value": 1, "filename": filename_response, "arg": arg})
@@ -317,7 +349,7 @@ class actions:
             #unlocked.set()
             opened.set()
         else:
-            
+
             logging.debug("PIN wrong")
             sendToClients({"action": "result_compare_code", "value": 0})
             # triggerLED("blinkHelp", {"count": colors.blinkCount, "color": colors.blinkWrong, "which": colors.blinkWhich, "speed": colors.blinkSpeed})
@@ -358,14 +390,22 @@ class actions:
 
     def systemshutdown(self, arg):
         shutdown(arg)
-        
+
     def testfunction1(self, arg):
         sendToClients({"action": "alarm", "value": 1})
 
     def confirm_alert(self, arg):
         sendToClients({"action": "alarm", "value": 0})
-        
+
     def send_email(self, arg):
         sendmymail(arg['subject'],arg['text'])
+
+    def toggle_light(self, arg):
+        if(arg['lightstate'] == 0):
+          triggerLED("ledon")
+          sendToClients({"action": "result_lightstate", "value": 1})
+        else:
+          triggerLED("ledoff")
+          sendToClients({"action": "result_lightstate", "value": 0})
 
 

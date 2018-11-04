@@ -9,6 +9,7 @@ var camera_init = false;
 var gallery_count = 15
 
 var current_state = -1; // Status zum Steuern der Anazeige
+var lightstate = 0;
 
 $(document).ready(function() {
   // Init Slider
@@ -121,6 +122,7 @@ $(document).ready(function() {
     }
     if(button == 'b_test2'){
       if (socket_open) {
+        /*
         var arr = {
           action: "send_email",
           arg:{
@@ -128,9 +130,17 @@ $(document).ready(function() {
             text:"Pi-Safe test" + pin
           }
         };
+
         socket.send(JSON.stringify(arr));
+        */
       }
     }
+
+    if(button == 'b_light'){
+      arr.action = 'toggle_light';
+      arr.arg.lightstate = lightstate;
+    }
+
     console.debug(arr);
     socket.send(JSON.stringify(arr));
   });
@@ -178,7 +188,7 @@ $(document).ready(function() {
         $('.swiper-container').fadeIn();
         //$('main').show();
         init();
-        
+
     });
   });
 
@@ -451,7 +461,7 @@ function takeCameraPicture() {
 function check_camerainit()
 {
 if(camera_init == false){
-    takeCameraPicture();
+    //takeCameraPicture();
     camera_init = true;
   }
 }
@@ -554,7 +564,7 @@ class messagehandler {
             .fadeIn(100).fadeOut(100)
             .fadeIn(100).fadeOut(100)
             .fadeIn(100, function() {
-              
+
               /*
               // Email senden lassen
               if (socket_open) {
@@ -568,7 +578,7 @@ class messagehandler {
                 socket.send(JSON.stringify(arr));
               }
               */
-              
+
               reset_code();
             });
 
@@ -616,7 +626,7 @@ class messagehandler {
           draw_gallery(event.list);
         }
         return;
-      
+
       case "alarm":
          if (event.value != undefined) {
            if(event.value == 1){
@@ -673,13 +683,21 @@ class messagehandler {
       case "result_camerapicture":
         if (event.value == 1) {
           var filename = event.filename;
-          
+
           //$('#cameraimage').html('<img src="' + filename + '" alt="' + filename + '" />');
           //$('#page3').css('background-image','url("'+filename+'")').css('background-size','100%');
         }
         return;
       case "unlocked":
         $('#b_lock_safe').css('display', 'block');
+        return;
+      case "result_lightstate":
+        lightstate = parseInt(event.value);
+        if( lightstate == 0){
+          $('#b_light').html('Light ON');
+        }else{
+          $('#b_light').html('Light OFF');
+        }
         return;
     };
   };

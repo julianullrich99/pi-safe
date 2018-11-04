@@ -29,7 +29,7 @@ class Timer(threading.Thread):
     def run(self):
         while self.running:
             t = time.time()
-            
+
             time_elapsed = time.time()-t
             time.sleep(self.sec-time_elapsed if time_elapsed > 0 else 0)
             self.func()
@@ -41,14 +41,14 @@ def startTimeout():
     logging.debug('Timeout started')
     timeout = 1
     t.start() # after x seconds, function will called
-    
+
 def stopTimeout():
     global timeout
     global t
     t.stop() # manually stop
     logging.debug('Timeout stop')
     timeout = 0
-    
+
 
 def fireTimeout():
     global timeout
@@ -56,8 +56,8 @@ def fireTimeout():
     logging.debug('Timeout expired')
     timeout = 2
     t.stop()
-    
-    
+
+
 t = Timer(fireTimeout,timeout_time)
 
 def get_ledcolor1(arg):
@@ -101,7 +101,7 @@ def initSe():
     d1.stop()
     d2.stop()
     if timeout == 1: stopTimeout()
-    
+
     logging.debug("door closed")
     logging.debug("closing lock")
     l1 = GPIO.PWM(mapping.lock.out1, 200)
@@ -120,7 +120,7 @@ def initSe():
     state.state = state.stateName.index('locked')
 
 #testmode = 1
-    
+
 def StateEngine(e):
     global testmode
     GPIO.setmode(GPIO.BCM)
@@ -129,7 +129,7 @@ def StateEngine(e):
         #if testmode == 1:
         #  logging.debug("testmode: SE exit")
         #  return(0) #raus!
-          
+
         if e.isSet():
             while 1:
                 time.sleep(0.05)
@@ -198,11 +198,11 @@ def StateEngine(e):
                     #triggerLED("morphto", __main__.ColorMachine.get_ledcolor(colors.blinkWhich), colors.blinkWhich, lockDuration+openDuration, colors.colorOpen)
                     #triggerLED("morphto", __main__.ColorEngine.get_ledcolor(colors.blinkWhich), colors.blinkWhich, lockDuration+openDuration, colors.colorOpen)
                     logging.debug("SE not set")
-                    
+
                     current_color = get_ledcolor1(colors.blinkWhich)
                     logging.debug("current_color"+str(current_color))
                     triggerLED("morphto", current_color, colors.blinkWhich, lockDuration+openDuration, colors.colorOpen)
-                    
+
                     state.state = state.stateName.index('rw_unlocked')
                     sendToClients(
                         {"action": "state", "value": str(state.state)})
@@ -264,11 +264,11 @@ def StateEngine(e):
                         {"action": "state", "value": str(state.state)})
                     triggerLED("ledoff")
                     #sendmymail("Pi-Safe Deposit successful ")
-                    takeCameraPicture(0)
+                    takeCameraPicture(0,1)
                     while not e.isSet():
                         time.sleep(0.1)
-                        
-                        
+
+
 
 class ColorEngine(threading.Thread):
     def __init__(self, e):
